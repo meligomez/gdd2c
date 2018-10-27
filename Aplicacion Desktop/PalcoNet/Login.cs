@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PalcoNet
 
 namespace PalcoNet
 {
@@ -46,16 +47,36 @@ namespace PalcoNet
 		private void loginBtn_Click(object sender, EventArgs e)
 		{
 			//Validar psw y contrasenia ver 3 intentos fallidos
-			//if (1==1)
-			//{
+			if (todosCamposCompletos())
+			{
+                //Creo una clase (buscarla en Modelo/Dominio) y agregar los atributos
+                //que se concuerden con los que estan en la BD
+                Usuario user = new Usuario();
 				VentanaAdmin vgral = new VentanaAdmin();
 				vgral.Show();
 				this.Hide();
-			//}
-			//else
-			//{
+			}
+			else
+			{
 			//	//MessageBox.Show("Error, valide los datos");
-			//}
+			}
 		}
+        private bool todosCamposCompletos()
+        {
+            if (textBox1.Text.Trim() == "")
+            {
+                //MensajesToolTip.showToolTip("Ingrese un nombre.", textBox1, textBox1.Location);
+                MessageBox.Show("Error, valide los datos");
+                return false;
+            }
+            if (textBox2.Text.Trim() == "")
+            {
+                //MensajesToolTip.showToolTip("Ingrese un nombre.", textBox1, textBox1.Location);
+                MessageBox.Show("Error, valide la contraseña");
+                return false;
+            }
+            return true;
+        }
+		
 	}
 }
