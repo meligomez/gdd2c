@@ -49,11 +49,26 @@ namespace PalcoNet.Abm_Cliente
 			try
 			{
 				if (todosCamposCompletos()) {
+					Usuario usuario = new Usuario();
+					Direccion dire = new Direccion();
 					Cliente cli = new Cliente();
 					cli.Cli_Apellido = textApellido.Text;
 					cli.Cli_Nombre = textNombre.Text;
 					cli.Cli_Dni = int.Parse(textNroIdentificacion.Text);
-					int resp = cli.Alta();
+					cli.Cli_Mail = textMail.Text;
+					cli.Cli_Fecha_Nac = dateTimePickerFechaNac.Value;
+					cli.Cli_CUIL = int.Parse(textCUIL.Text);
+					cli.Cli_Telefono= int.Parse(textTelefono.Text);
+					usuario.username = textUsername.Text;
+					usuario.password = textPassword.Text;
+					dire.calle = textDireccion.Text;
+					dire.piso = int.Parse(textPiso.Text);
+					dire.dpto = textDepto.Text;
+					dire.localidad = textLocalidad.Text;
+					dire.cp = int.Parse(textCP.Text);
+					cli.Cli_Dir = dire;
+					usuario.cliente = cli;
+					int resp = usuario.Alta();
 					if (resp == 0)
 					{
 						MessageBox.Show("Error al conectarse con la DB. No se ha creado el Usuario.", "Error al crear Nuevo Usuario",

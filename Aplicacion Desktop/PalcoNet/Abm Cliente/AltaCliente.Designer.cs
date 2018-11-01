@@ -32,7 +32,6 @@
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.label19 = new System.Windows.Forms.Label();
 			this.textPiso = new System.Windows.Forms.TextBox();
-			this.label11 = new System.Windows.Forms.Label();
 			this.dateTimePickerFechaNac = new System.Windows.Forms.DateTimePicker();
 			this.textTelefono = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.textDocumento = new System.Windows.Forms.ComboBox();
 			this.textCUIL = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -67,8 +65,8 @@
 			this.btnVolver = new System.Windows.Forms.Button();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textPassword = new System.Windows.Forms.TextBox();
+			this.textUsername = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -101,16 +99,6 @@
 			this.textPiso.Name = "textPiso";
 			this.textPiso.Size = new System.Drawing.Size(80, 31);
 			this.textPiso.TabIndex = 53;
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(10, 150);
-			this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(194, 24);
-			this.label11.TabIndex = 52;
-			this.label11.Text = "Tipo de Documento";
 			// 
 			// dateTimePickerFechaNac
 			// 
@@ -150,7 +138,7 @@
 			// 
 			// textMail
 			// 
-			this.textMail.Location = new System.Drawing.Point(410, 206);
+			this.textMail.Location = new System.Drawing.Point(81, 204);
 			this.textMail.Margin = new System.Windows.Forms.Padding(4);
 			this.textMail.Name = "textMail";
 			this.textMail.Size = new System.Drawing.Size(189, 31);
@@ -158,7 +146,7 @@
 			// 
 			// textNroIdentificacion
 			// 
-			this.textNroIdentificacion.Location = new System.Drawing.Point(410, 150);
+			this.textNroIdentificacion.Location = new System.Drawing.Point(70, 144);
 			this.textNroIdentificacion.Margin = new System.Windows.Forms.Padding(4);
 			this.textNroIdentificacion.Name = "textNroIdentificacion";
 			this.textNroIdentificacion.Size = new System.Drawing.Size(189, 31);
@@ -204,7 +192,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(344, 206);
+			this.label4.Location = new System.Drawing.Point(15, 204);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(48, 24);
@@ -214,12 +202,12 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(353, 158);
+			this.label3.Location = new System.Drawing.Point(13, 152);
 			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(49, 24);
+			this.label3.Size = new System.Drawing.Size(44, 24);
 			this.label3.TabIndex = 38;
-			this.label3.Text = "Nro°";
+			this.label3.Text = "DNI";
 			// 
 			// label2
 			// 
@@ -241,17 +229,9 @@
 			this.label1.TabIndex = 36;
 			this.label1.Text = "Nombre:";
 			// 
-			// textDocumento
-			// 
-			this.textDocumento.FormattingEnabled = true;
-			this.textDocumento.Location = new System.Drawing.Point(211, 150);
-			this.textDocumento.Name = "textDocumento";
-			this.textDocumento.Size = new System.Drawing.Size(118, 32);
-			this.textDocumento.TabIndex = 55;
-			// 
 			// textCUIL
 			// 
-			this.textCUIL.Location = new System.Drawing.Point(91, 199);
+			this.textCUIL.Location = new System.Drawing.Point(395, 149);
 			this.textCUIL.Margin = new System.Windows.Forms.Padding(4);
 			this.textCUIL.Name = "textCUIL";
 			this.textCUIL.Size = new System.Drawing.Size(189, 31);
@@ -260,7 +240,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(14, 202);
+			this.label6.Location = new System.Drawing.Point(318, 152);
 			this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(56, 24);
@@ -440,22 +420,22 @@
 			this.label16.TabIndex = 67;
 			this.label16.Text = "USER";
 			// 
-			// textBox2
+			// textPassword
 			// 
-			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox2.Location = new System.Drawing.Point(465, 309);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(201, 31);
-			this.textBox2.TabIndex = 66;
+			this.textPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.textPassword.Location = new System.Drawing.Point(465, 309);
+			this.textPassword.Name = "textPassword";
+			this.textPassword.Size = new System.Drawing.Size(201, 31);
+			this.textPassword.TabIndex = 66;
 			// 
-			// textBox1
+			// textUsername
 			// 
-			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox1.Location = new System.Drawing.Point(117, 309);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(201, 31);
-			this.textBox1.TabIndex = 65;
+			this.textUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.textUsername.Location = new System.Drawing.Point(117, 309);
+			this.textUsername.Margin = new System.Windows.Forms.Padding(4);
+			this.textUsername.Name = "textUsername";
+			this.textUsername.Size = new System.Drawing.Size(201, 31);
+			this.textUsername.TabIndex = 65;
 			// 
 			// AltaCliente
 			// 
@@ -465,8 +445,8 @@
 			this.ClientSize = new System.Drawing.Size(749, 717);
 			this.Controls.Add(this.label15);
 			this.Controls.Add(this.label16);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.textPassword);
+			this.Controls.Add(this.textUsername);
 			this.Controls.Add(this.btnVolver);
 			this.Controls.Add(this.btnGuardar);
 			this.Controls.Add(this.label14);
@@ -476,8 +456,6 @@
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.textCUIL);
 			this.Controls.Add(this.label6);
-			this.Controls.Add(this.textDocumento);
-			this.Controls.Add(this.label11);
 			this.Controls.Add(this.dateTimePickerFechaNac);
 			this.Controls.Add(this.textTelefono);
 			this.Controls.Add(this.label8);
@@ -511,7 +489,6 @@
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.TextBox textPiso;
-		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.DateTimePicker dateTimePickerFechaNac;
 		private System.Windows.Forms.TextBox textTelefono;
 		private System.Windows.Forms.Label label8;
@@ -526,7 +503,6 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ComboBox textDocumento;
 		private System.Windows.Forms.TextBox textCUIL;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.GroupBox groupBox1;
@@ -546,7 +522,7 @@
 		private System.Windows.Forms.Button btnVolver;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textPassword;
+		private System.Windows.Forms.TextBox textUsername;
 	}
 }

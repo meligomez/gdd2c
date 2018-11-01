@@ -16,26 +16,9 @@ namespace Modelo.Dominio
 		public string Cli_Nombre { get; set; }
 		public DateTime Cli_Fecha_Nac { get; set; }
 		public string Cli_Mail { get; set; }
-
-		public int Alta() {
-			try
-			{
-				DaoSP dao = new DaoSP();
-				DataTable dt = new DataTable();
-				if (dao.EnviarDatosSP("dropeadores.Cli_Alta", this.Cli_Nombre, this.Cli_Apellido, this.Cli_Dni) > 0)
-				{
-
-					dt = dao.ObtenerDatosSP("dropeadores.Cli_ObtenerId");
-
-				}
-				DataRow row = dt.Rows[0];
-				int id =int.Parse(row["Id"].ToString());
-				return id;
-			}
-			catch (Exception ex)
-			{
-				return 0;
-			}
-		}
+		public int Cli_CUIL { get; set; }
+		public int Cli_Telefono { get; set; }
+		
+		public Direccion Cli_Dir { get; set; }
 	}
 }
