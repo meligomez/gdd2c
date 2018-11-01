@@ -38,8 +38,8 @@ namespace Modelo.Base
 			}
 			catch (SqlException ex)
 			{
-				//throw new Exception("Error al intentar ejecutar la consulta..." + ex.Message.ToString());
-				throw (ex);
+				throw new Exception("Error al intentar ejecutar la consulta..." + ex.Message.ToString());
+				//throw (ex);
 			}
 
 		}

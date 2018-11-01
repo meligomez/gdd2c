@@ -69,10 +69,82 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dropeadores.E
 ----------------------------------------------------------------------------------------------
 							/** VALIDACION DE PROCEDURES **/
 ----------------------------------------------------------------------------------------------
-
+IF EXISTS (SELECT name FROM sysobjects WHERE name='login' AND type='p')
+	DROP PROCEDURE [dropeadores].login
+GO
 
 ----------------------------------------------------------------------------------------------
 							/** FIN VALIDACION DE PROCEDURES **/
+----------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+							/** INICIO DE CREACION DE PROCEDURES **/
+----------------------------------------------------------------------------------------------
+
+/**********************LOGIN********************* */
+go	
+CREATE PROCEDURE [dropeadores].[login](@user VARCHAR(100), @pass varchar(100), @ret smallint output)
+AS 
+BEGIN
+
+  IF EXISTS( SELECT 1 FROM dropeadores.Usuario   WHERE username = @user )
+  
+     BEGIN
+
+	    IF ( SELECT password FROM dropeadores.Usuario WHERE username = @user and estado=1) = HASHBYTES('SHA2_256', @pass)
+		    BEGIN
+			  UPDATE dropeadores.Usuario
+              SET intentos = 0
+              WHERE username = @user
+				set @ret = 0 -- user + psw correctos
+			END
+           
+		ELSE
+			IF((select intentos from dropeadores.Usuario where username=@user and estado=1) < 3)
+				BEGIN 
+
+					UPDATE dropeadores.Usuario
+					SET intentos =intentos + 1
+					WHERE username = @user
+					SET @ret = -3 -- suma intentos fallidos
+		       END
+		   ELSE
+			   BEGIN
+				   UPDATE dropeadores.Usuario
+				   --SET ACTIVO = 0
+					set intentos = 3
+				   WHERE username = @user
+				  -- AND usuario_intentos = 3
+		   
+				   SET @ret = -2 -- fallo en los intentos de login
+		   
+			   END
+      END
+
+   ELSE
+		SET @ret= -1 -- no esta activo y usuario incorrecto
+RETURN
+END
+
+   
+/**********************FIN LOGIN **********************/
+
+
+
+/***************Buscar Usuario por username**********/
+
+
+GO 
+CREATE procedure [dropeadores].[obtenerUsuarioByUsername]
+@usname nvarchar(255)
+as
+select u.username,u.password,u.estado,u.intentos 
+from Usuario u where u.username=@usname
+GO
+
+/****************FIN Buscar Usuario por username**********/
+----------------------------------------------------------------------------------------------
+							/** FIN DE CREACION DE PROCEDURES **/
 ----------------------------------------------------------------------------------------------
 
 
@@ -81,26 +153,26 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dropeadores.E
 ----------------------------------------------------------------------------------------------
 
 create table [dropeadores].Funcionalidad(
-Id int primary key identity,
+Id_Funcionalidad int primary key identity,
 descripcion nvarchar(255) not null,
 )
 
 
 create table [dropeadores].Rol(
-Id int primary key identity,
+Id_Rol int primary key identity,
 nombre nvarchar(255) not null,
 estado bit default 1
 )
 
 
 create table [dropeadores].FuncionalidadXRol(
-Id int primary key identity,
+Id_fxr int primary key identity,
 rolId int not null references [dropeadores].Rol,
 funcionalidadId int not null references [dropeadores].Funcionalidad ,
 )
 
 create table [dropeadores].Usuario(
-Id int primary key identity,
+Id_Usuario int primary key identity,
 username varchar(255) unique not null,
 password varchar(255) not null,
 estado int default 1,
@@ -108,11 +180,10 @@ intentos int default 0,
 )
 
 create table [dropeadores].RolXUsuario(
-Id int primary key identity,
+Id_rxu int primary key identity,
 usuarioId int not null references [dropeadores].Usuario,
 rolId int not null references [dropeadores].Rol,
 )
-
 
 -----------------------------------------------------------------------------------------------------
 										/* FIN DE CREACION DE TABLAS*/

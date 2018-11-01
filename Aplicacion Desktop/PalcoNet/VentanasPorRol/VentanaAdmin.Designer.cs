@@ -1,6 +1,6 @@
 ﻿namespace PalcoNet.VentanasPorRol
 {
-	partial class VentanaAdmin
+	partial class panelContenedor
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(panelContenedor));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.menuRegistroUsuario = new System.Windows.Forms.ToolStripMenuItem();
 			this.altaDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,10 +55,15 @@
 			this.menuEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
 			this.listadoEstadisticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.label3 = new System.Windows.Forms.Label();
-			this.btnSalir = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.iconMinimizar = new System.Windows.Forms.PictureBox();
+			this.iconCerrar = new System.Windows.Forms.PictureBox();
 			this.menuStrip1.SuspendLayout();
+			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconMinimizar)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.iconCerrar)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -77,7 +83,7 @@
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 5);
-			this.menuStrip1.Size = new System.Drawing.Size(994, 29);
+			this.menuStrip1.Size = new System.Drawing.Size(1203, 29);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip";
 			// 
@@ -94,7 +100,7 @@
 			// altaDeUsuarioToolStripMenuItem
 			// 
 			this.altaDeUsuarioToolStripMenuItem.Name = "altaDeUsuarioToolStripMenuItem";
-			this.altaDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.altaDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
 			this.altaDeUsuarioToolStripMenuItem.Text = "Alta de Usuario";
 			this.altaDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.altaUsuario_Click);
 			// 
@@ -106,7 +112,7 @@
             this.modificacionDeClienteToolStripMenuItem});
 			this.menuABMCliente.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.menuABMCliente.Name = "menuABMCliente";
-			this.menuABMCliente.Size = new System.Drawing.Size(155, 22);
+			this.menuABMCliente.Size = new System.Drawing.Size(135, 22);
 			this.menuABMCliente.Text = "ABM de Clientes";
 			// 
 			// altaDeClienteToolStripMenuItem
@@ -138,7 +144,7 @@
             this.modificacionDeEmpresaToolStripMenuItem});
 			this.menuABMEmpresa.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.menuABMEmpresa.Name = "menuABMEmpresa";
-			this.menuABMEmpresa.Size = new System.Drawing.Size(155, 22);
+			this.menuABMEmpresa.Size = new System.Drawing.Size(140, 22);
 			this.menuABMEmpresa.Text = "ABM de Empresa";
 			// 
 			// altaDeEmpresaToolStripMenuItem
@@ -171,7 +177,7 @@
             this.aBMGradoDePublicacionToolStripMenuItem});
 			this.menuPublicacion.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.menuPublicacion.Name = "menuPublicacion";
-			this.menuPublicacion.Size = new System.Drawing.Size(155, 22);
+			this.menuPublicacion.Size = new System.Drawing.Size(99, 22);
 			this.menuPublicacion.Text = "Publicacion";
 			// 
 			// generarPublicacionToolStripMenuItem
@@ -208,14 +214,14 @@
             this.realizarCompraToolStripMenuItem});
 			this.menuComprar.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.menuComprar.Name = "menuComprar";
-			this.menuComprar.Size = new System.Drawing.Size(155, 22);
+			this.menuComprar.Size = new System.Drawing.Size(80, 22);
 			this.menuComprar.Text = "Comprar";
 			this.menuComprar.Click += new System.EventHandler(this.comprar_Click);
 			// 
 			// realizarCompraToolStripMenuItem
 			// 
 			this.realizarCompraToolStripMenuItem.Name = "realizarCompraToolStripMenuItem";
-			this.realizarCompraToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.realizarCompraToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
 			this.realizarCompraToolStripMenuItem.Text = "Realizar Compra";
 			this.realizarCompraToolStripMenuItem.Click += new System.EventHandler(this.VentanaAdmin_Load);
 			// 
@@ -226,7 +232,7 @@
             this.canjeDePuntosToolStripMenuItem});
 			this.menuCliente.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.menuCliente.Name = "menuCliente";
-			this.menuCliente.Size = new System.Drawing.Size(155, 22);
+			this.menuCliente.Size = new System.Drawing.Size(69, 22);
 			this.menuCliente.Text = "Cliente";
 			// 
 			// historialDelClienteToolStripMenuItem
@@ -249,7 +255,7 @@
             this.generarPagosDeComisionesToolStripMenuItem});
 			this.menuPagos.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.menuPagos.Name = "menuPagos";
-			this.menuPagos.Size = new System.Drawing.Size(155, 22);
+			this.menuPagos.Size = new System.Drawing.Size(62, 22);
 			this.menuPagos.Text = "Pagos";
 			// 
 			// generarPagosDeComisionesToolStripMenuItem
@@ -265,13 +271,13 @@
             this.listadoEstadisticoToolStripMenuItem});
 			this.menuEstadisticas.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.menuEstadisticas.Name = "menuEstadisticas";
-			this.menuEstadisticas.Size = new System.Drawing.Size(155, 22);
+			this.menuEstadisticas.Size = new System.Drawing.Size(99, 22);
 			this.menuEstadisticas.Text = "Estadisticas";
 			// 
 			// listadoEstadisticoToolStripMenuItem
 			// 
 			this.listadoEstadisticoToolStripMenuItem.Name = "listadoEstadisticoToolStripMenuItem";
-			this.listadoEstadisticoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.listadoEstadisticoToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
 			this.listadoEstadisticoToolStripMenuItem.Text = "Listado Estadistico";
 			this.listadoEstadisticoToolStripMenuItem.Click += new System.EventHandler(this.listadoEstadistico_Click);
 			// 
@@ -279,22 +285,12 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(171, 673);
+			this.label3.Location = new System.Drawing.Point(885, 732);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(306, 18);
 			this.label3.TabIndex = 3;
 			this.label3.Text = "Gestion de Datos 2C 2018- Dropeadores © ";
 			this.label3.Click += new System.EventHandler(this.label3_Click);
-			// 
-			// btnSalir
-			// 
-			this.btnSalir.Location = new System.Drawing.Point(37, 653);
-			this.btnSalir.Name = "btnSalir";
-			this.btnSalir.Size = new System.Drawing.Size(84, 35);
-			this.btnSalir.TabIndex = 4;
-			this.btnSalir.Text = "Salir";
-			this.btnSalir.UseVisualStyleBackColor = true;
-			this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
 			// 
 			// label2
 			// 
@@ -309,33 +305,76 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Raleway", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(307, 40);
+			this.label1.Location = new System.Drawing.Point(389, 12);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(308, 33);
 			this.label1.TabIndex = 1;
 			this.label1.Text = "¡Bienvenido al sistema!";
 			// 
-			// VentanaAdmin
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.iconMinimizar);
+			this.panel1.Controls.Add(this.iconCerrar);
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Controls.Add(this.label3);
+			this.panel1.Location = new System.Drawing.Point(0, 28);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(1203, 757);
+			this.panel1.TabIndex = 6;
+			this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+			// 
+			// iconMinimizar
+			// 
+			this.iconMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.iconMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.iconMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("iconMinimizar.Image")));
+			this.iconMinimizar.Location = new System.Drawing.Point(1083, 4);
+			this.iconMinimizar.Margin = new System.Windows.Forms.Padding(4);
+			this.iconMinimizar.Name = "iconMinimizar";
+			this.iconMinimizar.Size = new System.Drawing.Size(56, 34);
+			this.iconMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.iconMinimizar.TabIndex = 7;
+			this.iconMinimizar.TabStop = false;
+			this.iconMinimizar.Click += new System.EventHandler(this.iconMinimizar_Click);
+			// 
+			// iconCerrar
+			// 
+			this.iconCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.iconCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.iconCerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconCerrar.Image")));
+			this.iconCerrar.Location = new System.Drawing.Point(1147, 4);
+			this.iconCerrar.Margin = new System.Windows.Forms.Padding(4);
+			this.iconCerrar.Name = "iconCerrar";
+			this.iconCerrar.Size = new System.Drawing.Size(56, 34);
+			this.iconCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.iconCerrar.TabIndex = 5;
+			this.iconCerrar.TabStop = false;
+			this.iconCerrar.Click += new System.EventHandler(this.iconCerrar_Click);
+			// 
+			// panelContenedor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
-			this.ClientSize = new System.Drawing.Size(994, 700);
-			this.Controls.Add(this.btnSalir);
-			this.Controls.Add(this.label3);
+			this.ClientSize = new System.Drawing.Size(1203, 787);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
 			this.Controls.Add(this.menuStrip1);
 			this.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.IsMdiContainer = true;
 			this.MainMenuStrip = this.menuStrip1;
 			this.Margin = new System.Windows.Forms.Padding(4);
-			this.Name = "VentanaAdmin";
+			this.Name = "panelContenedor";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "VentanaAdmin";
 			this.Load += new System.EventHandler(this.VentanaAdmin_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconMinimizar)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.iconCerrar)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -369,8 +408,11 @@
 		private System.Windows.Forms.ToolStripMenuItem menuEstadisticas;
 		private System.Windows.Forms.ToolStripMenuItem listadoEstadisticoToolStripMenuItem;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Button btnSalir;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.PictureBox iconMinimizar;
+		private System.Windows.Forms.PictureBox iconmaximizar;
+		private System.Windows.Forms.PictureBox iconCerrar;
 	}
 }

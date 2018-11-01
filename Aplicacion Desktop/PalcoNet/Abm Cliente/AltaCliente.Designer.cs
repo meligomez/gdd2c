@@ -65,6 +65,10 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.btnVolver = new System.Windows.Forms.Button();
+			this.label15 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -128,7 +132,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(23, 254);
+			this.label8.Location = new System.Drawing.Point(14, 254);
 			this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(98, 24);
@@ -275,7 +279,7 @@
 			this.groupBox1.Controls.Add(this.textPiso);
 			this.groupBox1.Controls.Add(this.textDireccion);
 			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Location = new System.Drawing.Point(18, 292);
+			this.groupBox1.Location = new System.Drawing.Point(18, 362);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(710, 127);
 			this.groupBox1.TabIndex = 58;
@@ -360,7 +364,7 @@
 			// 
 			this.groupBox2.Controls.Add(this.textTarjeta);
 			this.groupBox2.Controls.Add(this.label18);
-			this.groupBox2.Location = new System.Drawing.Point(18, 444);
+			this.groupBox2.Location = new System.Drawing.Point(14, 505);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(710, 127);
 			this.groupBox2.TabIndex = 61;
@@ -397,28 +401,72 @@
 			// 
 			// btnGuardar
 			// 
-			this.btnGuardar.Location = new System.Drawing.Point(607, 577);
+			this.btnGuardar.Location = new System.Drawing.Point(607, 657);
 			this.btnGuardar.Name = "btnGuardar";
 			this.btnGuardar.Size = new System.Drawing.Size(121, 38);
 			this.btnGuardar.TabIndex = 63;
 			this.btnGuardar.Text = "Guardar";
 			this.btnGuardar.UseVisualStyleBackColor = true;
+			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
 			// 
 			// btnVolver
 			// 
-			this.btnVolver.Location = new System.Drawing.Point(14, 591);
+			this.btnVolver.Location = new System.Drawing.Point(14, 657);
 			this.btnVolver.Name = "btnVolver";
 			this.btnVolver.Size = new System.Drawing.Size(121, 38);
 			this.btnVolver.TabIndex = 64;
 			this.btnVolver.Text = "Volver";
 			this.btnVolver.UseVisualStyleBackColor = true;
 			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label15.Location = new System.Drawing.Point(341, 313);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(119, 22);
+			this.label15.TabIndex = 68;
+			this.label15.Text = "PASSWORD";
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label16.Location = new System.Drawing.Point(14, 309);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(61, 22);
+			this.label16.TabIndex = 67;
+			this.label16.Text = "USER";
+			// 
+			// textBox2
+			// 
+			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.textBox2.Location = new System.Drawing.Point(465, 309);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(201, 31);
+			this.textBox2.TabIndex = 66;
+			// 
+			// textBox1
+			// 
+			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.textBox1.Location = new System.Drawing.Point(117, 309);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(201, 31);
+			this.textBox1.TabIndex = 65;
+			// 
 			// AltaCliente
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
-			this.ClientSize = new System.Drawing.Size(742, 635);
+			this.ClientSize = new System.Drawing.Size(749, 717);
+			this.Controls.Add(this.label15);
+			this.Controls.Add(this.label16);
+			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.btnVolver);
 			this.Controls.Add(this.btnGuardar);
 			this.Controls.Add(this.label14);
@@ -444,10 +492,10 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pictureBox2);
 			this.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "AltaCliente";
 			this.Text = "AltaCliente";
+			this.Load += new System.EventHandler(this.AltaCliente_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
@@ -496,5 +544,9 @@
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Button btnGuardar;
 		private System.Windows.Forms.Button btnVolver;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox textBox1;
 	}
 }

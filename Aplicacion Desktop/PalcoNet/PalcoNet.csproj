@@ -196,6 +196,12 @@
     <Compile Include="Registro de Usuario\UsuarioCambiarPsw.Designer.cs">
       <DependentUpon>UsuarioCambiarPsw.cs</DependentUpon>
     </Compile>
+    <Compile Include="VentanasPorRol\FormLogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanasPorRol\FormLogo.Designer.cs">
+      <DependentUpon>FormLogo.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanasPorRol\VentanaAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     <EmbeddedResource Include="Registro de Usuario\UsuarioCambiarPsw.resx">
       <DependentUpon>UsuarioCambiarPsw.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VentanasPorRol\FormLogo.resx">
+      <DependentUpon>FormLogo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentanasPorRol\VentanaAdmin.resx">
       <DependentUpon>VentanaAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +310,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ABM Funcionalidad\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{33e0d8c5-3053-48fd-8f37-310f18ff5f82}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

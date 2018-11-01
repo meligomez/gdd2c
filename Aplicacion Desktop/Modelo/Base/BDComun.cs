@@ -10,7 +10,7 @@ namespace Modelo.Base
 {
 	public class BDComun
 	{
-		private static string connectionString = @"Data source=.;initial catalog=FRBA2018;User id=gdHotel2018; Password=gd2018";
+		private static string connectionString = @"Data source=localhost\SQLSERVER2012;initial catalog=GD2C2018;User id=gdEspectaculos2018; Password=gd2018";
 		private string getConnectionString()
 		{
 			return connectionString;

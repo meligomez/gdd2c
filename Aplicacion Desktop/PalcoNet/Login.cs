@@ -8,7 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PalcoNet
+using Modelo.Dominio;
+using Modelo.Servicio;
+using Modelo;
+using PalcoNet.Abm_Cliente;
 
 namespace PalcoNet
 {
@@ -46,19 +49,31 @@ namespace PalcoNet
 
 		private void loginBtn_Click(object sender, EventArgs e)
 		{
-			//Validar psw y contrasenia ver 3 intentos fallidos
-			if (todosCamposCompletos())
+			try
 			{
-                //Creo una clase (buscarla en Modelo/Dominio) y agregar los atributos
-                //que se concuerden con los que estan en la BD
-                Usuario user = new Usuario();
-				VentanaAdmin vgral = new VentanaAdmin();
-				vgral.Show();
-				this.Hide();
+				if (todosCamposCompletos())
+				{
+					//Usuario usuario = new Usuario();
+					//usuario.username = textBox1.Text;
+					//usuario.password = textBox2.Text;
+					//UsuarioService service = new UsuarioService();
+					//int resp = service.login(usuario);
+					//if (resp == 0)
+					//{
+					//	MessageBox.Show("Error al conectarse con la DB. No se pudo realizar el Login.", "No se pudo realizar el Login",
+					//	MessageBoxButtons.OK, MessageBoxIcon.Error);
+					//}
+					//panelContenedor vgral = new panelContenedor();
+					//vgral.Show();
+					//this.Hide();
+
+					//this.Close();
+					
+				}
 			}
-			else
+			catch (Exception ex)
 			{
-			//	//MessageBox.Show("Error, valide los datos");
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
         private bool todosCamposCompletos()
@@ -77,6 +92,12 @@ namespace PalcoNet
             }
             return true;
         }
-		
+
+		private void RegistrobtnCli_Click(object sender, EventArgs e)
+		{
+			AltaCliente altaCliente = new AltaCliente();
+			altaCliente.Show();
+			this.Hide();
+		}
 	}
 }

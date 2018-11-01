@@ -38,6 +38,8 @@
 			this.loginBtn = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.RegistrobtnCli = new System.Windows.Forms.Button();
+			this.registrarBtnEmpresa = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
@@ -46,11 +48,11 @@
 			// 
 			this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.button1.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(364, 482);
+			this.button1.Location = new System.Drawing.Point(473, 482);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(98, 34);
 			this.button1.TabIndex = 2;
-			this.button1.Text = "Cancelar ♥";
+			this.button1.Text = "Cancelar ";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
@@ -59,7 +61,7 @@
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label1.Location = new System.Drawing.Point(240, 207);
+			this.label1.Location = new System.Drawing.Point(240, 205);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(107, 35);
 			this.label1.TabIndex = 4;
@@ -68,7 +70,7 @@
 			// textBox1
 			// 
 			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox1.Location = new System.Drawing.Point(193, 300);
+			this.textBox1.Location = new System.Drawing.Point(186, 264);
 			this.textBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(201, 22);
@@ -77,7 +79,7 @@
 			// textBox2
 			// 
 			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox2.Location = new System.Drawing.Point(193, 356);
+			this.textBox2.Location = new System.Drawing.Point(186, 320);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(201, 22);
 			this.textBox2.TabIndex = 6;
@@ -87,7 +89,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label2.Location = new System.Drawing.Point(192, 274);
+			this.label2.Location = new System.Drawing.Point(185, 238);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(60, 22);
 			this.label2.TabIndex = 7;
@@ -98,7 +100,7 @@
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label3.Location = new System.Drawing.Point(192, 326);
+			this.label3.Location = new System.Drawing.Point(185, 290);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(118, 22);
 			this.label3.TabIndex = 8;
@@ -108,7 +110,7 @@
 			// loginBtn
 			// 
 			this.loginBtn.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.loginBtn.Location = new System.Drawing.Point(246, 411);
+			this.loginBtn.Location = new System.Drawing.Point(217, 367);
 			this.loginBtn.Name = "loginBtn";
 			this.loginBtn.Size = new System.Drawing.Size(108, 30);
 			this.loginBtn.TabIndex = 9;
@@ -128,11 +130,32 @@
 			// pictureBox2
 			// 
 			this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-			this.pictureBox2.Location = new System.Drawing.Point(142, 289);
+			this.pictureBox2.Location = new System.Drawing.Point(135, 253);
 			this.pictureBox2.Name = "pictureBox2";
 			this.pictureBox2.Size = new System.Drawing.Size(33, 89);
 			this.pictureBox2.TabIndex = 11;
 			this.pictureBox2.TabStop = false;
+			// 
+			// RegistrobtnCli
+			// 
+			this.RegistrobtnCli.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RegistrobtnCli.Location = new System.Drawing.Point(41, 442);
+			this.RegistrobtnCli.Name = "RegistrobtnCli";
+			this.RegistrobtnCli.Size = new System.Drawing.Size(251, 34);
+			this.RegistrobtnCli.TabIndex = 12;
+			this.RegistrobtnCli.Text = "Registrarse como Cliente";
+			this.RegistrobtnCli.UseVisualStyleBackColor = true;
+			this.RegistrobtnCli.Click += new System.EventHandler(this.RegistrobtnCli_Click);
+			// 
+			// registrarBtnEmpresa
+			// 
+			this.registrarBtnEmpresa.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.registrarBtnEmpresa.Location = new System.Drawing.Point(41, 482);
+			this.registrarBtnEmpresa.Name = "registrarBtnEmpresa";
+			this.registrarBtnEmpresa.Size = new System.Drawing.Size(251, 34);
+			this.registrarBtnEmpresa.TabIndex = 13;
+			this.registrarBtnEmpresa.Text = "Registrarse como Empresa";
+			this.registrarBtnEmpresa.UseVisualStyleBackColor = true;
 			// 
 			// Login
 			// 
@@ -142,6 +165,8 @@
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.CancelButton = this.button1;
 			this.ClientSize = new System.Drawing.Size(614, 542);
+			this.Controls.Add(this.registrarBtnEmpresa);
+			this.Controls.Add(this.RegistrobtnCli);
 			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.loginBtn);
@@ -172,6 +197,8 @@
 		private System.Windows.Forms.Button loginBtn;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.Button RegistrobtnCli;
+		private System.Windows.Forms.Button registrarBtnEmpresa;
 	}
 }
 

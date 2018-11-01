@@ -21,7 +21,7 @@ namespace PalcoNet.Generar_Publicacion
 		private void btnVolver_Click(object sender, EventArgs e)
 		{
 			this.Close();
-			VentanaAdmin menu = new VentanaAdmin();
+			panelContenedor menu = new panelContenedor();
 			menu.Show();
 		}
 	}

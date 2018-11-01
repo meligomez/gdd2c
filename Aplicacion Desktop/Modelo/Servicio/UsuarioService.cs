@@ -14,11 +14,13 @@ namespace Modelo.Servicio
 		{
 			try
 			{
-				Seguridad seguridad = new Seguridad();
-				string passSHA256 = seguridad.pasarASha256(user.password);
-				DaoSP dao = new DaoSP();
-				return dao.EnviarDatosSP("UsuarioAlta", passSHA256, user.nombre, user.apellido, user.tipoDocumentoId,
-					user.numDocu, user.Mail, user.Telefono, user.Fecha_nacimiento_struct);
+				user.password = HashHelpers.SHA256(user.password);
+				//user.eliminado = false;
+				//DaoSP dao = new DaoSP();
+				//return dao.EnviarDatosSP("UsuarioAlta", passSHA256, user.userName);
+				DaoObject daoObject = new DaoObject();
+				return daoObject.Guardar(user);
+
 			}
 			catch (Exception ex)
 			{ throw ex; }
@@ -27,11 +29,11 @@ namespace Modelo.Servicio
 		{
 			try
 			{
-				Seguridad seguridad = new Seguridad();
-				string passSHA256 = seguridad.pasarASha256(user.password);
-				DaoSP dao = new DaoSP();
-				return dao.EnviarDatosSP("UsuarioEditar", passSHA256, user.nombre, user.apellido, user.tipoDocumentoId,
-					user.numDocu, user.Mail, user.Telefono, user.Fecha_nacimiento_struct);
+				DaoObject dao = new DaoObject();
+				Usuario usuario = new Usuario();
+				//usuario = dao.ObtenerUnObjeto<Usuario>(user.usuarioId);
+				//usuario.username = user.username;
+				return dao.Modificar(usuario);
 			}
 			catch (Exception ex)
 			{ throw ex; }
@@ -58,15 +60,58 @@ namespace Modelo.Servicio
 				dt = daoSP.ObtenerDatosSP("obtenerUsuarioById", id);
 				return new Usuario()
 				{
-					nombre = dt.Columns["nombre"].ColumnName,
-					apellido = dt.Columns["apellido"].ColumnName,
-					numDocu = int.Parse(dt.Columns["numDocu"].ColumnName)
+					//nombre = dt.Columns["nombre"].ColumnName,
+					//apellido = dt.Columns["apellido"].ColumnName,
+					//numDocu = int.Parse(dt.Columns["numDocu"].ColumnName)
 				};
 			}
 			catch (Exception ex)
 			{
 
 				throw ex;
+			}
+		}
+		public Usuario obtenerUsuariosByName(string name)
+		{
+			try
+			{
+				DaoSP daoSP = new DaoSP();
+				DataTable dt;
+				dt = daoSP.ObtenerDatosSP("obtenerUsuarioByName", name);
+				return new Usuario()
+				{
+					username = dt.Columns["username"].ColumnName,
+					password = dt.Columns["password"].ColumnName,
+					//estado = int.Parse(dt.Columns["estado"].ColumnName),
+					//intentos = dt.Columns["intentos"].ColumnName,
+				};
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+		}
+		public int login(Usuario user)
+		{
+			int ret = 0;
+			try
+			{
+				
+				DaoSP daoSP = new DaoSP();
+				DataTable dt;
+				string userN;
+				string pass;
+				userN = user.username;
+				pass = user.password;
+				dt = daoSP.ObtenerDatosSP("dropeadores.login", userN,pass,ret);
+				
+				ret = int.Parse(dt.Columns["ret"].ColumnName);
+				return ret;
+			}
+			catch (Exception ex)
+			{
+				return ret;
 			}
 		}
 		public int eliminarUsuarioLog(int id)
@@ -76,8 +121,8 @@ namespace Modelo.Servicio
 				DaoObject dao = new DaoObject();
 				Usuario usuario = new Usuario();
 				usuario = dao.ObtenerUnObjeto<Usuario>(id);
-				usuario.eliminado = true;
-				usuario.fechaEliminacion = DateTime.Now;
+				//usuario.eliminado = true;
+				//usuario.fechaEliminacion = DateTime.Now;
 				return dao.Modificar(usuario);
 			}
 			catch (Exception ex)
@@ -85,5 +130,10 @@ namespace Modelo.Servicio
 				throw ex;
 			}
 		}
+
+		//public static bool registrarIntentoFallido(string usr)
+		//{
+		//	return executeProcedure("intentoFallidoUsuario", usr);
+		//}
 	}
 }

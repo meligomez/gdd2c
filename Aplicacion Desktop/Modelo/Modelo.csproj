@@ -46,9 +46,12 @@
     <Compile Include="Base\DaoSP.cs" />
     <Compile Include="Base\Helper.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Comun\Global.cs" />
+    <Compile Include="Comun\CargarData.cs" />
     <Compile Include="Comun\HasHelpers.cs" />
+    <Compile Include="Comun\IEliminadoSuave.cs" />
+    <Compile Include="Comun\MensajesToolTip.cs" />
     <Compile Include="Comun\Seguridad.cs" />
+    <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\Direccion.cs" />
     <Compile Include="Dominio\Rol.cs" />
     <Compile Include="Dominio\Usuario.cs" />
