@@ -97,22 +97,23 @@ namespace Modelo.Servicio
 			int ret = 0;
 			try
 			{
-				
+
 				DaoSP daoSP = new DaoSP();
 				DataTable dt;
 				string userN;
 				string pass;
 				userN = user.username;
 				pass = user.password;
-				dt = daoSP.ObtenerDatosSP("dropeadores.login", userN,pass,ret);
-				
-				ret = int.Parse(dt.Columns["ret"].ColumnName);
+				dt = daoSP.ObtenerDatosSP("dropeadores.login", userN, pass, ret);
+				DataRow row = dt.Rows[0];
+				ret = int.Parse(row["ret"].ToString());
 				return ret;
 			}
 			catch (Exception ex)
 			{
 				return ret;
 			}
+
 		}
 		public int eliminarUsuarioLog(int id)
 		{
@@ -130,7 +131,17 @@ namespace Modelo.Servicio
 				throw ex;
 			}
 		}
-
+		public void PasarAInhabilitado(string username)
+		{
+			try
+			{
+				DaoSP daoSP = new DaoSP();
+				DataTable dt;
+				dt = daoSP.ObtenerDatosSP("dropeadores.pasarAInhabilitado", username);
+			}
+			catch (Exception ex)
+			{ throw ex; }
+		}
 		//public static bool registrarIntentoFallido(string usr)
 		//{
 		//	return executeProcedure("intentoFallidoUsuario", usr);

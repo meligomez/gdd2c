@@ -53,22 +53,45 @@ namespace PalcoNet
 			{
 				if (todosCamposCompletos())
 				{
-					//Usuario usuario = new Usuario();
-					//usuario.username = textBox1.Text;
-					//usuario.password = textBox2.Text;
-					//UsuarioService service = new UsuarioService();
-					//int resp = service.login(usuario);
-					//if (resp == 0)
-					//{
-					//	MessageBox.Show("Error al conectarse con la DB. No se pudo realizar el Login.", "No se pudo realizar el Login",
-					//	MessageBoxButtons.OK, MessageBoxIcon.Error);
-					//}
-					//panelContenedor vgral = new panelContenedor();
-					//vgral.Show();
-					//this.Hide();
+					Usuario usuario = new Usuario();
+					usuario.username = textBox1.Text;
+					usuario.password = textBox2.Text;
+					UsuarioService service = new UsuarioService();
+					int resp = service.login(usuario);
+					if (resp == 0)
+					{					
+						panelContenedor vgral = new panelContenedor();
+						vgral.Show();
+						this.Hide();
+					}
+					else
+					{
+						if (resp == -1)
+						{
+							MessageBox.Show("El usuario no existe o no está activo. No se pudo realizar el Login.", "No se pudo realizar el Login",
+							MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
+						else
+						{
+							if(resp == -2)
+							{
+
+								service.PasarAInhabilitado(textBox1.Text);
+								MessageBox.Show("Usuario Inhabilitado", "No se pudo realizar el Login",
+								MessageBoxButtons.OK, MessageBoxIcon.Error);
+							}
+							else
+							{
+								MessageBox.Show("Contraseña Incorrecta. No se pudo realizar el Login.", "No se pudo realizar el Login",
+									MessageBoxButtons.OK, MessageBoxIcon.Error);
+							}
+						}
+
+					}
+					
 
 					//this.Close();
-					
+
 				}
 			}
 			catch (Exception ex)
