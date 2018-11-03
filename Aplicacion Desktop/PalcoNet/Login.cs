@@ -147,6 +147,7 @@ namespace PalcoNet
 
         private void registrarBtnEmpresa_Click(object sender, EventArgs e)
         {
+			//cambio dani
             AltaEmpresa altaEmpresa = new AltaEmpresa("sin Rol");
             altaEmpresa.Show();
             this.Hide();

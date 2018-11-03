@@ -18,12 +18,11 @@ namespace Modelo.Dominio
 		public string username { get; set; }
 		public string password { get; set; } //password encriptado con SHA256
 		public Cliente cliente { get; set; }
-<<<<<<< HEAD
-		public int cambioPsw { get; set; }
-=======
-        public Empresa empresa { get; set; }
 
->>>>>>> 8b398d51c5b0eb682540b64947444d6bf91303f6
+		public int cambioPsw { get; set; }
+
+        public Empresa empresa { get; set; }
+			
 		public DateTime fechaCreacionPsw { get; set; }
 		public int estado { get; set; }
 		#endregion
@@ -113,7 +112,6 @@ namespace Modelo.Dominio
 			}
 		}
 
-<<<<<<< HEAD
 		public int EditarPsw(Usuario user,string nuevaPsw)
 		{
 			DaoSP dao = new DaoSP();
@@ -133,12 +131,13 @@ namespace Modelo.Dominio
 			}
 		}
 	}
-=======
+
 
          public int AltaEmpresa()
         {
             try
             {
+			//nuevo cambio
                 DaoSP dao = new DaoSP();
                 DataTable dt = new DataTable();
                 Domicilio dom = empresa.Empresa_Dom;
@@ -169,6 +168,5 @@ namespace Modelo.Dominio
             }
         }
     }
->>>>>>> 8b398d51c5b0eb682540b64947444d6bf91303f6
 }
 
