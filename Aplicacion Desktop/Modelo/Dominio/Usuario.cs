@@ -130,16 +130,19 @@ namespace Modelo.Dominio
 				throw ex;
 			}
 		}
-	}
+	
+
+
+           
 
 
          public int AltaEmpresa()
         {
-            try
-            {
-			//nuevo cambio
-                DaoSP dao = new DaoSP();
-                DataTable dt = new DataTable();
+            int retorno=9;
+			try
+			{
+				DaoSP dao = new DaoSP();
+				DataTable dt = new DataTable();
                 Domicilio dom = empresa.Empresa_Dom;
                 if (dao.EjecutarSP("dropeadores.Domicilio_empresa_Alta", dom.calle, dom.numero, dom.piso, dom.dpto, dom.localidad, dom.cp, dom.ciudad) > 0)
                 {
@@ -170,3 +173,4 @@ namespace Modelo.Dominio
     }
 }
 
+}
