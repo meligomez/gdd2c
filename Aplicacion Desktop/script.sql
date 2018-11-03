@@ -62,6 +62,13 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dropeadores.C
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dropeadores.Empresa'))
     DROP TABLE dropeadores.Empresa
 
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dropeadores.Empresa_Domicilio'))
+    DROP TABLE dropeadores.Empresa_Domicilio
+
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dropeadores.Usuario'))
+    DROP TABLE dropeadores.Usuario
+
+
 ----------------------------------------------------------------------------------------------
 							/** FIN VALIDACION DE TABLAS **/
 ----------------------------------------------------------------------------------------------
@@ -72,6 +79,22 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dropeadores.E
 IF EXISTS (SELECT name FROM sysobjects WHERE name='login' AND type='p')
 	DROP PROCEDURE [dropeadores].login
 GO
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='Empresa_Alta')
+	DROP PROCEDURE dropeadores.Empresa_Alta
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='Domicilio_empresa_Alta')
+	DROP PROCEDURE dropeadores.Domicilio_empresa_Alta
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='DireEmp_ObtenerId')
+	DROP PROCEDURE dropeadores.DireEmp_ObtenerId 
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='Usuario_Alta_Empresa')
+	DROP PROCEDURE dropeadores.Usuario_Alta_Empresa
 
 ----------------------------------------------------------------------------------------------
 							/** FIN VALIDACION DE PROCEDURES **/
@@ -143,6 +166,68 @@ from Usuario u where u.username=@usname
 GO
 
 /****************FIN Buscar Usuario por username**********/
+
+/*
+*********************Realiza el alta de una empresa *********************
+*/
+GO
+CREATE procedure [dropeadores].[Empresa_Alta] 
+(@Cuit nvarchar(255), @mail varchar(255),@telefono numeric(10,0),@Razon_social varchar(255), @domicilio int)
+as
+begin
+insert into  GDGD2C2018.[dropeadores].Empresa (empresa_Cuit, empresa_mail,empresa_telefono,empresa_razon_social,empresa_domicilio)
+ values (@Cuit, @mail,@telefono,@Razon_social,@domicilio)
+end
+/****************FIN Realiza el alta de una empresa**********/
+/*
+*********************Realiza el alta de un Domicilio de una empresa *********************
+*/
+GO
+CREATE procedure [dropeadores].[Domicilio_empresa_Alta] (@calle nvarchar(50), @numero numeric(18,0),@piso numeric(18,0),@depto nvarchar(50),@localidad nvarchar(50),@cp nvarchar(50),@ciudad nvarchar(50))
+as
+begin
+insert into [dropeadores].Empresa_Domicilio(Emp_Dom_Calle,Emp_Nro_Calle,Emp_Piso,Emp_Depto,Emp_Localidad,Emp_Cod_Postal,Emp_Ciudad)
+values (@calle,@numero,@piso,@depto,@localidad,@cp,@ciudad)
+end
+/****************FIN Realiza el alta de un Domicilio de una empresa**********/
+
+/*
+*********************Busca el ID de tal empresa *********************
+*/
+GO
+Create procedure [dropeadores].[DireEmp_ObtenerId]
+as
+begin
+Select Max(Id_Empresa)as'Id'from [dropeadores].Empresa_Domicilio
+end
+/****************FIN Busca el ID de tal empresa**********/
+
+/*
+*********************Realiza El alta de usuario con la empresa correspondiente *********************
+*/
+GO
+Alter procedure [dropeadores].[Usuario_Alta_Empresa] (@CuitEmpresa nvarchar(255), @user nvarchar(255),@password nvarchar(255))
+as
+begin
+insert into dropeadores.Usuario(username,password,CuitEmpresa)
+values (@user,@password,@CuitEmpresa)
+end
+/****************FIN Realiza El alta de usuario con la empresa correspondiente**********/
+
+
+/**************Usuario pedido*****************/
+Create procedure [dropeadores].[Emp_ObtenerId]
+as
+begin
+
+Select Max(empresa_Cuit)as'Id'from dropeadores.Empresa
+
+--select @id = scope_identity()[pero_compila].[Rol]
+end
+
+/****************FIN Usuario pedido**********/
+
+
 ----------------------------------------------------------------------------------------------
 							/** FIN DE CREACION DE PROCEDURES **/
 ----------------------------------------------------------------------------------------------
@@ -171,12 +256,16 @@ rolId int not null references [dropeadores].Rol,
 funcionalidadId int not null references [dropeadores].Funcionalidad ,
 )
 
-create table [dropeadores].Usuario(
-Id_Usuario int primary key identity,
+Create table [dropeadores].Usuario (
+Id int primary key identity,
 username varchar(255) unique not null,
 password varchar(255) not null,
-estado int default 1,
+estado  int default 1,
 intentos int default 0,
+clienteId int,
+CuitEmpresa nvarchar(255),
+Baja bit default 1,
+Fecha_Password datetime,
 )
 
 create table [dropeadores].RolXUsuario(
@@ -184,6 +273,27 @@ Id_rxu int primary key identity,
 usuarioId int not null references [dropeadores].Usuario,
 rolId int not null references [dropeadores].Rol,
 )
+
+create table [dropeadores].Empresa (
+empresa_Cuit varchar(255) primary key,
+empresa_mail nvarchar(255),
+empresa_telefono numeric(10,0),
+empresa_razon_social  nvarchar(255),
+empresa_domicilio int,
+empresa_estado bit default 1
+)
+
+Create table [dropeadores].Empresa_Domicilio (
+Id_Empresa int primary key identity,
+Emp_Dom_Calle nvarchar(50),
+Emp_Nro_Calle numeric(18,0),
+Emp_Cod_Postal  nvarchar(50),
+Emp_Depto nvarchar(50),
+Emp_Localidad nvarchar(50),
+Emp_Ciudad nvarchar(50),
+Emp_Piso numeric(18,0),
+)
+
 
 -----------------------------------------------------------------------------------------------------
 										/* FIN DE CREACION DE TABLAS*/
@@ -246,3 +356,13 @@ insert into dropeadores.Usuario (username,password) values
 /*usuariosXRoles*/
 insert into dropeadores.RolXUsuario (usuarioId, rolId) values
 	(1,1),(1,2),(1,3),(2,3),(3,1);
+
+					/*Empresa*/
+insert into [dropeadores].Empresa (empresa_Cuit,empresa_mail,empresa_razon_social)
+select distinct Espec_Empresa_Cuit,Espec_Empresa_Mail,Espec_Empresa_Razon_Social
+from gd_esquema.Maestra m 
+
+					/*Domicilio de la Empresa*/
+insert into [dropeadores].Empresa_Domicilio (Emp_Dom_Calle,Emp_Nro_Calle,Emp_Cod_Postal,Emp_Depto,Emp_Piso)
+select distinct Espec_Empresa_Dom_Calle,Espec_Empresa_Nro_Calle,Espec_Empresa_Cod_Postal, Espec_Empresa_Depto,Espec_Empresa_Piso
+from gd_esquema.Maestra m 

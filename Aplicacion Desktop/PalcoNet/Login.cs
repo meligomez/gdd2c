@@ -12,7 +12,11 @@ using Modelo.Dominio;
 using Modelo.Servicio;
 using Modelo;
 using PalcoNet.Abm_Cliente;
+<<<<<<< HEAD
 using PalcoNet.Registro_de_Usuario;
+=======
+using PalcoNet.Abm_Empresa_Espectaculo;
+>>>>>>> 8b398d51c5b0eb682540b64947444d6bf91303f6
 
 namespace PalcoNet
 {
@@ -140,5 +144,12 @@ namespace PalcoNet
 			altaCliente.Show();
 			this.Hide();
 		}
+
+        private void registrarBtnEmpresa_Click(object sender, EventArgs e)
+        {
+            AltaEmpresa altaEmpresa = new AltaEmpresa("sin Rol");
+            altaEmpresa.Show();
+            this.Hide();
+        }
 	}
 }
