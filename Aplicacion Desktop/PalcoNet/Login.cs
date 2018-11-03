@@ -12,6 +12,7 @@ using Modelo.Dominio;
 using Modelo.Servicio;
 using Modelo;
 using PalcoNet.Abm_Cliente;
+using PalcoNet.Registro_de_Usuario;
 
 namespace PalcoNet
 {
@@ -65,13 +66,21 @@ namespace PalcoNet
 						Usuario userLogueado = new Usuario();
 						ConfigGlobal conf = new ConfigGlobal();
 						userLogueado = service.obtenerUsuariosByName(usuario.username);
-						//if(userLogueado.creadoPor == "admin" && userLogueado.fechaCreacionPsw()==conf.getFechaSistema())
-						//{
-						//	userLogueado.fechaCreacionPsw();
-						//}
-						panelContenedor vgral = new panelContenedor();
-						vgral.Show();
-						this.Hide();
+						if (userLogueado.creadoPor == "admin" && userLogueado.cambioPsw == 0)
+						{
+							MessageBox.Show("Debe cambiar la contraseña, de lo contrario no podrá acceder a ninguna funcionalidad.", "¡Advertencia!",
+							MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+							//userLogueado.fechaCreacionPsw();
+							UsuarioCambiarPsw nuevaPsw = new UsuarioCambiarPsw(userLogueado);
+							nuevaPsw.Show();
+						}
+						else
+						{
+
+							panelContenedor vgral = new panelContenedor(userLogueado);
+							vgral.Show();
+							this.Hide();
+						}
 					}
 					else
 					{

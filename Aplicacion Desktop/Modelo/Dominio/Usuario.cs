@@ -18,8 +18,9 @@ namespace Modelo.Dominio
 		public string username { get; set; }
 		public string password { get; set; } //password encriptado con SHA256
 		public Cliente cliente { get; set; }
-
+		public int cambioPsw { get; set; }
 		public DateTime fechaCreacionPsw { get; set; }
+		public int estado { get; set; }
 		#endregion
 
 		#region Propiedades
@@ -104,6 +105,25 @@ namespace Modelo.Dominio
 			catch (Exception ex)
 			{
 				return -1;
+			}
+		}
+
+		public int EditarPsw(Usuario user,string nuevaPsw)
+		{
+			DaoSP dao = new DaoSP();
+			DataTable dt = new DataTable();
+			try
+			{
+				if (dao.EjecutarSP("dropeadores.Usuario_UpdatePsw", user.username, nuevaPsw) > 0)
+				{
+					return 0;
+				}
+				return -1;
+			 }
+			catch (Exception ex)
+			{
+
+				throw ex;
 			}
 		}
 	}

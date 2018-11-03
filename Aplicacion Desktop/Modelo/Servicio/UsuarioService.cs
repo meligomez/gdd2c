@@ -77,13 +77,15 @@ namespace Modelo.Servicio
 			{
 				DaoSP daoSP = new DaoSP();
 				DataTable dt;
-				dt = daoSP.ObtenerDatosSP("obtenerUsuarioByName", name);
+				dt = daoSP.ObtenerDatosSP("obtenerUsuarioByUsername", name);
+				DataRow row = dt.Rows[0];
+				Usuario u = new Usuario();
 				return new Usuario()
 				{
-					username = dt.Columns["username"].ColumnName,
-					password = dt.Columns["password"].ColumnName,
-					//estado = int.Parse(dt.Columns["estado"].ColumnName),
-					//intentos = dt.Columns["intentos"].ColumnName,
+					username = row["username"].ToString(),
+					password = row["password"].ToString(),
+					cambioPsw = int.Parse(row["cambioPsw"].ToString()),
+					creadoPor = row["creadoPor"].ToString()
 				};
 			}
 			catch (Exception ex)

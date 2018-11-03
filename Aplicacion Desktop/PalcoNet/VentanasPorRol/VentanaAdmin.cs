@@ -24,8 +24,10 @@ namespace PalcoNet.VentanasPorRol
 	public partial class panelContenedor : Form
 	{
 		string rolLogueado;
-		public panelContenedor()
+		public Usuario userLog;
+		public panelContenedor(Usuario userLogueado)
 		{
+			userLog = userLogueado;
 			//recibir por parametro el objeto del usuario logueado
 			//asi puedo ejecutar un SP para encontrar el rol
 			//y asi aplicar la funcion que se oculte segun el rol
@@ -251,7 +253,14 @@ namespace PalcoNet.VentanasPorRol
 			//listadoEst.Show();
 			//this.Hide();
 		}
-		
+		private void cambiarPsw_Click(object sender, EventArgs e)
+		{
+			//UsuarioCambiarPsw cambiarPsw = new UsuarioCambiarPsw();
+			//cambiarPsw.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+			//AbrirFormInPanel(cambiarPsw);
+			//listadoEst.Show();
+			//this.Hide();
+		}
 		private void label1_Click(object sender, EventArgs e)
 		{
 

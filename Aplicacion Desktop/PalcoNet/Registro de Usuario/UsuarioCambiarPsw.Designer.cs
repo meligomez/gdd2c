@@ -34,11 +34,12 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.lblUsuario = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.cancelarBtn = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.lblPswAnterior = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -87,14 +88,6 @@
 			this.lblUsuario.Size = new System.Drawing.Size(0, 24);
 			this.lblUsuario.TabIndex = 4;
 			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(235, 139);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.PasswordChar = '*';
-			this.textBox1.Size = new System.Drawing.Size(181, 31);
-			this.textBox1.TabIndex = 5;
-			// 
 			// textBox2
 			// 
 			this.textBox2.Location = new System.Drawing.Point(222, 196);
@@ -112,6 +105,7 @@
 			this.cancelarBtn.TabIndex = 40;
 			this.cancelarBtn.Text = "Cancelar";
 			this.cancelarBtn.UseVisualStyleBackColor = true;
+			this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
 			// 
 			// btnGuardar
 			// 
@@ -123,6 +117,7 @@
 			this.btnGuardar.TabIndex = 39;
 			this.btnGuardar.Text = "Guardar";
 			this.btnGuardar.UseVisualStyleBackColor = true;
+			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
 			// 
 			// pictureBox1
 			// 
@@ -133,17 +128,35 @@
 			this.pictureBox1.TabIndex = 41;
 			this.pictureBox1.TabStop = false;
 			// 
+			// lblPswAnterior
+			// 
+			this.lblPswAnterior.AutoSize = true;
+			this.lblPswAnterior.Location = new System.Drawing.Point(235, 142);
+			this.lblPswAnterior.Name = "lblPswAnterior";
+			this.lblPswAnterior.Size = new System.Drawing.Size(0, 24);
+			this.lblPswAnterior.TabIndex = 42;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(511, 142);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(191, 24);
+			this.label6.TabIndex = 43;
+			this.label6.Text = "Creada por defecto";
+			// 
 			// UsuarioCambiarPsw
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
-			this.ClientSize = new System.Drawing.Size(595, 314);
+			this.ClientSize = new System.Drawing.Size(749, 316);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.lblPswAnterior);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.cancelarBtn);
 			this.Controls.Add(this.btnGuardar);
 			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.lblUsuario);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -151,9 +164,10 @@
 			this.Controls.Add(this.label1);
 			this.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "UsuarioCambiarPsw";
 			this.Text = "UsuarioCambiarPsw";
+			this.Load += new System.EventHandler(this.UsuarioCambiarPsw_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -167,10 +181,11 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label lblUsuario;
-		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Button cancelarBtn;
 		private System.Windows.Forms.Button btnGuardar;
 		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label lblPswAnterior;
+		private System.Windows.Forms.Label label6;
 	}
 }

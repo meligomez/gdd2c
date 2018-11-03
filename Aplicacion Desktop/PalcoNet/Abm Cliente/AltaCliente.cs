@@ -101,7 +101,7 @@ namespace PalcoNet.Abm_Cliente
 						usuario.password = textPassword.Text;
 						usuario.creadoPor="cliente";
 					}
-						
+					//Carga de datos
 					Direccion dire = new Direccion();
 					Cliente cli = new Cliente();
 					ConfigGlobal archivoDeConfig = new ConfigGlobal();
@@ -120,6 +120,7 @@ namespace PalcoNet.Abm_Cliente
 					dire.cp = int.Parse(textCP.Text);
 					cli.Cli_Dir = dire;
 					usuario.cliente = cli;
+					//Alta del cliente
 					int resp = usuario.Alta();
 					if (resp != 0)
 					{
@@ -129,7 +130,7 @@ namespace PalcoNet.Abm_Cliente
 					}
 					if (rolLogueado != "sin Rol")
 					{
-						MessageBox.Show("Cliente " + textNombre.Text + " creado, tiene hasta el día " + (usuario.fechaCreacionPsw.AddDays(2)) + " Para cambiar la password creada por default.", "Usuario Creado",
+						MessageBox.Show("Cliente " + textNombre.Text + " creado, tiene hasta el día " + (usuario.fechaCreacionPsw.AddDays(2)) + " Para cambiar la password creada por defecto.", "Usuario Creado",
 						MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}
 					else
