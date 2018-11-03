@@ -73,7 +73,7 @@ namespace PalcoNet.Registro_de_Usuario
 					MessageBox.Show("Usuario " + txtNombre.Text + " creado satisfactoriamente.", "Alta de Usuario",
 					MessageBoxButtons.OK);
 					//new UsuarioMain().Show();
-					new panelContenedor().Show();
+					new panelContenedor(usuario).Show();
 					this.Close();
 				}
 			}

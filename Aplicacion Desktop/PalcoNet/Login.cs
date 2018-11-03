@@ -12,11 +12,9 @@ using Modelo.Dominio;
 using Modelo.Servicio;
 using Modelo;
 using PalcoNet.Abm_Cliente;
-<<<<<<< HEAD
+
 using PalcoNet.Registro_de_Usuario;
-=======
 using PalcoNet.Abm_Empresa_Espectaculo;
->>>>>>> 8b398d51c5b0eb682540b64947444d6bf91303f6
 
 namespace PalcoNet
 {
