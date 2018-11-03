@@ -215,7 +215,25 @@ end
 /****************FIN Realiza El alta de usuario con la empresa correspondiente**********/
 
 
+/*
+*********************Busca un usuario por su username*********************
+*/
+go
+CREATE procedure [dbo].[obtenerUsuarioByUsername]
+@usname nvarchar(255)
+as
+select 
+u.username,
+u.password,
+u.estado,	
+u.cambioPsw,
+u.creadoPor
+from dropeadores.Usuario u where u.username=@usname and u.estado=1
+/****************FIN Busca un usuario por su username**********/
+
+
 /**************Usuario pedido*****************/
+go
 Create procedure [dropeadores].[Emp_ObtenerId]
 as
 begin
