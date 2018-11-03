@@ -1,4 +1,5 @@
-﻿using PalcoNet.VentanasPorRol;
+﻿using Modelo.Dominio;
+using PalcoNet.VentanasPorRol;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,8 @@ namespace PalcoNet.Generar_Publicacion
 		private void btnVolver_Click(object sender, EventArgs e)
 		{
 			this.Close();
-			panelContenedor menu = new panelContenedor();
+			Usuario user=new Usuario();
+			panelContenedor menu = new panelContenedor(user);
 			menu.Show();
 		}
 	}
