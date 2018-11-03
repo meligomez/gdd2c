@@ -21,5 +21,10 @@ namespace PalcoNet.Abm_Cliente
 		{
 
 		}
+
+		private void btnCancelar_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+		}
 	}
 }

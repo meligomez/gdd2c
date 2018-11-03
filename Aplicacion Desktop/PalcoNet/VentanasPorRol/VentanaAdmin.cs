@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelo.Dominio;
 using PalcoNet.Abm_Cliente;
 using PalcoNet.Abm_Empresa_Espectaculo;
 using PalcoNet.Canje_Puntos;
@@ -22,7 +23,7 @@ namespace PalcoNet.VentanasPorRol
 {
 	public partial class panelContenedor : Form
 	{
-
+		string rolLogueado;
 		public panelContenedor()
 		{
 			//recibir por parametro el objeto del usuario logueado
@@ -121,7 +122,7 @@ namespace PalcoNet.VentanasPorRol
 		}
 		private void altaCliente_Click(object sender, EventArgs e)
 		{
-			AltaCliente altaC = new AltaCliente();
+			AltaCliente altaC = new AltaCliente("admin");
 			altaC.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
 			AbrirFormInPanel(altaC);
 			//altaC.Show();

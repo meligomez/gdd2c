@@ -43,38 +43,7 @@ namespace Modelo.Base
 			}
 
 		}
-        private SqlDataReader ConsultarReaderQuery(string query, params object[] Parametros)
-        {
-            SqlDataReader resp;
-            SqlCommand _comando = CrearComandoSQL(query);
-            try
-            {
-                //Abro la conexion con el SGBD
-                _comando.Connection.Open();
-                //Traigo los parametros de la base
-                SqlCommandBuilder.DeriveParameters(_comando);
-                //Pasar los parametros al array
-                if (_comando.Parameters.Count != Parametros.Length + 1)
-                {
-                    throw new ApplicationException("Cantidad de parametros pasados invalidos.");
-                }
-                int i = 0;
-                for (i = 0; i <= Parametros.Length - 1; i++)
-                {
-                    _comando.Parameters[i + 1].Value = Parametros[i];
-                }
-                //Ejecucion
-                resp = _comando.ExecuteReader(); ;
-                return resp;
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception("Error al intentar ejecutar la consulta..." + ex.Message.ToString());
-                //throw (ex);
-            }
-
-        }
-        private int EjecutarSp(SqlCommand comando, params object[] Parametros)
+		private int EjecutarSp(SqlCommand comando, params object[] Parametros)
 		{
 			int cant = 0;
 			try
@@ -111,7 +80,7 @@ namespace Modelo.Base
 		}
 		#endregion
 		#region Operaciones basicas con la BD
-		public int EjecutarSP(string NombreStoredProcedure, params object[] Parametros)
+		public int EnviarDatosSP(string NombreStoredProcedure, params object[] Parametros)
 		{
 			int cant = 0;
 
@@ -297,7 +266,7 @@ namespace Modelo.Base
 				throw exc;
 			}
 		}
-		//Retorna una tabla de registros con un Stored Procedure y parametros si existieran.
+		//Retorna una tabla de registros.
 		public DataTable ObtenerDatosSP(string NomStoredProcedure, params object[] Parametros)
 		{
 			try
@@ -327,67 +296,6 @@ namespace Modelo.Base
 				throw exc;
 			}
 		}
-        //Retorna una tabla de registros con un Stored Procedure y parametros si existieran.
-        public int EjecutarConQuery(string query)
-        {
-            int resp = 0;
-            SqlCommand comando = CrearComando();
-            try
-            {
-                comando.CommandText = query;
-                comando.CommandType = CommandType.Text;
-                comando.Connection.Open();
-                //Ejecucion
-                resp = comando.ExecuteNonQuery();
-                return resp;
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception("Error al ejecutar Query..." + ex.Message.ToString());
-                //throw ex;
-            }
-            finally
-            {
-                comando.Connection.Dispose();
-                comando.Connection.Close();
-            }
-        }
-        public DataTable ConsultarConQuery(string query)
-        {
-            SqlCommand comando = CrearComando();
-            try
-            {
-                SqlDataReader reader;
-                DataTable dt = new DataTable();
-                comando.CommandText = query;
-                comando.CommandType = CommandType.Text;
-                comando.Connection.Open();
-                //Ejecucion
-                reader = comando.ExecuteReader();
-                // Si el lector no es nulo.         
-                if (reader != null)
-                {       // Si el lector tiene registros.             
-                    if (reader.HasRows)
-                    {
-                        dt.Load(reader);
-                    }
-                    // Se cierra el lector y se envía la respuesta.            
-                    reader.Close();
-                    return dt;
-                }
-                else
-                {   // En caso de que el lector no tenga registros,         
-                    // se cierra el lector y se regresa una lista vacía.               
-                    reader.Close();
-                    return null;
-                }
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception("Error al ejecutar Query..." + ex.Message.ToString());
-
-            }
-        }
-        #endregion
-    }
+		#endregion
+	}
 }

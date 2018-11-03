@@ -12,11 +12,14 @@ namespace Modelo.Dominio
 {
 	public class Usuario
 	{
+		public string creadoPor;
 		#region Atributos
 		public int Id { get; set; }
 		public string username { get; set; }
 		public string password { get; set; } //password encriptado con SHA256
 		public Cliente cliente { get; set; }
+
+		public DateTime fechaCreacionPsw { get; set; }
 		#endregion
 
 		#region Propiedades
@@ -66,35 +69,41 @@ namespace Modelo.Dominio
 
 		public int Alta()
 		{
+			int retorno=9;
 			try
 			{
 				DaoSP dao = new DaoSP();
 				DataTable dt = new DataTable();
 				Direccion dire = cliente.Cli_Dir;
-				if(dao.EnviarDatosSP("dropeadores.Domicilio_Cli_Alta", dire.calle, dire.numero, dire.piso, dire.dpto, dire.localidad, dire.cp)>0)
+				if (dao.EjecutarSP("dropeadores.Domicilio_Cli_Alta", dire.calle, dire.numero, dire.piso, dire.dpto, dire.localidad, dire.cp) > 0)
 				{
 					dt = dao.ObtenerDatosSP("dropeadores.DireCli_ObtenerId");
 					DataRow row = dt.Rows[0];
 					int idDireClienteInsertado = int.Parse(row["Id"].ToString());
-					if (dao.EnviarDatosSP("dropeadores.Cli_Alta", cliente.Cli_Nombre, cliente.Cli_Apellido, cliente.Cli_Dni, cliente.Cli_Mail, cliente.Cli_Fecha_Nac, cliente.Cli_CUIL, cliente.Cli_Telefono, idDireClienteInsertado) > 0)
+					if (dao.EjecutarSP("dropeadores.Cli_Alta", cliente.Cli_Nombre, cliente.Cli_Apellido, cliente.Cli_Dni, cliente.Cli_Mail, cliente.Cli_Fecha_Nac, cliente.Cli_CUIL, cliente.Cli_Telefono, idDireClienteInsertado) > 0)
 					{
-
 						dt = dao.ObtenerDatosSP("dropeadores.Cli_ObtenerId");
-
+						DataRow row2 = dt.Rows[0];
+						int idClienteInsertado = int.Parse(row2["Id"].ToString());
+						if (dao.EjecutarSP("dropeadores.Usuario_Alta", idClienteInsertado, this.username, this.password,this.fechaCreacionPsw,this.creadoPor) > 0)
+						{
+							retorno = 0;
+						}
+						else
+						{
+							retorno = -1;
+						}
 					}
-					DataRow row2 = dt.Rows[0];
-					int idClienteInsertado = int.Parse(row2["Id"].ToString());
 
-					dao.EnviarDatosSP("dropeadores.Usuario_Alta", idClienteInsertado, this.username, this.password);
 				}
-				
-				
-				
-				return 0;
+
+
+
+				return retorno;
 			}
 			catch (Exception ex)
 			{
-				return 0;
+				return -1;
 			}
 		}
 	}

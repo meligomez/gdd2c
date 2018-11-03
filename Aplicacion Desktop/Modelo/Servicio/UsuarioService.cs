@@ -92,6 +92,7 @@ namespace Modelo.Servicio
 				throw ex;
 			}
 		}
+		
 		public int login(Usuario user)
 		{
 			int ret = 0;

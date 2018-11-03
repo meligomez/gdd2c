@@ -26,5 +26,10 @@ namespace PalcoNet.Abm_Cliente
 		{
 
 		}
+
+		private void btnVolver_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+		}
 	}
 }

@@ -146,6 +146,7 @@
     <Compile Include="Comprar\Comprar.Designer.cs">
       <DependentUpon>Comprar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfigGlobal.cs" />
     <Compile Include="Editar Publicacion\EditarPublicacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +317,9 @@
       <Project>{33e0d8c5-3053-48fd-8f37-310f18ff5f82}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

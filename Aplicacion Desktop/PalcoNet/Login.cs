@@ -29,7 +29,8 @@ namespace PalcoNet
 
 		private void Login_Load(object sender, EventArgs e)
 		{
-
+			Rol rol = new Rol();
+			DataTable dt = rol.ejemplo();
 		}
 
 		private void pictureBox1_Click_1(object sender, EventArgs e)
@@ -53,13 +54,21 @@ namespace PalcoNet
 			{
 				if (todosCamposCompletos())
 				{
+
 					Usuario usuario = new Usuario();
 					usuario.username = textBox1.Text;
 					usuario.password = textBox2.Text;
 					UsuarioService service = new UsuarioService();
 					int resp = service.login(usuario);
 					if (resp == 0)
-					{					
+					{
+						Usuario userLogueado = new Usuario();
+						ConfigGlobal conf = new ConfigGlobal();
+						userLogueado = service.obtenerUsuariosByName(usuario.username);
+						//if(userLogueado.creadoPor == "admin" && userLogueado.fechaCreacionPsw()==conf.getFechaSistema())
+						//{
+						//	userLogueado.fechaCreacionPsw();
+						//}
 						panelContenedor vgral = new panelContenedor();
 						vgral.Show();
 						this.Hide();
@@ -118,7 +127,7 @@ namespace PalcoNet
 
 		private void RegistrobtnCli_Click(object sender, EventArgs e)
 		{
-			AltaCliente altaCliente = new AltaCliente();
+			AltaCliente altaCliente = new AltaCliente("sin Rol");
 			altaCliente.Show();
 			this.Hide();
 		}

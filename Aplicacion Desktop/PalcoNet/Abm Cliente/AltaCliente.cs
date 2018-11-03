@@ -14,9 +14,31 @@ namespace PalcoNet.Abm_Cliente
 {
 	public partial class AltaCliente : Form
 	{
-		public AltaCliente()
+		string rolLogueado;
+		public AltaCliente(string rol)
 		{
 			InitializeComponent();
+			ConfigGlobal cg = new ConfigGlobal();
+			DateTime fechaSistema = cg.getFechaSistema();
+			lblFechaSistema.Visible = true;
+			lblFechaSistema.Text = fechaSistema.ToString();
+			rolLogueado = rol;
+			if (rolLogueado != "sin Rol")
+			{
+				textUsername.ReadOnly = true;
+				textUsername.Visible = false;
+				textUsername.BackColor = System.Drawing.SystemColors.Window;
+				textPassword.ReadOnly = true;
+				textPassword.Visible = false;
+				textPassword.BackColor = System.Drawing.SystemColors.Window;
+				labelUser.Text = "Usuario y Password creadas por defecto.";
+			}
+			else
+			{
+				lblUsername.Visible = false;
+				lblPassword.Visible = false;
+
+			}
 		}
 
 		private void groupBox1_Enter(object sender, EventArgs e)
@@ -28,6 +50,22 @@ namespace PalcoNet.Abm_Cliente
 		{
 
 		}
+		private void labelUserEscribir(object sender, EventArgs e)
+		{
+			if (rolLogueado != "sin Rol")
+			{
+			lblUsername.Text = textNroIdentificacion.Text;
+			lblUsername.Visible = true;
+			lblPassword.Text = textNroIdentificacion.Text;
+			lblPassword.Visible = true;
+			}
+			else
+			{
+				lblUsername.Visible = false;
+				lblPassword.Visible = false;
+			}
+		}
+
 
 		private void textDireccion_TextChanged(object sender, EventArgs e)
 		{
@@ -41,6 +79,7 @@ namespace PalcoNet.Abm_Cliente
 
 		private void AltaCliente_Load(object sender, EventArgs e)
 		{
+			
 
 		}
 
@@ -50,8 +89,22 @@ namespace PalcoNet.Abm_Cliente
 			{
 				if (todosCamposCompletos()) {
 					Usuario usuario = new Usuario();
+					if (rolLogueado != "sin Rol")
+					{
+						usuario.username = textNroIdentificacion.Text;
+						usuario.password = textNroIdentificacion.Text;
+						usuario.creadoPor = "admin";
+					}
+					else
+					{
+						usuario.username = textUsername.Text;
+						usuario.password = textPassword.Text;
+						usuario.creadoPor="cliente";
+					}
+						
 					Direccion dire = new Direccion();
 					Cliente cli = new Cliente();
+					ConfigGlobal archivoDeConfig = new ConfigGlobal();
 					cli.Cli_Apellido = textApellido.Text;
 					cli.Cli_Nombre = textNombre.Text;
 					cli.Cli_Dni = int.Parse(textNroIdentificacion.Text);
@@ -59,8 +112,7 @@ namespace PalcoNet.Abm_Cliente
 					cli.Cli_Fecha_Nac = dateTimePickerFechaNac.Value;
 					cli.Cli_CUIL = int.Parse(textCUIL.Text);
 					cli.Cli_Telefono= int.Parse(textTelefono.Text);
-					usuario.username = textUsername.Text;
-					usuario.password = textPassword.Text;
+					usuario.fechaCreacionPsw = archivoDeConfig.getFechaSistema();
 					dire.calle = textDireccion.Text;
 					dire.piso = int.Parse(textPiso.Text);
 					dire.dpto = textDepto.Text;
@@ -69,16 +121,24 @@ namespace PalcoNet.Abm_Cliente
 					cli.Cli_Dir = dire;
 					usuario.cliente = cli;
 					int resp = usuario.Alta();
-					if (resp == 0)
+					if (resp != 0)
 					{
 						MessageBox.Show("Error al conectarse con la DB. No se ha creado el Usuario.", "Error al crear Nuevo Usuario",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
 						return;
 					}
+					if (rolLogueado != "sin Rol")
+					{
+						MessageBox.Show("Cliente " + textNombre.Text + " creado, tiene hasta el día " + (usuario.fechaCreacionPsw.AddDays(2)) + " Para cambiar la password creada por default.", "Usuario Creado",
+						MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+					else
+					{
+						MessageBox.Show("Cliente " + textNombre.Text + " creado", "Usuario Creado",
+						MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
 				}
 				
-				MessageBox.Show("Cliente: " + textNombre.Text + " creado satisfactoriamente.", "Alta de Usuario",
-				MessageBoxButtons.OK);
 				//new UsuarioMain().Show();
 				//new panelContenedor().Show();
 				//this.Close();
@@ -92,30 +152,46 @@ namespace PalcoNet.Abm_Cliente
 		{
 			//if (textNombre.Text.Trim() == "")
 			//{
-			//	MensajesToolTip.showToolTip(textNombre.Text, textNombre.Location);
+			//	MessageBox.Show("Debe ingresar un nombre.", "Error al crear Nuevo Usuario",
+			//			MessageBoxButtons.OK, MessageBoxIcon.Error);
 			//	return false;
 			//}
-			//if (txtApellido.Text.Trim() == "")
+			//if (textApellido.Text.Trim() == "")
 			//{
-			//	MensajesToolTip.showToolTip("Ingrese un apellido.", txtApellido, txtApellido.Location);
+			//	MessageBox.Show("Debe ingresar un apellido.", "Error al crear Nuevo Usuario",
+			//			MessageBoxButtons.OK, MessageBoxIcon.Error);
 			//	return false;
 			//}
-			//if (txtMail.Text.Trim() == "")
+			//if (textMail.Text.Trim() == "")
 			//{
-			//	MensajesToolTip.showToolTip("Ingrese un mail.", txtMail, txtMail.Location);
+			//	MessageBox.Show("Debe ingresar un mail.", "Error al crear Nuevo Usuario",
+			//			MessageBoxButtons.OK, MessageBoxIcon.Error);
 			//	return false;
 			//}
-			//if (txtContraseña.Text.Trim() == "")
+			//if (textPassword.Text.Trim() == "")
 			//{
-			//	//MensajesToolTip.showToolTip("Ingrese una contraseña.", txtContraseña, txtContraseña.Location);
+			//	MessageBox.Show("Debe ingresar una contraseña.", "Error al crear Nuevo Usuario",
+			//			MessageBoxButtons.OK, MessageBoxIcon.Error);
 			//	return false;
 			//}
-			//if (dtpFechaNacimiento.Text.Trim() == "" || dtpFechaNacimiento.Value == null)
+			//if (textCUIL.Text.Trim() == "" )
 			//{
-			//	//MensajesToolTip.showToolTip("Ingrese una fecha de nacimiento.", dtpFechaNacimiento, dtpFechaNacimiento.Location);
+			//	MessageBox.Show("Debe ingresar un CUIL.", "Error al crear Nuevo Usuario",
+			//			MessageBoxButtons.OK, MessageBoxIcon.Error);
+			//	return false;
+			//}
+			//if (dateTimePickerFechaNac.Value == null)
+			//{
+			//	MessageBox.Show("Debe ingresar una fecha de nacimiento.", "Error al crear Nuevo Usuario",
+			//			MessageBoxButtons.OK, MessageBoxIcon.Error);
 			//	return false;
 			//}
 			return true;
+		}
+
+		private void btnVolver_Click(object sender, EventArgs e)
+		{
+			this.Hide();
 		}
 	}
 }

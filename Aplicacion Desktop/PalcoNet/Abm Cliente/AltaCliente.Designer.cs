@@ -56,7 +56,7 @@
 			this.label10 = new System.Windows.Forms.Label();
 			this.textDepto = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.getDate = new System.Windows.Forms.Label();
+			this.lblFechaSistema = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.textTarjeta = new System.Windows.Forms.TextBox();
 			this.label18 = new System.Windows.Forms.Label();
@@ -67,6 +67,9 @@
 			this.label16 = new System.Windows.Forms.Label();
 			this.textPassword = new System.Windows.Forms.TextBox();
 			this.textUsername = new System.Windows.Forms.TextBox();
+			this.labelUser = new System.Windows.Forms.Label();
+			this.lblUsername = new System.Windows.Forms.Label();
+			this.lblPassword = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -151,6 +154,7 @@
 			this.textNroIdentificacion.Name = "textNroIdentificacion";
 			this.textNroIdentificacion.Size = new System.Drawing.Size(189, 31);
 			this.textNroIdentificacion.TabIndex = 44;
+			this.textNroIdentificacion.TextChanged += new System.EventHandler(this.labelUserEscribir);
 			// 
 			// textApellido
 			// 
@@ -325,20 +329,20 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(391, 32);
+			this.label9.Location = new System.Drawing.Point(265, 67);
 			this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(189, 24);
 			this.label9.TabIndex = 59;
 			this.label9.Text = "Fecha de Creacion:";
 			// 
-			// getDate
+			// lblFechaSistema
 			// 
-			this.getDate.AutoSize = true;
-			this.getDate.Location = new System.Drawing.Point(587, 32);
-			this.getDate.Name = "getDate";
-			this.getDate.Size = new System.Drawing.Size(0, 24);
-			this.getDate.TabIndex = 60;
+			this.lblFechaSistema.AutoSize = true;
+			this.lblFechaSistema.Location = new System.Drawing.Point(461, 67);
+			this.lblFechaSistema.Name = "lblFechaSistema";
+			this.lblFechaSistema.Size = new System.Drawing.Size(0, 24);
+			this.lblFechaSistema.TabIndex = 60;
 			// 
 			// groupBox2
 			// 
@@ -397,13 +401,14 @@
 			this.btnVolver.TabIndex = 64;
 			this.btnVolver.Text = "Volver";
 			this.btnVolver.UseVisualStyleBackColor = true;
+			this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
 			// 
 			// label15
 			// 
 			this.label15.AutoSize = true;
 			this.label15.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.label15.Location = new System.Drawing.Point(341, 313);
+			this.label15.Location = new System.Drawing.Point(289, 309);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(119, 22);
 			this.label15.TabIndex = 68;
@@ -423,7 +428,7 @@
 			// textPassword
 			// 
 			this.textPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textPassword.Location = new System.Drawing.Point(465, 309);
+			this.textPassword.Location = new System.Drawing.Point(410, 300);
 			this.textPassword.Name = "textPassword";
 			this.textPassword.Size = new System.Drawing.Size(201, 31);
 			this.textPassword.TabIndex = 66;
@@ -431,11 +436,35 @@
 			// textUsername
 			// 
 			this.textUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textUsername.Location = new System.Drawing.Point(117, 309);
+			this.textUsername.Location = new System.Drawing.Point(81, 304);
 			this.textUsername.Margin = new System.Windows.Forms.Padding(4);
 			this.textUsername.Name = "textUsername";
 			this.textUsername.Size = new System.Drawing.Size(201, 31);
 			this.textUsername.TabIndex = 65;
+			// 
+			// labelUser
+			// 
+			this.labelUser.AutoSize = true;
+			this.labelUser.Location = new System.Drawing.Point(454, 334);
+			this.labelUser.Name = "labelUser";
+			this.labelUser.Size = new System.Drawing.Size(0, 24);
+			this.labelUser.TabIndex = 61;
+			// 
+			// lblUsername
+			// 
+			this.lblUsername.AutoSize = true;
+			this.lblUsername.Location = new System.Drawing.Point(77, 306);
+			this.lblUsername.Name = "lblUsername";
+			this.lblUsername.Size = new System.Drawing.Size(0, 24);
+			this.lblUsername.TabIndex = 69;
+			// 
+			// lblPassword
+			// 
+			this.lblPassword.AutoSize = true;
+			this.lblPassword.Location = new System.Drawing.Point(406, 302);
+			this.lblPassword.Name = "lblPassword";
+			this.lblPassword.Size = new System.Drawing.Size(0, 24);
+			this.lblPassword.TabIndex = 70;
 			// 
 			// AltaCliente
 			// 
@@ -443,6 +472,9 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
 			this.ClientSize = new System.Drawing.Size(749, 717);
+			this.Controls.Add(this.lblPassword);
+			this.Controls.Add(this.lblUsername);
+			this.Controls.Add(this.labelUser);
 			this.Controls.Add(this.label15);
 			this.Controls.Add(this.label16);
 			this.Controls.Add(this.textPassword);
@@ -451,7 +483,7 @@
 			this.Controls.Add(this.btnGuardar);
 			this.Controls.Add(this.label14);
 			this.Controls.Add(this.groupBox2);
-			this.Controls.Add(this.getDate);
+			this.Controls.Add(this.lblFechaSistema);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.textCUIL);
@@ -507,7 +539,7 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label getDate;
+		private System.Windows.Forms.Label lblFechaSistema;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox textCP;
 		private System.Windows.Forms.Label label12;
@@ -524,5 +556,8 @@
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.TextBox textPassword;
 		private System.Windows.Forms.TextBox textUsername;
+		private System.Windows.Forms.Label labelUser;
+		private System.Windows.Forms.Label lblUsername;
+		private System.Windows.Forms.Label lblPassword;
 	}
 }
