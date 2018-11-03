@@ -276,8 +276,10 @@ funcionalidadId int not null references [dropeadores].Funcionalidad ,
 
 Create table [dropeadores].Usuario (
 Id int primary key identity,
-username varchar(255) unique not null,
-password varchar(255) not null,
+username nvarchar(255) unique not null,
+password nvarchar(255) not null,
+cambioPsw int default 0,
+creadoPor nvarchar(255),
 estado  int default 1,
 intentos int default 0,
 clienteId int,

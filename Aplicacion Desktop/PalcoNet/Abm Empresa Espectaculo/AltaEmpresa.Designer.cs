@@ -212,6 +212,7 @@
             this.textCUIT.Name = "textCUIT";
             this.textCUIT.Size = new System.Drawing.Size(189, 26);
             this.textCUIT.TabIndex = 68;
+            this.textCUIT.TextChanged += new System.EventHandler(this.labelUserEscribir);
             // 
             // label6
             // 
@@ -409,6 +410,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AltaEmpresa";
             this.Text = "AltaEmpresa";
+            this.Load += new System.EventHandler(this.AltaEmpresa_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

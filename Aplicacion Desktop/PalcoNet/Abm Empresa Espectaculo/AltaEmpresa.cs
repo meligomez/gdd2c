@@ -156,6 +156,11 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
 
     }
 
+    private void AltaEmpresa_Load(object sender, EventArgs e)
+    {
+
+    }
+
         }
     
 
