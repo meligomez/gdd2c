@@ -156,7 +156,7 @@ namespace PalcoNet.VentanasPorRol
 		}
 		private void altaEmpresa_Click(object sender, EventArgs e)
 		{
-			AltaEmpresa altaEmp = new AltaEmpresa();
+			AltaEmpresa altaEmp = new AltaEmpresa("admin");
 			altaEmp.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
 			AbrirFormInPanel(altaEmp);
 			//altaEmp.Show();

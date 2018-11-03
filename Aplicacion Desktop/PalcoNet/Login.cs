@@ -12,6 +12,7 @@ using Modelo.Dominio;
 using Modelo.Servicio;
 using Modelo;
 using PalcoNet.Abm_Cliente;
+using PalcoNet.Abm_Empresa_Espectaculo;
 
 namespace PalcoNet
 {
@@ -131,5 +132,12 @@ namespace PalcoNet
 			altaCliente.Show();
 			this.Hide();
 		}
+
+        private void registrarBtnEmpresa_Click(object sender, EventArgs e)
+        {
+            AltaEmpresa altaEmpresa = new AltaEmpresa("sin Rol");
+            altaEmpresa.Show();
+            this.Hide();
+        }
 	}
 }

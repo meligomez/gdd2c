@@ -18,6 +18,7 @@ namespace Modelo.Dominio
 		public string username { get; set; }
 		public string password { get; set; } //password encriptado con SHA256
 		public Cliente cliente { get; set; }
+        public Empresa empresa { get; set; }
 
 		public DateTime fechaCreacionPsw { get; set; }
 		#endregion
@@ -106,5 +107,41 @@ namespace Modelo.Dominio
 				return -1;
 			}
 		}
-	}
+
+
+         public int AltaEmpresa()
+        {
+            try
+            {
+                DaoSP dao = new DaoSP();
+                DataTable dt = new DataTable();
+                Domicilio dom = empresa.Empresa_Dom;
+                if (dao.EjecutarSP("dropeadores.Domicilio_empresa_Alta", dom.calle, dom.numero, dom.piso, dom.dpto, dom.localidad, dom.cp, dom.ciudad) > 0)
+                {
+                    dt = dao.ObtenerDatosSP("dropeadores.DireEmp_ObtenerId");
+                    DataRow row = dt.Rows[0];
+                    int idDomEmpresaInsertado = int.Parse(row["Id"].ToString());
+                    if (dao.EjecutarSP("dropeadores.Empresa_Alta", empresa.Empresa_Cuit, empresa.Empresa_mail, empresa.Empresa_telefono, empresa.Empresa_razon_social,idDomEmpresaInsertado) > 0)
+                    {
+
+                        dt = dao.ObtenerDatosSP("dropeadores.Emp_ObtenerId");
+
+                    }
+                    DataRow row2 = dt.Rows[0];
+                    string idEmpresaInsertada = row2["Id"].ToString();
+
+                    dao.EjecutarSP("dropeadores.Usuario_Alta_Empresa", idEmpresaInsertada, this.username, this.password);
+                }
+                
+                
+                
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+    }
 }
+
