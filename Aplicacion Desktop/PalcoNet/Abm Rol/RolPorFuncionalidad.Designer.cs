@@ -1,6 +1,6 @@
 ﻿namespace PalcoNet.Abm_Rol
 {
-    partial class Form1
+    partial class RolPorFuncionalidad
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RolPorFuncionalidad));
 			this.txtNombreRol = new System.Windows.Forms.TextBox();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.lblNombre = new System.Windows.Forms.Label();
@@ -44,23 +44,24 @@
 			// txtNombreRol
 			// 
 			this.txtNombreRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-			this.txtNombreRol.Location = new System.Drawing.Point(200, 110);
+			this.txtNombreRol.Location = new System.Drawing.Point(186, 110);
 			this.txtNombreRol.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
 			this.txtNombreRol.Name = "txtNombreRol";
-			this.txtNombreRol.Size = new System.Drawing.Size(319, 28);
+			this.txtNombreRol.Size = new System.Drawing.Size(254, 28);
 			this.txtNombreRol.TabIndex = 14;
 			// 
 			// btnGuardar
 			// 
 			this.btnGuardar.BackColor = System.Drawing.SystemColors.InactiveCaption;
 			this.btnGuardar.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGuardar.Location = new System.Drawing.Point(655, 387);
+			this.btnGuardar.Location = new System.Drawing.Point(650, 553);
 			this.btnGuardar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
 			this.btnGuardar.Name = "btnGuardar";
 			this.btnGuardar.Size = new System.Drawing.Size(136, 43);
 			this.btnGuardar.TabIndex = 13;
 			this.btnGuardar.Text = "Guardar";
 			this.btnGuardar.UseVisualStyleBackColor = false;
+			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
 			// 
 			// lblNombre
 			// 
@@ -81,7 +82,7 @@
 			this.dgvFuncionalidades.Location = new System.Drawing.Point(25, 201);
 			this.dgvFuncionalidades.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
 			this.dgvFuncionalidades.Name = "dgvFuncionalidades";
-			this.dgvFuncionalidades.Size = new System.Drawing.Size(609, 174);
+			this.dgvFuncionalidades.Size = new System.Drawing.Size(494, 340);
 			this.dgvFuncionalidades.TabIndex = 11;
 			// 
 			// lblLstFunc
@@ -99,13 +100,14 @@
 			// 
 			this.cancelarBtn.BackColor = System.Drawing.SystemColors.InactiveCaption;
 			this.cancelarBtn.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cancelarBtn.Location = new System.Drawing.Point(498, 387);
+			this.cancelarBtn.Location = new System.Drawing.Point(489, 553);
 			this.cancelarBtn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
 			this.cancelarBtn.Name = "cancelarBtn";
 			this.cancelarBtn.Size = new System.Drawing.Size(136, 43);
 			this.cancelarBtn.TabIndex = 15;
 			this.cancelarBtn.Text = "Cancelar";
 			this.cancelarBtn.UseVisualStyleBackColor = false;
+			this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
 			// 
 			// label1
 			// 
@@ -126,12 +128,12 @@
 			this.pictureBox1.TabIndex = 17;
 			this.pictureBox1.TabStop = false;
 			// 
-			// Form1
+			// RolPorFuncionalidad
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
-			this.ClientSize = new System.Drawing.Size(819, 458);
+			this.ClientSize = new System.Drawing.Size(819, 611);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.cancelarBtn);
@@ -141,8 +143,9 @@
 			this.Controls.Add(this.dgvFuncionalidades);
 			this.Controls.Add(this.lblLstFunc);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Name = "RolPorFuncionalidad";
+			this.Text = "RolPorFuncionalidad";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvFuncionalidades)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);

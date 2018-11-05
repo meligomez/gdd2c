@@ -86,12 +86,12 @@ namespace Modelo.Comun
 				throw ex;
 			}
 		}
-		public static void AddCheckColumn(DataGridView dataGrid)
+		public static void AddCheckColumn(DataGridView dataGrid, string nombreColumna)
 		{
 			//Asignar la propiedad DataSource
 			DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
 			dataGrid.Columns.Add(chkbox);
-			chkbox.HeaderText = "Check Data";
+			chkbox.HeaderText = nombreColumna;
 			chkbox.Name = "seleccion";
 		}
 		public static void AddButtonColumn(DataGridView dataGrid)

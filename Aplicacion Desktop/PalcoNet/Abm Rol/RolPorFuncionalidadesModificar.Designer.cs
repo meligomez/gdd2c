@@ -29,8 +29,6 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RolPorFuncionalidadesModificar));
-			this.txtCodigo = new System.Windows.Forms.TextBox();
-			this.lblCodigo = new System.Windows.Forms.Label();
 			this.btnActualizar = new System.Windows.Forms.Button();
 			this.txtNombreRol = new System.Windows.Forms.TextBox();
 			this.lblNombre = new System.Windows.Forms.Label();
@@ -39,30 +37,12 @@
 			this.btnVolver = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.checkHabilitado = new System.Windows.Forms.CheckBox();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.label2 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dgvFuncionalidades)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// txtCodigo
-			// 
-			this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-			this.txtCodigo.Location = new System.Drawing.Point(153, 101);
-			this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
-			this.txtCodigo.Name = "txtCodigo";
-			this.txtCodigo.Size = new System.Drawing.Size(226, 30);
-			this.txtCodigo.TabIndex = 27;
-			// 
-			// lblCodigo
-			// 
-			this.lblCodigo.AutoSize = true;
-			this.lblCodigo.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblCodigo.Location = new System.Drawing.Point(70, 106);
-			this.lblCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lblCodigo.Name = "lblCodigo";
-			this.lblCodigo.Size = new System.Drawing.Size(76, 24);
-			this.lblCodigo.TabIndex = 26;
-			this.lblCodigo.Text = "Codigo";
 			// 
 			// btnActualizar
 			// 
@@ -75,32 +55,33 @@
 			this.btnActualizar.TabIndex = 25;
 			this.btnActualizar.Text = "Actualizar";
 			this.btnActualizar.UseVisualStyleBackColor = false;
+			this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
 			// 
 			// txtNombreRol
 			// 
 			this.txtNombreRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-			this.txtNombreRol.Location = new System.Drawing.Point(244, 146);
+			this.txtNombreRol.Location = new System.Drawing.Point(490, 147);
 			this.txtNombreRol.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
 			this.txtNombreRol.Name = "txtNombreRol";
-			this.txtNombreRol.Size = new System.Drawing.Size(319, 28);
+			this.txtNombreRol.Size = new System.Drawing.Size(165, 28);
 			this.txtNombreRol.TabIndex = 24;
 			// 
 			// lblNombre
 			// 
 			this.lblNombre.AutoSize = true;
 			this.lblNombre.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblNombre.Location = new System.Drawing.Point(71, 150);
+			this.lblNombre.Location = new System.Drawing.Point(404, 151);
 			this.lblNombre.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.lblNombre.Name = "lblNombre";
-			this.lblNombre.Size = new System.Drawing.Size(169, 22);
+			this.lblNombre.Size = new System.Drawing.Size(87, 22);
 			this.lblNombre.TabIndex = 23;
-			this.lblNombre.Text = "Descripcion de rol";
+			this.lblNombre.Text = "Nombre:";
 			// 
 			// lblLstFunc
 			// 
 			this.lblLstFunc.AutoSize = true;
 			this.lblLstFunc.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblLstFunc.Location = new System.Drawing.Point(74, 194);
+			this.lblLstFunc.Location = new System.Drawing.Point(74, 151);
 			this.lblLstFunc.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.lblLstFunc.Name = "lblLstFunc";
 			this.lblLstFunc.Size = new System.Drawing.Size(248, 22);
@@ -112,10 +93,10 @@
 			this.dgvFuncionalidades.AllowUserToAddRows = false;
 			this.dgvFuncionalidades.AllowUserToDeleteRows = false;
 			this.dgvFuncionalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvFuncionalidades.Location = new System.Drawing.Point(78, 239);
+			this.dgvFuncionalidades.Location = new System.Drawing.Point(78, 196);
 			this.dgvFuncionalidades.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
 			this.dgvFuncionalidades.Name = "dgvFuncionalidades";
-			this.dgvFuncionalidades.Size = new System.Drawing.Size(609, 174);
+			this.dgvFuncionalidades.Size = new System.Drawing.Size(609, 199);
 			this.dgvFuncionalidades.TabIndex = 21;
 			// 
 			// btnVolver
@@ -129,6 +110,7 @@
 			this.btnVolver.TabIndex = 28;
 			this.btnVolver.Text = "Volver";
 			this.btnVolver.UseVisualStyleBackColor = false;
+			this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
 			// 
 			// label1
 			// 
@@ -149,16 +131,36 @@
 			this.pictureBox1.TabIndex = 30;
 			this.pictureBox1.TabStop = false;
 			// 
-			// checkBox1
+			// checkHabilitado
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Font = new System.Drawing.Font("Raleway", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.checkBox1.Location = new System.Drawing.Point(610, 146);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(111, 24);
-			this.checkBox1.TabIndex = 31;
-			this.checkBox1.Text = "Habilitado";
-			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkHabilitado.AutoSize = true;
+			this.checkHabilitado.Font = new System.Drawing.Font("Raleway", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkHabilitado.Location = new System.Drawing.Point(677, 151);
+			this.checkHabilitado.Name = "checkHabilitado";
+			this.checkHabilitado.Size = new System.Drawing.Size(111, 24);
+			this.checkHabilitado.TabIndex = 31;
+			this.checkHabilitado.Text = "Habilitado";
+			this.checkHabilitado.UseVisualStyleBackColor = true;
+			// 
+			// comboBox1
+			// 
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Location = new System.Drawing.Point(342, 98);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(199, 24);
+			this.comboBox1.TabIndex = 32;
+			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.nombreRol_Change);
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Raleway", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(74, 100);
+			this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(271, 22);
+			this.label2.TabIndex = 33;
+			this.label2.Text = "Seleccione un Rol a Modificar:";
 			// 
 			// RolPorFuncionalidadesModificar
 			// 
@@ -166,12 +168,12 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
 			this.ClientSize = new System.Drawing.Size(800, 483);
-			this.Controls.Add(this.checkBox1);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.checkHabilitado);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnVolver);
-			this.Controls.Add(this.txtCodigo);
-			this.Controls.Add(this.lblCodigo);
 			this.Controls.Add(this.btnActualizar);
 			this.Controls.Add(this.txtNombreRol);
 			this.Controls.Add(this.lblNombre);
@@ -180,6 +182,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "RolPorFuncionalidadesModificar";
 			this.Text = "RolPorFuncionalidadesModificar";
+			this.Load += new System.EventHandler(this.RolPorFuncionalidadesModificar_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvFuncionalidades)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
@@ -188,8 +191,6 @@
 		}
 
 		#endregion
-		private System.Windows.Forms.TextBox txtCodigo;
-		private System.Windows.Forms.Label lblCodigo;
 		private System.Windows.Forms.Button btnActualizar;
 		private System.Windows.Forms.TextBox txtNombreRol;
 		private System.Windows.Forms.Label lblNombre;
@@ -198,6 +199,8 @@
 		private System.Windows.Forms.Button btnVolver;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.CheckBox checkHabilitado;
+		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.Label label2;
 	}
 }
