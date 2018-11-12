@@ -9,3 +9,8 @@ C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\Mo
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.dll
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\Modelo.dll
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.dll
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.pdb
