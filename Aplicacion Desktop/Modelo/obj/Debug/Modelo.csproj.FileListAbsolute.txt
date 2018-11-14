@@ -14,3 +14,10 @@ C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\
 C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
 C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.dll
 C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\System.Data.Entity.Repository.dll
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Juan Carlos Mujica\Documents\workspace\gdd2c\Aplicacion Desktop\Modelo\bin\Debug\EntityFramework.SqlServerCompact.xml

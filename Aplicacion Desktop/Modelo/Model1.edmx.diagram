@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1f57363b784498e8ccc1b819f6d9a93" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Empresa" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Empresa_Domicilio" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Funcionalidad" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FuncionalidadXRol" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Rol" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RolXUsuario" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Usuario" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__Funcional__funci__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Funcional__rolId__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__RolXUsuar__rolId__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__RolXUsuar__usuar__5165187F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
