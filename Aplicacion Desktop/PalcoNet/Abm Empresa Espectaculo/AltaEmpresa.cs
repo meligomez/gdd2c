@@ -79,20 +79,17 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
                         usuario.password = textPassword.Text;
                         usuario.creadoPor = "empresa";
                     }
-				
-                    
-                    
                     Empresa empresa = new Empresa();
                     Domicilio dom = new Domicilio();
-                    
                     empresa.Empresa_Cuit = textCUIT.Text;
-                    //empresa.Empresa_Cuit = int.Parse(textCUIT.Text);
                     empresa.Empresa_mail = textMail.Text;
                     empresa.Empresa_telefono = int.Parse(textTelefono.Text);
                     empresa.Empresa_razon_social = textRazonSocial.Text;
+                    empresa.Empresa_estado = true;
                     usuario.username = textUsername.Text;
                     usuario.password = textPassword.Text;
 					dom.calle = textDireccion.Text;
+                    dom.numero = int.Parse(txtNro.Text); 
 					dom.piso = int.Parse(textPiso.Text);
 					dom.dpto = textDepto.Text;
 					dom.localidad = textLocalidad.Text;
@@ -121,32 +118,85 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
 	
 
     private bool todosCamposCompletos()
-		{
-			//if (textNombre.Text.Trim() == "")
-			//{
-			//	MensajesToolTip.showToolTip(textNombre.Text, textNombre.Location);
-			//	return false;
-			//}
-			//if (txtApellido.Text.Trim() == "")
-			//{
-			//	MensajesToolTip.showToolTip("Ingrese un apellido.", txtApellido, txtApellido.Location);
-			//	return false;
-			//}
-			//if (txtMail.Text.Trim() == "")
-			//{
-			//	MensajesToolTip.showToolTip("Ingrese un mail.", txtMail, txtMail.Location);
-			//	return false;
-			//}
-			//if (txtContraseña.Text.Trim() == "")
-			//{
-			//	//MensajesToolTip.showToolTip("Ingrese una contraseña.", txtContraseña, txtContraseña.Location);
-			//	return false;
-			//}
-			//if (dtpFechaNacimiento.Text.Trim() == "" || dtpFechaNacimiento.Value == null)
-			//{
-			//	//MensajesToolTip.showToolTip("Ingrese una fecha de nacimiento.", dtpFechaNacimiento, dtpFechaNacimiento.Location);
-			//	return false;
-			//}
+        {
+            if (textRazonSocial.Text.Trim() == "")
+            {
+            	MessageBox.Show("Debe ingresar una RAZON SOCIAL.", "Error al crear Nueva empresa",
+            			MessageBoxButtons.OK, MessageBoxIcon.Error);
+            	return false;
+            }
+            if (textCUIT.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar un CUIT.", "Error al crear Nueva empresa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textTelefono.Text.Trim() == "")
+            {
+            	MessageBox.Show("Debe ingresar un TELEFONO.", "Error al crear Nueva empresa",
+            			MessageBoxButtons.OK, MessageBoxIcon.Error);
+            	return false;
+            }
+            if (textMail.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar un MAIL.", "Error al crear Nueva empresa",
+            			MessageBoxButtons.OK, MessageBoxIcon.Error);
+            	return false;
+            }
+            if (textUsername.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar un USERNAME.", "Error al crear Nueva empresa",
+            			MessageBoxButtons.OK, MessageBoxIcon.Error);
+            	return false;
+            }
+            if (textPassword.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar una CONTRASEÑA.", "Error al crear Nueva empresa",
+            			MessageBoxButtons.OK, MessageBoxIcon.Error);
+            	return false;
+            }
+            if (textCiudad.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar una CIUDAD.", "Error al crear Nueva empresa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textDireccion.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar una DIRECCIÓN.", "Error al crear Nueva empresa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (txtNro.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar un EL NUMERO DE DIRECCÍON.", "Error al crear Nueva empresa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textPiso.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar EL PISO .", "Error al crear Nueva empresa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textDepto.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar el DEPARTAMENTO.", "Error al crear Nueva empresa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textLocalidad.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar la LOCALIDAD.", "Error al crear Nueva empresa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            } if (textCP.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar el CODIGO POSTAL.", "Error al crear Nueva empresa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }    
+        
 			return true;
 		}
 

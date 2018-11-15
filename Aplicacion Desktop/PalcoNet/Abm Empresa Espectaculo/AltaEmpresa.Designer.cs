@@ -62,12 +62,16 @@
             this.textUsername = new System.Windows.Forms.TextBox();
             this.lblFechaSistema = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
+            this.txtNro = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNro);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textCiudad);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label13);
@@ -89,7 +93,7 @@
             // 
             // textCiudad
             // 
-            this.textCiudad.Location = new System.Drawing.Point(94, 33);
+            this.textCiudad.Location = new System.Drawing.Point(78, 33);
             this.textCiudad.Margin = new System.Windows.Forms.Padding(4);
             this.textCiudad.Name = "textCiudad";
             this.textCiudad.Size = new System.Drawing.Size(189, 26);
@@ -117,7 +121,7 @@
             // 
             // textCP
             // 
-            this.textCP.Location = new System.Drawing.Point(566, 64);
+            this.textCP.Location = new System.Drawing.Point(561, 68);
             this.textCP.Margin = new System.Windows.Forms.Padding(4);
             this.textCP.Name = "textCP";
             this.textCP.Size = new System.Drawing.Size(80, 26);
@@ -179,21 +183,21 @@
             // 
             // textDireccion
             // 
-            this.textDireccion.Location = new System.Drawing.Point(457, 28);
+            this.textDireccion.Location = new System.Drawing.Point(362, 33);
             this.textDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.textDireccion.Name = "textDireccion";
-            this.textDireccion.Size = new System.Drawing.Size(189, 26);
+            this.textDireccion.Size = new System.Drawing.Size(140, 26);
             this.textDireccion.TabIndex = 46;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(338, 33);
+            this.label5.Location = new System.Drawing.Point(275, 35);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 20);
+            this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 40;
-            this.label5.Text = "Direccion:";
+            this.label5.Text = "Calle:";
             // 
             // label2
             // 
@@ -378,6 +382,24 @@
             this.labelUser.Size = new System.Drawing.Size(0, 20);
             this.labelUser.TabIndex = 78;
             // 
+            // txtNro
+            // 
+            this.txtNro.Location = new System.Drawing.Point(561, 29);
+            this.txtNro.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNro.Name = "txtNro";
+            this.txtNro.Size = new System.Drawing.Size(80, 26);
+            this.txtNro.TabIndex = 66;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(519, 32);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 20);
+            this.label7.TabIndex = 65;
+            this.label7.Text = "Nro";
+            // 
             // AltaEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -454,5 +476,7 @@
         private System.Windows.Forms.TextBox textUsername;
         private System.Windows.Forms.Label lblFechaSistema;
         private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.TextBox txtNro;
+        private System.Windows.Forms.Label label7;
 	}
 }

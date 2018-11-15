@@ -114,5 +114,21 @@ namespace Modelo.Comun
 			dataGrid.Columns.Add(btnEliminar);
 			btnEliminar.DisplayIndex = 1;
 		}
+
+
+        //Esto lo agrego DANIELA 
+
+
+        public static void AddButtonEliminar(DataGridView dataGrid)
+        {
+         
+            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+            btnEliminar.HeaderText = "Seleccionar";
+            btnEliminar.Name = "Eliminar";
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseColumnTextForButtonValue = true;
+            dataGrid.Columns.Add(btnEliminar);
+            btnEliminar.DisplayIndex = 0;
+        }
 	}
 }

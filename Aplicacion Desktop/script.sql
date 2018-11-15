@@ -171,12 +171,12 @@ GO
 *********************Realiza el alta de una empresa *********************
 */
 GO
-CREATE procedure [dropeadores].[Empresa_Alta] 
-(@Cuit nvarchar(255), @mail varchar(255),@telefono numeric(10,0),@Razon_social varchar(255), @domicilio int)
+ALTER procedure [dropeadores].[Empresa_Alta] 
+(@Cuit nvarchar(255), @mail varchar(255),@telefono numeric(10,0),@Razon_social varchar(255),@id_Domicilio int)
 as
 begin
-insert into  GDGD2C2018.[dropeadores].Empresa (empresa_Cuit, empresa_mail,empresa_telefono,empresa_razon_social,empresa_domicilio)
- values (@Cuit, @mail,@telefono,@Razon_social,@domicilio)
+insert into  GD2C2018.[dropeadores].Empresa (empresa_Cuit, empresa_mail,empresa_telefono,empresa_razon_social,empresa_domicilio,empresa_estado)
+ values (@Cuit, @mail,@telefono,@Razon_social,@id_Domicilio,0)
 end
 /****************FIN Realiza el alta de una empresa**********/
 /*
@@ -240,10 +240,44 @@ begin
 
 Select Max(empresa_Cuit)as'Id'from dropeadores.Empresa
 
---select @id = scope_identity()[pero_compila].[Rol]
 end
 
 /****************FIN Usuario pedido**********/
+
+/**************Delete empresa*****************/
+
+IF OBJECT_ID ( 'dropeadores.deleteEmpresa', 'P' ) IS NOT NULL 
+		DROP PROCEDURE dropeadores.deleteEmpresa
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROCEDURE dropeadores.deleteEmpresa
+	@cuitEmpresa nvarchar(255)	
+AS
+	UPDATE dropeadores.Empresa
+	SET empresa_estado = 1
+	WHERE empresa_Cuit = @cuitEmpresa
+GO
+
+
+/****************FIN Empresa delete**********/
+
+/**************GET EMPRESA PARA ELIMINACION*****************/
+
+GO
+CREATE PROCEDURE dropeadores.getEmpresa
+	@cuit nvarchar(255)
+AS
+	--SI RECIBE 00-00000000-00, MUESTRA TODOS LAS EMPRESAS
+	IF (@cuit = '00-00000000-00')
+		SELECT * FROM dropeadores.Empresa E			
+	ELSE
+		SELECT * FROM dropeadores.Empresa E	
+		WHERE E.empresa_Cuit = @cuit
+
+/****************FIN GET EMPRESA PARA ELIMINACION**********/
 
 
 ----------------------------------------------------------------------------------------------
