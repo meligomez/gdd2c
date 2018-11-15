@@ -96,6 +96,37 @@ GO
 IF EXISTS (SELECT name FROM sysobjects WHERE name='Usuario_Alta_Empresa')
 	DROP PROCEDURE dropeadores.Usuario_Alta_Empresa
 
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='Cli_Alta')
+	DROP PROCEDURE dropeadores.Cli_Alta
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='Cli_ObtenerId')
+	DROP PROCEDURE dropeadores.Cli_ObtenerId
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='DireCli_ObtenerId')
+	DROP PROCEDURE dropeadores.DireCli_ObtenerId
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='Domicilio_Cli_Alta')
+	DROP PROCEDURE dropeadores.Domicilio_Cli_Alta
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='obtenerUsuarioByUsername')
+	DROP PROCEDURE dropeadores.obtenerUsuarioByUsername
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='pasarAInhabilitado')
+	DROP PROCEDURE dropeadores.pasarAInhabilitado
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='Usuario_Alta')
+	DROP PROCEDURE dropeadores.Usuario_Alta}
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name='Usuario_UpdatePsw')
+	DROP PROCEDURE dropeadores.Usuario_UpdatePsw
+
 ----------------------------------------------------------------------------------------------
 							/** FIN VALIDACION DE PROCEDURES **/
 ----------------------------------------------------------------------------------------------
@@ -219,7 +250,7 @@ end
 *********************Busca un usuario por su username*********************
 */
 go
-CREATE procedure [dbo].[obtenerUsuarioByUsername]
+CREATE procedure [dropeadores].[obtenerUsuarioByUsername]
 @usname nvarchar(255)
 as
 select 
@@ -278,6 +309,123 @@ AS
 		WHERE E.empresa_Cuit = @cuit
 
 /****************FIN GET EMPRESA PARA ELIMINACION**********/
+/**************ALTA DE UN CLIENTE*****************/
+GO
+CREATE procedure [dropeadores].[Cli_Alta] 
+(@nombre varchar(255), @apellido varchar(255),@dni numeric(10,0),@mail nvarchar(255),@fechaNac datetime,@cuil int,@telefono int,@idDireccion int )
+as
+begin
+	declare @id int
+	insert into dbo.Clientes (Cli_Nombre, Cli_Apeliido,Cli_Dni,Cli_Mail,Cli_Fecha_Nac,Cli_Cuil,Cli_Telefono,Cli_Direccion)
+	values(@nombre, @apellido,@dni,@mail,@fechaNac,@cuil,@telefono,@idDireccion)
+	
+	Select Max(Id_Cliente)as'Id' from dbo.Clientes
+end
+
+/**************FIN DE ALTA DE CLIENTE*****************/
+
+
+/**************BUSCAR ULTIMO ID INSERTADO CLIENTE*****************/
+GO
+CREATE procedure [dropeadores].[Cli_ObtenerId]
+as
+begin
+	
+	Select Max(Id_Cliente)as'Id'from dbo.Clientes
+end
+
+/**************FIN DE BUSCAR ULTIMO ID INSERTADO*****************/
+
+/**************BUSCAR ULTIMO ID INSERTADO DIRECCION*****************/
+GO
+ALTER procedure [dropeadores].[DireCli_ObtenerId]
+as
+begin
+	
+	Select Max(Cli_Dir_Id)as'Id'from dbo.Clientes_direccion
+end
+
+/**************BUSCAR ULTIMO ID INSERTADO DIRECCION*****************/
+
+/**************CREAR DOMICILIO DE CLIENTE*****************/
+GO
+CREATE procedure [dropeadores].[Domicilio_Cli_Alta] (@calle nvarchar(255), @numero int,@piso int,@depto nvarchar(5),@localidad nvarchar(255),@cp int)
+as
+begin
+insert into dbo.Clientes_Direccion(Cli_Dom_Calle,Cli_Nro_Calle,Cli_Piso,Cli_Depto,Cli_Localidad,Cli_Cod_Postal)values
+(@calle,@numero,@piso,@depto,@localidad,@cp)
+
+end
+/**************FIN DE CREAR DOMICILIO CLIENTE*****************/
+
+/**************PASAR USUARIO A INHABILITADO*****************/
+GO
+CREATE procedure [dropeadores].[pasarAInhabilitado] (@user nvarchar(255))
+as
+begin
+update dropeadores.Usuario set estado=0 where username=@user
+end
+/**************FIN PASAR USUARIO A INHABILITADO*****************/
+
+/**************ALTA DE USUARIO*****************/
+GO
+CREATE procedure [dropeadores].[Usuario_Alta] (@idCliente int, @user nvarchar(255),@password nvarchar(255),@fechaCreacion datetime,@creadoPor nvarchar(255))
+as
+begin
+insert into dropeadores.Usuario(username,password,clienteId,fechaPassword,creadoPor)values
+(@user,@password,@idCliente,@fechaCreacion,@creadoPor)
+end
+/**************FIN ALTA DE USUARIO*****************/
+
+/**************CAMBIAR PSW POR DEFECTO*****************/
+GO
+CREATE procedure [dropeadores].[Usuario_UpdatePsw]
+(@username nvarchar(255), @passNueva nvarchar(255))
+as
+begin
+update dropeadores.Usuario set password=@passNueva, cambioPsw=1 where username=@username and estado=1
+end
+/**************FIN CAMBIAR PSW POR DEFECTO*****************/
+
+
+/**************Obtener nombre de roles*****************/
+GO
+CREATE procedure [dropeadores].obtenerRolByName
+(@nombrerol nvarchar(255))
+as
+begin
+select * from dropeadores.Rol where nombre=@nombrerol
+end
+/****************************************************/
+
+/**************ALTA DE ROL*****************/
+GO
+CREATE procedure dropeadores.Alta_Rol
+(@nombrerol nvarchar(255))
+as
+begin
+insert into dropeadores.Rol (nombre) values (@nombreRol)
+end
+/****************************************/
+
+/*************OBTENER ULTIMO ID INSERTADO DEL ROL*****************/
+GO
+CREATE procedure dropeadores.Rol_ObtenerId
+as
+begin
+	Select Max(Id_Rol)as'Id'from dropeadores.Rol
+end
+/****************************************/
+
+/*************INSERTAR UN ROL X FUNCIONALIDAD*****************/
+GO
+CREATE procedure dropeadores.AltaRolPorFuncionalidad
+(@idRol int,@idFunc int)
+as
+begin
+	insert into dropeadores.FuncionalidadXRol (rolId,funcionalidadId) values (@idRol,@idFunc)
+end
+/**************************************************************/
 
 
 ----------------------------------------------------------------------------------------------

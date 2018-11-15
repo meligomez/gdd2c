@@ -130,13 +130,36 @@ namespace Modelo.Dominio
 				throw ex;
 			}
 		}
-	
+
+		//public string ObtenerRol(string username)
+		//{
+		//	DaoSP dao = new DaoSP();
+		//	DataTable dt = new DataTable();
+		//	try
+		//	{
+		//			dt = dao.ObtenerDatosSP("dropeadores.obtenerRolDeUsuario", username);
+		//			string rol;
+		//		List<string> roles = new List<string>;
+		//		foreach (DataRow i in dt.Rows)
+		//		{
+		//			rol = i["rol"].ToString();
+		//			roles.Add(rol);
+		//		}
+		//		return 
+				
+		//	}
+		//	catch (Exception ex)
+		//	{
+
+		//		throw ex;
+		//	}
+		//}
 
 
-           
 
 
-         public int AltaEmpresa()
+
+		public int AltaEmpresa()
         {
             int retorno=9;
 			try

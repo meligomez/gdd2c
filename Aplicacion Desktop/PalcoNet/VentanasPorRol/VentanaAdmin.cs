@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Modelo.Dominio;
 using PalcoNet.Abm_Cliente;
 using PalcoNet.Abm_Empresa_Espectaculo;
+using PalcoNet.Abm_Rol;
 using PalcoNet.Canje_Puntos;
 using PalcoNet.Comprar;
 using PalcoNet.Editar_Publicacion;
@@ -259,6 +260,30 @@ namespace PalcoNet.VentanasPorRol
 			//cambiarPsw.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
 			//AbrirFormInPanel(cambiarPsw);
 			//listadoEst.Show();
+			//this.Hide();
+		}
+		private void altaRol_Click(object sender, EventArgs e)
+		{
+			RolPorFuncionalidad altaRol = new RolPorFuncionalidad();
+			altaRol.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+			AbrirFormInPanel(altaRol);
+			//rendicion.Show();
+			//this.Hide();
+		}
+		private void bajaRol_Click(object sender, EventArgs e)
+		{
+			RolEliminar bajaRol = new RolEliminar();
+			bajaRol.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+			AbrirFormInPanel(bajaRol);
+			//rendicion.Show();
+			//this.Hide();
+		}
+		private void modifRol_Click(object sender, EventArgs e)
+		{
+			RolPorFuncionalidadesModificar modifRol = new RolPorFuncionalidadesModificar();
+			modifRol.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+			AbrirFormInPanel(modifRol);
+			//rendicion.Show();
 			//this.Hide();
 		}
 		private void label1_Click(object sender, EventArgs e)

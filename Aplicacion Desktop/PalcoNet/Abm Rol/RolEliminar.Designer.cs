@@ -1,4 +1,6 @@
-﻿namespace PalcoNet.Abm_Rol
+﻿using System;
+
+namespace PalcoNet.Abm_Rol
 {
 	partial class RolEliminar
 	{
@@ -69,11 +71,13 @@
 			// 
 			// comboBox1
 			// 
+			this.comboBox1.Font = new System.Drawing.Font("Raleway", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(353, 104);
+			this.comboBox1.Location = new System.Drawing.Point(317, 100);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(196, 23);
+			this.comboBox1.Size = new System.Drawing.Size(196, 28);
 			this.comboBox1.TabIndex = 3;
+			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
 			// btnEliminar
 			// 
@@ -84,6 +88,7 @@
 			this.btnEliminar.TabIndex = 4;
 			this.btnEliminar.Text = "Eliminar";
 			this.btnEliminar.UseVisualStyleBackColor = true;
+			this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
 			// 
 			// btnVolver
 			// 
@@ -94,6 +99,7 @@
 			this.btnVolver.TabIndex = 5;
 			this.btnVolver.Text = "Volver";
 			this.btnVolver.UseVisualStyleBackColor = true;
+			this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
 			// 
 			// RolEliminar
 			// 
@@ -111,10 +117,16 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "RolEliminar";
 			this.Text = "RolEliminar";
+			this.Load += new System.EventHandler(this.RolEliminar_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
+		}
+
+		private void RolEliminar_Load(object sender, EventArgs e)
+		{
+			//throw new NotImplementedException();
 		}
 
 		#endregion

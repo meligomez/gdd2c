@@ -33,7 +33,7 @@ namespace PalcoNet
 		private void Login_Load(object sender, EventArgs e)
 		{
 			Rol rol = new Rol();
-			DataTable dt = rol.ejemplo();
+			//DataTable dt = rol.ejemplo();
 		}
 
 		private void pictureBox1_Click_1(object sender, EventArgs e)
@@ -49,6 +49,7 @@ namespace PalcoNet
 		private void button1_Click(object sender, EventArgs e)
 		{
 			this.Close();
+			Application.Exit();
 		}
 
 		private void loginBtn_Click(object sender, EventArgs e)
@@ -68,6 +69,8 @@ namespace PalcoNet
 						Usuario userLogueado = new Usuario();
 						ConfigGlobal conf = new ConfigGlobal();
 						userLogueado = service.obtenerUsuariosByName(usuario.username);
+
+						//if (userLogueado.ObtenerRol(userLogueado.username) == "Administrador" && userLogueado.cambioPsw == 0)
 						if (userLogueado.creadoPor == "admin" && userLogueado.cambioPsw == 0)
 						{
 							MessageBox.Show("Debe cambiar la contraseña, de lo contrario no podrá acceder a ninguna funcionalidad.", "¡Advertencia!",

@@ -61,6 +61,10 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.iconMinimizar = new System.Windows.Forms.PictureBox();
 			this.iconCerrar = new System.Windows.Forms.PictureBox();
+			this.aBMRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.altaDeRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.bajaDeRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.modifcacionDeRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.iconMinimizar)).BeginInit();
@@ -80,11 +84,12 @@
             this.menuComprar,
             this.menuCliente,
             this.menuPagos,
-            this.menuEstadisticas});
+            this.menuEstadisticas,
+            this.aBMRolToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 5);
-			this.menuStrip1.Size = new System.Drawing.Size(1203, 31);
+			this.menuStrip1.Size = new System.Drawing.Size(1203, 29);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip";
 			// 
@@ -286,7 +291,7 @@
 			// listadoEstadisticoToolStripMenuItem
 			// 
 			this.listadoEstadisticoToolStripMenuItem.Name = "listadoEstadisticoToolStripMenuItem";
-			this.listadoEstadisticoToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+			this.listadoEstadisticoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
 			this.listadoEstadisticoToolStripMenuItem.Text = "Listado Estadistico";
 			this.listadoEstadisticoToolStripMenuItem.Click += new System.EventHandler(this.listadoEstadistico_Click);
 			// 
@@ -360,6 +365,38 @@
 			this.iconCerrar.TabStop = false;
 			this.iconCerrar.Click += new System.EventHandler(this.iconCerrar_Click);
 			// 
+			// aBMRolToolStripMenuItem
+			// 
+			this.aBMRolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.altaDeRolToolStripMenuItem,
+            this.bajaDeRolToolStripMenuItem,
+            this.modifcacionDeRolToolStripMenuItem});
+			this.aBMRolToolStripMenuItem.Font = new System.Drawing.Font("Raleway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.aBMRolToolStripMenuItem.Name = "aBMRolToolStripMenuItem";
+			this.aBMRolToolStripMenuItem.Size = new System.Drawing.Size(80, 22);
+			this.aBMRolToolStripMenuItem.Text = "ABM Rol";
+			// 
+			// altaDeRolToolStripMenuItem
+			// 
+			this.altaDeRolToolStripMenuItem.Name = "altaDeRolToolStripMenuItem";
+			this.altaDeRolToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.altaDeRolToolStripMenuItem.Text = "Alta de Rol";
+			this.altaDeRolToolStripMenuItem.Click += new System.EventHandler(this.altaRol_Click);
+			// 
+			// bajaDeRolToolStripMenuItem
+			// 
+			this.bajaDeRolToolStripMenuItem.Name = "bajaDeRolToolStripMenuItem";
+			this.bajaDeRolToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.bajaDeRolToolStripMenuItem.Text = "Baja de Rol";
+			this.bajaDeRolToolStripMenuItem.Click += new System.EventHandler(this.bajaRol_Click);
+			// 
+			// modifcacionDeRolToolStripMenuItem
+			// 
+			this.modifcacionDeRolToolStripMenuItem.Name = "modifcacionDeRolToolStripMenuItem";
+			this.modifcacionDeRolToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.modifcacionDeRolToolStripMenuItem.Text = "Modifcacion de Rol";
+			this.modifcacionDeRolToolStripMenuItem.Click += new System.EventHandler(this.modifRol_Click);
+			// 
 			// panelContenedor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -424,5 +461,9 @@
 		private System.Windows.Forms.PictureBox iconmaximizar;
 		private System.Windows.Forms.PictureBox iconCerrar;
 		private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem aBMRolToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem altaDeRolToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem bajaDeRolToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem modifcacionDeRolToolStripMenuItem;
 	}
 }
