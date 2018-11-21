@@ -12,13 +12,11 @@
         <EntityTypeShape EntityType="Model.Rol" Width="1.5" PointX="4.25" PointY="0.5" IsExpanded="true" FillColor="Green" />
         <EntityTypeShape EntityType="Model.RolXUsuario" Width="1.5" PointX="2.375" PointY="0.5" IsExpanded="true" FillColor="192, 64, 0" />
         <EntityTypeShape EntityType="Model.Usuario" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" FillColor="0, 192, 0" />
-        <AssociationConnector Association="Model.FK__Funcional__funci__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Funcional__rolId__46E78A0C" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Model.Cliente" Width="1.5" PointX="0.5" PointY="5.875" FillColor="Green" />
         <InheritanceConnector EntityType="Model.Cliente" />
         <InheritanceConnector EntityType="Model.Empresa" />
-        <EntityTypeShape EntityType="Model.Rubro" Width="1.5" PointX="6.125" PointY="2.375" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.Grado" Width="1.5" PointX="6.125" PointY="3.875" FillColor="Green" />
+        <EntityTypeShape EntityType="Model.Rubro" Width="1.5" PointX="6.125" PointY="2.75" FillColor="Green" />
+        <EntityTypeShape EntityType="Model.Grado" Width="1.5" PointX="6.125" PointY="4.375" FillColor="Green" />
         <EntityTypeShape EntityType="Model.TarjetaCredito" Width="1.5" PointX="0.5" PointY="9.875" FillColor="Green" />
         <AssociationConnector Association="Model.ClienteTarjetaCredito" />
         <EntityTypeShape EntityType="Model.EmisorTarjeta" Width="1.5" PointX="0.5" PointY="12.875" FillColor="Green" />
@@ -49,6 +47,8 @@
         <AssociationConnector Association="Model.RolXUsuarioRol" />
         <AssociationConnector Association="Model.PuntoXCompra" ManuallyRouted="false" >
         </AssociationConnector>
+        <AssociationConnector Association="Model.RolFuncionalidadXRol" />
+        <AssociationConnector Association="Model.FuncionalidadXRolFuncionalidad" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -18,8 +18,8 @@ namespace Modelo
         {
             this.activo = true;
             this.eliminado = false;
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
             this.RolXUsuarios = new HashSet<RolXUsuario>();
+            this.FuncionalidadXRoles = new HashSet<FuncionalidadXRol>();
         }
     
         public int id { get; set; }
@@ -27,7 +27,7 @@ namespace Modelo
         public bool activo { get; set; }
         public bool eliminado { get; set; }
     
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
         public virtual ICollection<RolXUsuario> RolXUsuarios { get; set; }
+        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRoles { get; set; }
     }
 }

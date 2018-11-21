@@ -14,10 +14,11 @@ namespace Modelo
     
     public partial class FuncionalidadXRol
     {
+        public int id { get; set; }
         public int rolId { get; set; }
         public int funcionalidadId { get; set; }
     
-        public virtual Funcionalidad Funcionalidad { get; set; }
         public virtual Rol Rol { get; set; }
+        public virtual Funcionalidad Funcionalidad { get; set; }
     }
 }

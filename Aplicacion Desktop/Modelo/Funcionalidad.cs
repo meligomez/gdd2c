@@ -16,12 +16,12 @@ namespace Modelo
     {
         public Funcionalidad()
         {
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
+            this.FuncionalidadXRoles = new HashSet<FuncionalidadXRol>();
         }
     
         public int id { get; set; }
         public string descripcion { get; set; }
     
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
+        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRoles { get; set; }
     }
 }

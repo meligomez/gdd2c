@@ -19,8 +19,6 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("Model", "FK__Funcional__funci__47DBAE45", "Funcionalidad", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Funcionalidad), "FuncionalidadXRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.FuncionalidadXRol), true)]
-[assembly: EdmRelationshipAttribute("Model", "FK__Funcional__rolId__46E78A0C", "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rol), "FuncionalidadXRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.FuncionalidadXRol), true)]
 [assembly: EdmRelationshipAttribute("Model", "ClienteTarjetaCredito", "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), "TarjetaCredito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.TarjetaCredito), true)]
 [assembly: EdmRelationshipAttribute("Model", "TarjetaCreditoEmisorTarjeta", "TarjetaCredito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.TarjetaCredito), "EmisorTarjeta", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.EmisorTarjeta), true)]
 [assembly: EdmRelationshipAttribute("Model", "EmpresaPublicacion", "Empresa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Empresa), "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Publicacion), true)]
@@ -39,6 +37,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("Model", "UsuarioRolXUsuario", "Usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Usuario), "RolXUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.RolXUsuario), true)]
 [assembly: EdmRelationshipAttribute("Model", "RolXUsuarioRol", "RolXUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.RolXUsuario), "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rol), true)]
 [assembly: EdmRelationshipAttribute("Model", "PuntoXCompra", "PuntoCompra", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.PuntoCompra), "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Compra))]
+[assembly: EdmRelationshipAttribute("Model", "RolFuncionalidadXRol", "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rol), "FuncionalidadXRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.FuncionalidadXRol), true)]
+[assembly: EdmRelationshipAttribute("Model", "FuncionalidadXRolFuncionalidad", "FuncionalidadXRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.FuncionalidadXRol), "Funcionalidad", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Funcionalidad), true)]
 
 #endregion
 
@@ -2004,18 +2004,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK__Funcional__funci__47DBAE45", "FuncionalidadXRol")]
-        public EntityCollection<FuncionalidadXRol> FuncionalidadXRols
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionalidadXRolFuncionalidad", "FuncionalidadXRol")]
+        public EntityCollection<FuncionalidadXRol> FuncionalidadXRoles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FuncionalidadXRol>("Model.FK__Funcional__funci__47DBAE45", "FuncionalidadXRol");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FuncionalidadXRol>("Model.FuncionalidadXRolFuncionalidad", "FuncionalidadXRol");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FuncionalidadXRol>("Model.FK__Funcional__funci__47DBAE45", "FuncionalidadXRol", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FuncionalidadXRol>("Model.FuncionalidadXRolFuncionalidad", "FuncionalidadXRol", value);
                 }
             }
         }
@@ -2037,11 +2037,13 @@ namespace Modelo
         /// <summary>
         /// Create a new FuncionalidadXRol object.
         /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
         /// <param name="rolId">Initial value of the rolId property.</param>
         /// <param name="funcionalidadId">Initial value of the funcionalidadId property.</param>
-        public static FuncionalidadXRol CreateFuncionalidadXRol(global::System.Int32 rolId, global::System.Int32 funcionalidadId)
+        public static FuncionalidadXRol CreateFuncionalidadXRol(global::System.Int32 id, global::System.Int32 rolId, global::System.Int32 funcionalidadId)
         {
             FuncionalidadXRol funcionalidadXRol = new FuncionalidadXRol();
+            funcionalidadXRol.id = id;
             funcionalidadXRol.rolId = rolId;
             funcionalidadXRol.funcionalidadId = funcionalidadId;
             return funcionalidadXRol;
@@ -2056,6 +2058,33 @@ namespace Modelo
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.Int32 rolId
         {
             get
@@ -2064,14 +2093,11 @@ namespace Modelo
             }
             set
             {
-                if (_rolId != value)
-                {
-                    OnrolIdChanging(value);
-                    ReportPropertyChanging("rolId");
-                    _rolId = StructuralObject.SetValidValue(value, "rolId");
-                    ReportPropertyChanged("rolId");
-                    OnrolIdChanged();
-                }
+                OnrolIdChanging(value);
+                ReportPropertyChanging("rolId");
+                _rolId = StructuralObject.SetValidValue(value, "rolId");
+                ReportPropertyChanged("rolId");
+                OnrolIdChanged();
             }
         }
         private global::System.Int32 _rolId;
@@ -2081,7 +2107,7 @@ namespace Modelo
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 funcionalidadId
         {
@@ -2091,14 +2117,11 @@ namespace Modelo
             }
             set
             {
-                if (_funcionalidadId != value)
-                {
-                    OnfuncionalidadIdChanging(value);
-                    ReportPropertyChanging("funcionalidadId");
-                    _funcionalidadId = StructuralObject.SetValidValue(value, "funcionalidadId");
-                    ReportPropertyChanged("funcionalidadId");
-                    OnfuncionalidadIdChanged();
-                }
+                OnfuncionalidadIdChanging(value);
+                ReportPropertyChanging("funcionalidadId");
+                _funcionalidadId = StructuralObject.SetValidValue(value, "funcionalidadId");
+                ReportPropertyChanged("funcionalidadId");
+                OnfuncionalidadIdChanged();
             }
         }
         private global::System.Int32 _funcionalidadId;
@@ -2115,54 +2138,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK__Funcional__funci__47DBAE45", "Funcionalidad")]
-        public Funcionalidad Funcionalidad
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FK__Funcional__funci__47DBAE45", "Funcionalidad").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FK__Funcional__funci__47DBAE45", "Funcionalidad").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Funcionalidad> FuncionalidadReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FK__Funcional__funci__47DBAE45", "Funcionalidad");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Funcionalidad>("Model.FK__Funcional__funci__47DBAE45", "Funcionalidad", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK__Funcional__rolId__46E78A0C", "Rol")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "RolFuncionalidadXRol", "Rol")]
         public Rol Rol
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.FK__Funcional__rolId__46E78A0C", "Rol").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolFuncionalidadXRol", "Rol").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.FK__Funcional__rolId__46E78A0C", "Rol").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolFuncionalidadXRol", "Rol").Value = value;
             }
         }
         /// <summary>
@@ -2174,13 +2159,51 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.FK__Funcional__rolId__46E78A0C", "Rol");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolFuncionalidadXRol", "Rol");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rol>("Model.FK__Funcional__rolId__46E78A0C", "Rol", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rol>("Model.RolFuncionalidadXRol", "Rol", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionalidadXRolFuncionalidad", "Funcionalidad")]
+        public Funcionalidad Funcionalidad
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FuncionalidadXRolFuncionalidad", "Funcionalidad").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FuncionalidadXRolFuncionalidad", "Funcionalidad").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Funcionalidad> FuncionalidadReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FuncionalidadXRolFuncionalidad", "Funcionalidad");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Funcionalidad>("Model.FuncionalidadXRolFuncionalidad", "Funcionalidad", value);
                 }
             }
         }
@@ -3627,28 +3650,6 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK__Funcional__rolId__46E78A0C", "FuncionalidadXRol")]
-        public EntityCollection<FuncionalidadXRol> FuncionalidadXRols
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FuncionalidadXRol>("Model.FK__Funcional__rolId__46E78A0C", "FuncionalidadXRol");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FuncionalidadXRol>("Model.FK__Funcional__rolId__46E78A0C", "FuncionalidadXRol", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model", "RolXUsuarioRol", "RolXUsuario")]
         public EntityCollection<RolXUsuario> RolXUsuarios
         {
@@ -3661,6 +3662,28 @@ namespace Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RolXUsuario>("Model.RolXUsuarioRol", "RolXUsuario", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "RolFuncionalidadXRol", "FuncionalidadXRol")]
+        public EntityCollection<FuncionalidadXRol> FuncionalidadXRoles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FuncionalidadXRol>("Model.RolFuncionalidadXRol", "FuncionalidadXRol");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FuncionalidadXRol>("Model.RolFuncionalidadXRol", "FuncionalidadXRol", value);
                 }
             }
         }
