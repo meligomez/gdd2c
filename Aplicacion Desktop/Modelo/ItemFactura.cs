@@ -12,16 +12,13 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Funcionalidad
+    public partial class ItemFactura
     {
-        public Funcionalidad()
-        {
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
-        }
-    
         public int id { get; set; }
-        public string descripcion { get; set; }
+        public int facturaId { get; set; }
+        public int compraId { get; set; }
     
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
+        public virtual Factura Factura { get; set; }
+        public virtual Compra Compra { get; set; }
     }
 }

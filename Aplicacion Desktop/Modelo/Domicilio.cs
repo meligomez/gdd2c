@@ -12,16 +12,17 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Funcionalidad
+    public partial class Domicilio
     {
-        public Funcionalidad()
-        {
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
-        }
-    
         public int id { get; set; }
-        public string descripcion { get; set; }
+        public string calle { get; set; }
+        public string numero { get; set; }
+        public string codigoPostal { get; set; }
+        public string departamento { get; set; }
+        public string localidad { get; set; }
+        public string ciudad { get; set; }
+        public string piso { get; set; }
     
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

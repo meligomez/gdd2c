@@ -12,16 +12,16 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Funcionalidad
+    public partial class TarjetaCredito
     {
-        public Funcionalidad()
-        {
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
-        }
+        public int Id { get; set; }
+        public int clienteId { get; set; }
+        public int emisorId { get; set; }
+        public string propietario { get; set; }
+        public string numero { get; set; }
+        public System.DateTime fechaVencimiento { get; set; }
     
-        public int id { get; set; }
-        public string descripcion { get; set; }
-    
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual EmisorTarjeta EmisorTarjeta { get; set; }
     }
 }

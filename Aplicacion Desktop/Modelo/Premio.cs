@@ -12,15 +12,18 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Empresa_Domicilio
+    public partial class Premio
     {
-        public int Id_Empresa { get; set; }
-        public string Emp_Dom_Calle { get; set; }
-        public Nullable<decimal> Emp_Nro_Calle { get; set; }
-        public string Emp_Cod_Postal { get; set; }
-        public string Emp_Depto { get; set; }
-        public string Emp_Localidad { get; set; }
-        public string Emp_Ciudad { get; set; }
-        public Nullable<decimal> Emp_Piso { get; set; }
+        public Premio()
+        {
+            this.PremioXUsuarios = new HashSet<PremioXUsuario>();
+        }
+    
+        public int id { get; set; }
+        public string descripcion { get; set; }
+        public int puntos { get; set; }
+        public int clienteId { get; set; }
+    
+        public virtual ICollection<PremioXUsuario> PremioXUsuarios { get; set; }
     }
 }

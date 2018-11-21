@@ -14,7 +14,6 @@ namespace Modelo
     
     public partial class FuncionalidadXRol
     {
-        public int Id_fxr { get; set; }
         public int rolId { get; set; }
         public int funcionalidadId { get; set; }
     

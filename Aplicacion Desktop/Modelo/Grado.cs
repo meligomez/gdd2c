@@ -12,22 +12,15 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Rol
+    public partial class Grado
     {
-        public Rol()
+        public Grado()
         {
-            this.activo = true;
-            this.eliminado = false;
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
-            this.RolXUsuarios = new HashSet<RolXUsuario>();
+            this.porcentaje = 0D;
         }
     
         public int id { get; set; }
-        public string nombre { get; set; }
-        public bool activo { get; set; }
-        public bool eliminado { get; set; }
-    
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
-        public virtual ICollection<RolXUsuario> RolXUsuarios { get; set; }
+        public string tipo { get; set; }
+        public double porcentaje { get; set; }
     }
 }

@@ -12,22 +12,20 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Rol
+    public partial class Factura
     {
-        public Rol()
+        public Factura()
         {
-            this.activo = true;
-            this.eliminado = false;
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
-            this.RolXUsuarios = new HashSet<RolXUsuario>();
+            this.ItemFacturas = new HashSet<ItemFactura>();
         }
     
         public int id { get; set; }
-        public string nombre { get; set; }
-        public bool activo { get; set; }
-        public bool eliminado { get; set; }
+        public System.DateTime fecha { get; set; }
+        public decimal total { get; set; }
+        public decimal comision { get; set; }
+        public int empresaId { get; set; }
     
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
-        public virtual ICollection<RolXUsuario> RolXUsuarios { get; set; }
+        public virtual ICollection<ItemFactura> ItemFacturas { get; set; }
+        public virtual Empresa Empresa { get; set; }
     }
 }

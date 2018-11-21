@@ -12,22 +12,21 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Rol
+    public partial class PuntoCompra
     {
-        public Rol()
+        public PuntoCompra()
         {
-            this.activo = true;
-            this.eliminado = false;
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
-            this.RolXUsuarios = new HashSet<RolXUsuario>();
+            this.puntos = 0;
+            this.puntosVigentes = 0;
         }
     
         public int id { get; set; }
-        public string nombre { get; set; }
-        public bool activo { get; set; }
-        public bool eliminado { get; set; }
+        public int clienteId { get; set; }
+        public int puntos { get; set; }
+        public int puntosVigentes { get; set; }
+        public System.DateTime fechaVencimiento { get; set; }
     
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
-        public virtual ICollection<RolXUsuario> RolXUsuarios { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual Compra Compra { get; set; }
     }
 }

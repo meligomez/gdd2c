@@ -12,25 +12,26 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuario
+    public abstract partial class Usuario
     {
         public Usuario()
         {
+            this.passwordAutogenerado = true;
+            this.activo = true;
+            this.intentos = 0;
+            this.eliminado = false;
             this.RolXUsuarios = new HashSet<RolXUsuario>();
         }
     
-        public int Id { get; set; }
+        public int id { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-        public Nullable<int> cambioPsw { get; set; }
-        public string creadoPor { get; set; }
-        public Nullable<int> estado { get; set; }
+        public bool passwordAutogenerado { get; set; }
+        public bool activo { get; set; }
         public Nullable<int> intentos { get; set; }
-        public Nullable<int> clienteId { get; set; }
-        public string CuitEmpresa { get; set; }
-        public Nullable<bool> Baja { get; set; }
-        public Nullable<System.DateTime> Fecha_Password { get; set; }
+        public bool eliminado { get; set; }
     
+        public virtual Domicilio Domicilio { get; set; }
         public virtual ICollection<RolXUsuario> RolXUsuarios { get; set; }
     }
 }

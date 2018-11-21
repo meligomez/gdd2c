@@ -25,12 +25,22 @@ namespace Modelo
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Empresa> Empresas { get; set; }
-        public DbSet<Empresa_Domicilio> Empresa_Domicilio { get; set; }
-        public DbSet<Funcionalidad> Funcionalidads { get; set; }
-        public DbSet<FuncionalidadXRol> FuncionalidadXRols { get; set; }
-        public DbSet<Rol> Rols { get; set; }
+        public DbSet<Funcionalidad> Funcionalidades { get; set; }
+        public DbSet<FuncionalidadXRol> FuncionalidadXRoles { get; set; }
+        internal DbSet<Rol> Roles { get; set; }
         public DbSet<RolXUsuario> RolXUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Domicilio> Domicilios { get; set; }
+        public DbSet<Rubro> Rubros { get; set; }
+        public DbSet<Grado> GradoPublicaciones { get; set; }
+        public DbSet<TarjetaCredito> TarjetaCreditos { get; set; }
+        public DbSet<EmisorTarjeta> EmisorTarjetas { get; set; }
+        public DbSet<Publicacion> Publicaciones { get; set; }
+        public DbSet<Compra> Compras { get; set; }
+        public DbSet<PuntoCompra> PuntoCompras { get; set; }
+        public DbSet<Premio> Premios { get; set; }
+        public DbSet<PremioXUsuario> PremioXUsuarios { get; set; }
+        public DbSet<Factura> Facturas { get; set; }
+        public DbSet<ItemFactura> ItemFacturas { get; set; }
     }
 }

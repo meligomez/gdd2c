@@ -12,13 +12,18 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Empresa
+    public partial class Empresa : Usuario
     {
-        public string empresa_Cuit { get; set; }
-        public string empresa_mail { get; set; }
-        public Nullable<decimal> empresa_telefono { get; set; }
-        public string empresa_razon_social { get; set; }
-        public Nullable<int> empresa_domicilio { get; set; }
-        public Nullable<bool> empresa_estado { get; set; }
+        public Empresa()
+        {
+            this.Publicaciones = new HashSet<Publicacion>();
+        }
+    
+        public string cuit { get; set; }
+        public string mail { get; set; }
+        public Nullable<decimal> telefono { get; set; }
+        public string razonSocial { get; set; }
+    
+        public virtual ICollection<Publicacion> Publicaciones { get; set; }
     }
 }

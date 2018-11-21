@@ -14,11 +14,11 @@ namespace Modelo
     
     public partial class RolXUsuario
     {
-        public int Id_rxu { get; set; }
+        public int id { get; set; }
         public int usuarioId { get; set; }
         public int rolId { get; set; }
     
-        public virtual Rol Rol { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public virtual Rol Rol { get; set; }
     }
 }

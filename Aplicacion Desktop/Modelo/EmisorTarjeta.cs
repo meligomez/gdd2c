@@ -12,22 +12,9 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Rol
+    public partial class EmisorTarjeta
     {
-        public Rol()
-        {
-            this.activo = true;
-            this.eliminado = false;
-            this.FuncionalidadXRols = new HashSet<FuncionalidadXRol>();
-            this.RolXUsuarios = new HashSet<RolXUsuario>();
-        }
-    
         public int id { get; set; }
         public string nombre { get; set; }
-        public bool activo { get; set; }
-        public bool eliminado { get; set; }
-    
-        public virtual ICollection<FuncionalidadXRol> FuncionalidadXRols { get; set; }
-        public virtual ICollection<RolXUsuario> RolXUsuarios { get; set; }
     }
 }
