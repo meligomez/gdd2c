@@ -5,50 +5,50 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c1f57363b784498e8ccc1b819f6d9a93" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.Empresa" Width="1.5" PointX="2.375" PointY="5.875" IsExpanded="true" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.Domicilio" Width="1.5" PointX="2.375" PointY="2.625" IsExpanded="true" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.Funcionalidad" Width="1.5" PointX="8" PointY="0.5" IsExpanded="true" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.FuncionalidadXRol" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" FillColor="192, 64, 0" />
-        <EntityTypeShape EntityType="Model.Rol" Width="1.5" PointX="4.25" PointY="0.5" IsExpanded="true" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.RolXUsuario" Width="1.5" PointX="2.375" PointY="0.5" IsExpanded="true" FillColor="192, 64, 0" />
-        <EntityTypeShape EntityType="Model.Usuario" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" FillColor="0, 192, 0" />
-        <EntityTypeShape EntityType="Model.Cliente" Width="1.5" PointX="0.5" PointY="5.875" FillColor="Green" />
-        <InheritanceConnector EntityType="Model.Cliente" />
-        <InheritanceConnector EntityType="Model.Empresa" />
-        <EntityTypeShape EntityType="Model.Rubro" Width="1.5" PointX="6.125" PointY="2.75" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.Grado" Width="1.5" PointX="6.125" PointY="4.375" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.TarjetaCredito" Width="1.5" PointX="0.5" PointY="9.875" FillColor="Green" />
-        <AssociationConnector Association="Model.ClienteTarjetaCredito" />
-        <EntityTypeShape EntityType="Model.EmisorTarjeta" Width="1.5" PointX="0.5" PointY="12.875" FillColor="Green" />
-        <AssociationConnector Association="Model.TarjetaCreditoEmisorTarjeta" />
-        <EntityTypeShape EntityType="Model.Publicacion" Width="1.5" PointX="4.25" PointY="3" FillColor="Green" />
-        <AssociationConnector Association="Model.EmpresaPublicacion" />
-        <AssociationConnector Association="Model.PublicacionRubro" />
-        <AssociationConnector Association="Model.PublicacionGradoPublicacion" />
-        <EntityTypeShape EntityType="Model.Compra" Width="1.5" PointX="8" PointY="3" FillColor="Green" />
-        <AssociationConnector Association="Model.CompraPublicacion" />
-        <AssociationConnector Association="Model.CompraTarjetaCredito" ManuallyRouted="false" >
+        <EntityTypeShape EntityType="Dominio.Empresa" Width="1.5" PointX="2.375" PointY="5.875" IsExpanded="true" FillColor="Green" />
+        <EntityTypeShape EntityType="Dominio.Domicilio" Width="1.5" PointX="2.375" PointY="2.625" IsExpanded="true" FillColor="Green" />
+        <EntityTypeShape EntityType="Dominio.Funcionalidad" Width="1.5" PointX="8" PointY="0.5" IsExpanded="true" FillColor="Green" />
+        <EntityTypeShape EntityType="Dominio.FuncionalidadXRol" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" FillColor="192, 64, 0" />
+        <EntityTypeShape EntityType="Dominio.Rol" Width="1.5" PointX="4.25" PointY="0.5" IsExpanded="true" FillColor="Green" />
+        <EntityTypeShape EntityType="Dominio.RolXUsuario" Width="1.5" PointX="2.375" PointY="0.5" IsExpanded="true" FillColor="192, 64, 0" />
+        <EntityTypeShape EntityType="Dominio.Usuario" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" FillColor="0, 192, 0" />
+        <EntityTypeShape EntityType="Dominio.Cliente" Width="1.5" PointX="0.5" PointY="5.875" FillColor="Green" />
+        <InheritanceConnector EntityType="Dominio.Cliente" />
+        <InheritanceConnector EntityType="Dominio.Empresa" />
+        <EntityTypeShape EntityType="Dominio.Rubro" Width="1.5" PointX="6.125" PointY="2.75" FillColor="Green" />
+        <EntityTypeShape EntityType="Dominio.Grado" Width="1.5" PointX="6.125" PointY="4.375" FillColor="Green" />
+        <EntityTypeShape EntityType="Dominio.TarjetaCredito" Width="1.5" PointX="0.5" PointY="9.875" FillColor="Green" />
+        <AssociationConnector Association="Dominio.ClienteTarjetaCredito" />
+        <EntityTypeShape EntityType="Dominio.EmisorTarjeta" Width="1.5" PointX="0.5" PointY="12.875" FillColor="Green" />
+        <AssociationConnector Association="Dominio.TarjetaCreditoEmisorTarjeta" />
+        <EntityTypeShape EntityType="Dominio.Publicacion" Width="1.5" PointX="4.25" PointY="3" FillColor="Green" />
+        <AssociationConnector Association="Dominio.EmpresaPublicacion" />
+        <AssociationConnector Association="Dominio.PublicacionRubro" />
+        <AssociationConnector Association="Dominio.PublicacionGradoPublicacion" />
+        <EntityTypeShape EntityType="Dominio.Compra" Width="1.5" PointX="8" PointY="3" FillColor="Green" />
+        <AssociationConnector Association="Dominio.CompraPublicacion" />
+        <AssociationConnector Association="Dominio.CompraTarjetaCredito" ManuallyRouted="false" >
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model.PuntoCompra" Width="1.5" PointX="4.25" PointY="8.375" FillColor="Green" />
-        <AssociationConnector Association="Model.ClientePuntos" />
-        <AssociationConnector Association="Model.CompraCliente" />
-        <EntityTypeShape EntityType="Model.Premio" Width="1.5" PointX="2.375" PointY="11.5" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.PremioXUsuario" Width="1.5" PointX="2.375" PointY="8.625" FillColor="192, 64, 0" />
-        <AssociationConnector Association="Model.ClientePremioUsuario" />
-        <AssociationConnector Association="Model.PremioXUsuarioPremio" />
-        <EntityTypeShape EntityType="Model.Factura" Width="1.5" PointX="6.125" PointY="8.375" FillColor="Green" />
-        <EntityTypeShape EntityType="Model.ItemFactura" Width="1.5" PointX="6.125" PointY="11.5" FillColor="Green" />
-        <AssociationConnector Association="Model.FacturaItemFactura" />
-        <AssociationConnector Association="Model.CompraItemFactura" ManuallyRouted="false" >
+        <EntityTypeShape EntityType="Dominio.PuntoCompra" Width="1.5" PointX="4.25" PointY="8.375" FillColor="Green" />
+        <AssociationConnector Association="Dominio.ClientePuntos" />
+        <AssociationConnector Association="Dominio.CompraCliente" />
+        <EntityTypeShape EntityType="Dominio.Premio" Width="1.5" PointX="2.375" PointY="11.5" FillColor="Green" />
+        <EntityTypeShape EntityType="Dominio.PremioXUsuario" Width="1.5" PointX="2.375" PointY="8.625" FillColor="192, 64, 0" />
+        <AssociationConnector Association="Dominio.ClientePremioUsuario" />
+        <AssociationConnector Association="Dominio.PremioXUsuarioPremio" />
+        <EntityTypeShape EntityType="Dominio.Factura" Width="1.5" PointX="6.125" PointY="8.375" FillColor="Green" />
+        <EntityTypeShape EntityType="Dominio.ItemFactura" Width="1.5" PointX="6.125" PointY="11.5" FillColor="Green" />
+        <AssociationConnector Association="Dominio.FacturaItemFactura" />
+        <AssociationConnector Association="Dominio.CompraItemFactura" ManuallyRouted="false" >
         </AssociationConnector>
-        <AssociationConnector Association="Model.EmpresaFactura" />
-        <AssociationConnector Association="Model.DomicilioUsuario" />
-        <AssociationConnector Association="Model.UsuarioRolXUsuario" />
-        <AssociationConnector Association="Model.RolXUsuarioRol" />
-        <AssociationConnector Association="Model.PuntoXCompra" ManuallyRouted="false" >
+        <AssociationConnector Association="Dominio.EmpresaFactura" />
+        <AssociationConnector Association="Dominio.DomicilioUsuario" />
+        <AssociationConnector Association="Dominio.UsuarioRolXUsuario" />
+        <AssociationConnector Association="Dominio.RolXUsuarioRol" />
+        <AssociationConnector Association="Dominio.PuntoXCompra" ManuallyRouted="false" >
         </AssociationConnector>
-        <AssociationConnector Association="Model.RolFuncionalidadXRol" />
-        <AssociationConnector Association="Model.FuncionalidadXRolFuncionalidad" />
+        <AssociationConnector Association="Dominio.RolFuncionalidadXRol" />
+        <AssociationConnector Association="Dominio.FuncionalidadXRolFuncionalidad" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

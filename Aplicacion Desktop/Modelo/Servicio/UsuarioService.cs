@@ -1,6 +1,6 @@
 ﻿using Modelo.Base;
 using Modelo.Comun;
-using Modelo.Dominio;
+using Modelo.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -19,26 +19,26 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("Model", "ClienteTarjetaCredito", "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), "TarjetaCredito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.TarjetaCredito), true)]
-[assembly: EdmRelationshipAttribute("Model", "TarjetaCreditoEmisorTarjeta", "TarjetaCredito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.TarjetaCredito), "EmisorTarjeta", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.EmisorTarjeta), true)]
-[assembly: EdmRelationshipAttribute("Model", "EmpresaPublicacion", "Empresa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Empresa), "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Publicacion), true)]
-[assembly: EdmRelationshipAttribute("Model", "PublicacionRubro", "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Publicacion), "Rubro", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rubro), true)]
-[assembly: EdmRelationshipAttribute("Model", "PublicacionGradoPublicacion", "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Publicacion), "GradoPublicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Grado), true)]
-[assembly: EdmRelationshipAttribute("Model", "CompraPublicacion", "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Compra), "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Publicacion), true)]
-[assembly: EdmRelationshipAttribute("Model", "CompraTarjetaCredito", "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Compra), "TarjetaCredito", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.TarjetaCredito), true)]
-[assembly: EdmRelationshipAttribute("Model", "ClientePuntos", "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), "Puntos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.PuntoCompra), true)]
-[assembly: EdmRelationshipAttribute("Model", "CompraCliente", "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Compra), "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), true)]
-[assembly: EdmRelationshipAttribute("Model", "ClientePremioUsuario", "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), "PremioUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.PremioXUsuario), true)]
-[assembly: EdmRelationshipAttribute("Model", "PremioXUsuarioPremio", "PremioXUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.PremioXUsuario), "Premio", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Premio), true)]
-[assembly: EdmRelationshipAttribute("Model", "FacturaItemFactura", "Factura", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Factura), "ItemFactura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.ItemFactura), true)]
-[assembly: EdmRelationshipAttribute("Model", "CompraItemFactura", "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Compra), "ItemFactura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.ItemFactura), true)]
-[assembly: EdmRelationshipAttribute("Model", "EmpresaFactura", "Empresa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Empresa), "Factura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Factura), true)]
-[assembly: EdmRelationshipAttribute("Model", "DomicilioUsuario", "Domicilio", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Domicilio), "Usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Usuario))]
-[assembly: EdmRelationshipAttribute("Model", "UsuarioRolXUsuario", "Usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Usuario), "RolXUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.RolXUsuario), true)]
-[assembly: EdmRelationshipAttribute("Model", "RolXUsuarioRol", "RolXUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.RolXUsuario), "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rol), true)]
-[assembly: EdmRelationshipAttribute("Model", "PuntoXCompra", "PuntoCompra", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.PuntoCompra), "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Compra))]
-[assembly: EdmRelationshipAttribute("Model", "RolFuncionalidadXRol", "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rol), "FuncionalidadXRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.FuncionalidadXRol), true)]
-[assembly: EdmRelationshipAttribute("Model", "FuncionalidadXRolFuncionalidad", "FuncionalidadXRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.FuncionalidadXRol), "Funcionalidad", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Funcionalidad), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "ClienteTarjetaCredito", "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), "TarjetaCredito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.TarjetaCredito), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "TarjetaCreditoEmisorTarjeta", "TarjetaCredito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.TarjetaCredito), "EmisorTarjeta", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.EmisorTarjeta), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "EmpresaPublicacion", "Empresa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Empresa), "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Publicacion), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "PublicacionRubro", "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Publicacion), "Rubro", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rubro), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "PublicacionGradoPublicacion", "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Publicacion), "GradoPublicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Grado), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "CompraPublicacion", "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Compra), "Publicacion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Publicacion), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "CompraTarjetaCredito", "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Compra), "TarjetaCredito", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.TarjetaCredito), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "ClientePuntos", "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), "Puntos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.PuntoCompra), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "CompraCliente", "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Compra), "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "ClientePremioUsuario", "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Cliente), "PremioUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.PremioXUsuario), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "PremioXUsuarioPremio", "PremioXUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.PremioXUsuario), "Premio", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Premio), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "FacturaItemFactura", "Factura", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Factura), "ItemFactura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.ItemFactura), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "CompraItemFactura", "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Compra), "ItemFactura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.ItemFactura), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "EmpresaFactura", "Empresa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Empresa), "Factura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Factura), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "DomicilioUsuario", "Domicilio", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Domicilio), "Usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Usuario))]
+[assembly: EdmRelationshipAttribute("Dominio", "UsuarioRolXUsuario", "Usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Usuario), "RolXUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.RolXUsuario), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "RolXUsuarioRol", "RolXUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.RolXUsuario), "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rol), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "PuntoXCompra", "PuntoCompra", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.PuntoCompra), "Compra", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Compra))]
+[assembly: EdmRelationshipAttribute("Dominio", "RolFuncionalidadXRol", "Rol", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Rol), "FuncionalidadXRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.FuncionalidadXRol), true)]
+[assembly: EdmRelationshipAttribute("Dominio", "FuncionalidadXRolFuncionalidad", "FuncionalidadXRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.FuncionalidadXRol), "Funcionalidad", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Funcionalidad), true)]
 
 #endregion
 
@@ -513,7 +513,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Cliente")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Cliente")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Cliente : Usuario
@@ -783,18 +783,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "ClienteTarjetaCredito", "TarjetaCredito")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "ClienteTarjetaCredito", "TarjetaCredito")]
         public EntityCollection<TarjetaCredito> Tarjetas
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TarjetaCredito>("Model.ClienteTarjetaCredito", "TarjetaCredito");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TarjetaCredito>("Dominio.ClienteTarjetaCredito", "TarjetaCredito");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TarjetaCredito>("Model.ClienteTarjetaCredito", "TarjetaCredito", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TarjetaCredito>("Dominio.ClienteTarjetaCredito", "TarjetaCredito", value);
                 }
             }
         }
@@ -805,18 +805,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "ClientePuntos", "Puntos")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "ClientePuntos", "Puntos")]
         public EntityCollection<PuntoCompra> Puntos
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PuntoCompra>("Model.ClientePuntos", "Puntos");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PuntoCompra>("Dominio.ClientePuntos", "Puntos");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PuntoCompra>("Model.ClientePuntos", "Puntos", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PuntoCompra>("Dominio.ClientePuntos", "Puntos", value);
                 }
             }
         }
@@ -827,18 +827,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "CompraCliente", "Compra")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "CompraCliente", "Compra")]
         public EntityCollection<Compra> Compras
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Compra>("Model.CompraCliente", "Compra");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Compra>("Dominio.CompraCliente", "Compra");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Compra>("Model.CompraCliente", "Compra", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Compra>("Dominio.CompraCliente", "Compra", value);
                 }
             }
         }
@@ -849,18 +849,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "ClientePremioUsuario", "PremioUsuario")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "ClientePremioUsuario", "PremioUsuario")]
         public EntityCollection<PremioXUsuario> PremioUsuarios
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PremioXUsuario>("Model.ClientePremioUsuario", "PremioUsuario");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PremioXUsuario>("Dominio.ClientePremioUsuario", "PremioUsuario");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PremioXUsuario>("Model.ClientePremioUsuario", "PremioUsuario", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PremioXUsuario>("Dominio.ClientePremioUsuario", "PremioUsuario", value);
                 }
             }
         }
@@ -872,7 +872,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Compra")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Compra")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Compra : EntityObject
@@ -1035,16 +1035,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "CompraPublicacion", "Publicacion")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "CompraPublicacion", "Publicacion")]
         public Publicacion Publicacion
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Publicacion>("Model.CompraPublicacion", "Publicacion").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Publicacion>("Dominio.CompraPublicacion", "Publicacion").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Publicacion>("Model.CompraPublicacion", "Publicacion").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Publicacion>("Dominio.CompraPublicacion", "Publicacion").Value = value;
             }
         }
         /// <summary>
@@ -1056,13 +1056,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Publicacion>("Model.CompraPublicacion", "Publicacion");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Publicacion>("Dominio.CompraPublicacion", "Publicacion");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Publicacion>("Model.CompraPublicacion", "Publicacion", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Publicacion>("Dominio.CompraPublicacion", "Publicacion", value);
                 }
             }
         }
@@ -1073,16 +1073,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "CompraTarjetaCredito", "TarjetaCredito")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "CompraTarjetaCredito", "TarjetaCredito")]
         public TarjetaCredito TarjetaCredito
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TarjetaCredito>("Model.CompraTarjetaCredito", "TarjetaCredito").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TarjetaCredito>("Dominio.CompraTarjetaCredito", "TarjetaCredito").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TarjetaCredito>("Model.CompraTarjetaCredito", "TarjetaCredito").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TarjetaCredito>("Dominio.CompraTarjetaCredito", "TarjetaCredito").Value = value;
             }
         }
         /// <summary>
@@ -1094,13 +1094,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TarjetaCredito>("Model.CompraTarjetaCredito", "TarjetaCredito");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TarjetaCredito>("Dominio.CompraTarjetaCredito", "TarjetaCredito");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TarjetaCredito>("Model.CompraTarjetaCredito", "TarjetaCredito", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TarjetaCredito>("Dominio.CompraTarjetaCredito", "TarjetaCredito", value);
                 }
             }
         }
@@ -1111,16 +1111,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "CompraCliente", "Cliente")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "CompraCliente", "Cliente")]
         public Cliente Cliente
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.CompraCliente", "Cliente").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.CompraCliente", "Cliente").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.CompraCliente", "Cliente").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.CompraCliente", "Cliente").Value = value;
             }
         }
         /// <summary>
@@ -1132,13 +1132,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.CompraCliente", "Cliente");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.CompraCliente", "Cliente");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cliente>("Model.CompraCliente", "Cliente", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cliente>("Dominio.CompraCliente", "Cliente", value);
                 }
             }
         }
@@ -1149,16 +1149,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "PuntoXCompra", "PuntoCompra")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "PuntoXCompra", "PuntoCompra")]
         public PuntoCompra PuntoCompra
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PuntoCompra>("Model.PuntoXCompra", "PuntoCompra").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PuntoCompra>("Dominio.PuntoXCompra", "PuntoCompra").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PuntoCompra>("Model.PuntoXCompra", "PuntoCompra").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PuntoCompra>("Dominio.PuntoXCompra", "PuntoCompra").Value = value;
             }
         }
         /// <summary>
@@ -1170,13 +1170,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PuntoCompra>("Model.PuntoXCompra", "PuntoCompra");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PuntoCompra>("Dominio.PuntoXCompra", "PuntoCompra");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PuntoCompra>("Model.PuntoXCompra", "PuntoCompra", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PuntoCompra>("Dominio.PuntoXCompra", "PuntoCompra", value);
                 }
             }
         }
@@ -1188,7 +1188,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Domicilio")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Domicilio")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Domicilio : EntityObject
@@ -1417,16 +1417,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "DomicilioUsuario", "Usuario")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "DomicilioUsuario", "Usuario")]
         public Usuario Usuario
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Model.DomicilioUsuario", "Usuario").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Dominio.DomicilioUsuario", "Usuario").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Model.DomicilioUsuario", "Usuario").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Dominio.DomicilioUsuario", "Usuario").Value = value;
             }
         }
         /// <summary>
@@ -1438,13 +1438,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Model.DomicilioUsuario", "Usuario");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Dominio.DomicilioUsuario", "Usuario");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Usuario>("Model.DomicilioUsuario", "Usuario", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Usuario>("Dominio.DomicilioUsuario", "Usuario", value);
                 }
             }
         }
@@ -1456,7 +1456,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="EmisorTarjeta")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="EmisorTarjeta")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class EmisorTarjeta : EntityObject
@@ -1538,7 +1538,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Empresa")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Empresa")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Empresa : Usuario
@@ -1672,18 +1672,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "EmpresaPublicacion", "Publicacion")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "EmpresaPublicacion", "Publicacion")]
         public EntityCollection<Publicacion> Publicaciones
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Publicacion>("Model.EmpresaPublicacion", "Publicacion");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Publicacion>("Dominio.EmpresaPublicacion", "Publicacion");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Publicacion>("Model.EmpresaPublicacion", "Publicacion", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Publicacion>("Dominio.EmpresaPublicacion", "Publicacion", value);
                 }
             }
         }
@@ -1695,7 +1695,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Factura")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Factura")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Factura : EntityObject
@@ -1858,18 +1858,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FacturaItemFactura", "ItemFactura")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "FacturaItemFactura", "ItemFactura")]
         public EntityCollection<ItemFactura> ItemFacturas
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ItemFactura>("Model.FacturaItemFactura", "ItemFactura");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ItemFactura>("Dominio.FacturaItemFactura", "ItemFactura");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ItemFactura>("Model.FacturaItemFactura", "ItemFactura", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ItemFactura>("Dominio.FacturaItemFactura", "ItemFactura", value);
                 }
             }
         }
@@ -1880,16 +1880,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "EmpresaFactura", "Empresa")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "EmpresaFactura", "Empresa")]
         public Empresa Empresa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Model.EmpresaFactura", "Empresa").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Dominio.EmpresaFactura", "Empresa").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Model.EmpresaFactura", "Empresa").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Dominio.EmpresaFactura", "Empresa").Value = value;
             }
         }
         /// <summary>
@@ -1901,13 +1901,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Model.EmpresaFactura", "Empresa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Dominio.EmpresaFactura", "Empresa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresa>("Model.EmpresaFactura", "Empresa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresa>("Dominio.EmpresaFactura", "Empresa", value);
                 }
             }
         }
@@ -1919,7 +1919,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Funcionalidad")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Funcionalidad")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Funcionalidad : EntityObject
@@ -2004,18 +2004,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionalidadXRolFuncionalidad", "FuncionalidadXRol")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "FuncionalidadXRolFuncionalidad", "FuncionalidadXRol")]
         public EntityCollection<FuncionalidadXRol> FuncionalidadXRoles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FuncionalidadXRol>("Model.FuncionalidadXRolFuncionalidad", "FuncionalidadXRol");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FuncionalidadXRol>("Dominio.FuncionalidadXRolFuncionalidad", "FuncionalidadXRol");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FuncionalidadXRol>("Model.FuncionalidadXRolFuncionalidad", "FuncionalidadXRol", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FuncionalidadXRol>("Dominio.FuncionalidadXRolFuncionalidad", "FuncionalidadXRol", value);
                 }
             }
         }
@@ -2027,7 +2027,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="FuncionalidadXRol")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="FuncionalidadXRol")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class FuncionalidadXRol : EntityObject
@@ -2138,16 +2138,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "RolFuncionalidadXRol", "Rol")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "RolFuncionalidadXRol", "Rol")]
         public Rol Rol
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolFuncionalidadXRol", "Rol").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Dominio.RolFuncionalidadXRol", "Rol").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolFuncionalidadXRol", "Rol").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Dominio.RolFuncionalidadXRol", "Rol").Value = value;
             }
         }
         /// <summary>
@@ -2159,13 +2159,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolFuncionalidadXRol", "Rol");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Dominio.RolFuncionalidadXRol", "Rol");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rol>("Model.RolFuncionalidadXRol", "Rol", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rol>("Dominio.RolFuncionalidadXRol", "Rol", value);
                 }
             }
         }
@@ -2176,16 +2176,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionalidadXRolFuncionalidad", "Funcionalidad")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "FuncionalidadXRolFuncionalidad", "Funcionalidad")]
         public Funcionalidad Funcionalidad
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FuncionalidadXRolFuncionalidad", "Funcionalidad").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Dominio.FuncionalidadXRolFuncionalidad", "Funcionalidad").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FuncionalidadXRolFuncionalidad", "Funcionalidad").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Dominio.FuncionalidadXRolFuncionalidad", "Funcionalidad").Value = value;
             }
         }
         /// <summary>
@@ -2197,13 +2197,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Model.FuncionalidadXRolFuncionalidad", "Funcionalidad");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionalidad>("Dominio.FuncionalidadXRolFuncionalidad", "Funcionalidad");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Funcionalidad>("Model.FuncionalidadXRolFuncionalidad", "Funcionalidad", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Funcionalidad>("Dominio.FuncionalidadXRolFuncionalidad", "Funcionalidad", value);
                 }
             }
         }
@@ -2215,7 +2215,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Grado")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Grado")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Grado : EntityObject
@@ -2321,7 +2321,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="ItemFactura")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="ItemFactura")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ItemFactura : EntityObject
@@ -2432,16 +2432,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FacturaItemFactura", "Factura")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "FacturaItemFactura", "Factura")]
         public Factura Factura
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Factura>("Model.FacturaItemFactura", "Factura").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Factura>("Dominio.FacturaItemFactura", "Factura").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Factura>("Model.FacturaItemFactura", "Factura").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Factura>("Dominio.FacturaItemFactura", "Factura").Value = value;
             }
         }
         /// <summary>
@@ -2453,13 +2453,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Factura>("Model.FacturaItemFactura", "Factura");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Factura>("Dominio.FacturaItemFactura", "Factura");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Factura>("Model.FacturaItemFactura", "Factura", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Factura>("Dominio.FacturaItemFactura", "Factura", value);
                 }
             }
         }
@@ -2470,16 +2470,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "CompraItemFactura", "Compra")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "CompraItemFactura", "Compra")]
         public Compra Compra
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Model.CompraItemFactura", "Compra").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Dominio.CompraItemFactura", "Compra").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Model.CompraItemFactura", "Compra").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Dominio.CompraItemFactura", "Compra").Value = value;
             }
         }
         /// <summary>
@@ -2491,13 +2491,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Model.CompraItemFactura", "Compra");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Dominio.CompraItemFactura", "Compra");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Compra>("Model.CompraItemFactura", "Compra", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Compra>("Dominio.CompraItemFactura", "Compra", value);
                 }
             }
         }
@@ -2509,7 +2509,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Premio")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Premio")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Premio : EntityObject
@@ -2620,18 +2620,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "PremioXUsuarioPremio", "PremioXUsuario")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "PremioXUsuarioPremio", "PremioXUsuario")]
         public EntityCollection<PremioXUsuario> PremioXUsuarios
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PremioXUsuario>("Model.PremioXUsuarioPremio", "PremioXUsuario");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PremioXUsuario>("Dominio.PremioXUsuarioPremio", "PremioXUsuario");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PremioXUsuario>("Model.PremioXUsuarioPremio", "PremioXUsuario", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PremioXUsuario>("Dominio.PremioXUsuarioPremio", "PremioXUsuario", value);
                 }
             }
         }
@@ -2643,7 +2643,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="PremioXUsuario")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="PremioXUsuario")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PremioXUsuario : EntityObject
@@ -2754,16 +2754,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "ClientePremioUsuario", "Cliente")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "ClientePremioUsuario", "Cliente")]
         public Cliente Cliente
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClientePremioUsuario", "Cliente").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClientePremioUsuario", "Cliente").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClientePremioUsuario", "Cliente").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClientePremioUsuario", "Cliente").Value = value;
             }
         }
         /// <summary>
@@ -2775,13 +2775,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClientePremioUsuario", "Cliente");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClientePremioUsuario", "Cliente");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cliente>("Model.ClientePremioUsuario", "Cliente", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cliente>("Dominio.ClientePremioUsuario", "Cliente", value);
                 }
             }
         }
@@ -2792,16 +2792,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "PremioXUsuarioPremio", "Premio")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "PremioXUsuarioPremio", "Premio")]
         public Premio Premio
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Premio>("Model.PremioXUsuarioPremio", "Premio").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Premio>("Dominio.PremioXUsuarioPremio", "Premio").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Premio>("Model.PremioXUsuarioPremio", "Premio").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Premio>("Dominio.PremioXUsuarioPremio", "Premio").Value = value;
             }
         }
         /// <summary>
@@ -2813,13 +2813,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Premio>("Model.PremioXUsuarioPremio", "Premio");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Premio>("Dominio.PremioXUsuarioPremio", "Premio");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Premio>("Model.PremioXUsuarioPremio", "Premio", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Premio>("Dominio.PremioXUsuarioPremio", "Premio", value);
                 }
             }
         }
@@ -2831,7 +2831,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Publicacion")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Publicacion")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Publicacion : EntityObject
@@ -3118,16 +3118,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "EmpresaPublicacion", "Empresa")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "EmpresaPublicacion", "Empresa")]
         public Empresa Empresa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Model.EmpresaPublicacion", "Empresa").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Dominio.EmpresaPublicacion", "Empresa").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Model.EmpresaPublicacion", "Empresa").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Dominio.EmpresaPublicacion", "Empresa").Value = value;
             }
         }
         /// <summary>
@@ -3139,13 +3139,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Model.EmpresaPublicacion", "Empresa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("Dominio.EmpresaPublicacion", "Empresa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresa>("Model.EmpresaPublicacion", "Empresa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresa>("Dominio.EmpresaPublicacion", "Empresa", value);
                 }
             }
         }
@@ -3156,16 +3156,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "PublicacionRubro", "Rubro")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "PublicacionRubro", "Rubro")]
         public Rubro Rubro
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rubro>("Model.PublicacionRubro", "Rubro").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rubro>("Dominio.PublicacionRubro", "Rubro").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rubro>("Model.PublicacionRubro", "Rubro").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rubro>("Dominio.PublicacionRubro", "Rubro").Value = value;
             }
         }
         /// <summary>
@@ -3177,13 +3177,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rubro>("Model.PublicacionRubro", "Rubro");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rubro>("Dominio.PublicacionRubro", "Rubro");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rubro>("Model.PublicacionRubro", "Rubro", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rubro>("Dominio.PublicacionRubro", "Rubro", value);
                 }
             }
         }
@@ -3194,16 +3194,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "PublicacionGradoPublicacion", "GradoPublicacion")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "PublicacionGradoPublicacion", "GradoPublicacion")]
         public Grado GradoPublicacion
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grado>("Model.PublicacionGradoPublicacion", "GradoPublicacion").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grado>("Dominio.PublicacionGradoPublicacion", "GradoPublicacion").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grado>("Model.PublicacionGradoPublicacion", "GradoPublicacion").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grado>("Dominio.PublicacionGradoPublicacion", "GradoPublicacion").Value = value;
             }
         }
         /// <summary>
@@ -3215,13 +3215,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grado>("Model.PublicacionGradoPublicacion", "GradoPublicacion");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Grado>("Dominio.PublicacionGradoPublicacion", "GradoPublicacion");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Grado>("Model.PublicacionGradoPublicacion", "GradoPublicacion", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Grado>("Dominio.PublicacionGradoPublicacion", "GradoPublicacion", value);
                 }
             }
         }
@@ -3232,18 +3232,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "CompraPublicacion", "Compra")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "CompraPublicacion", "Compra")]
         public EntityCollection<Compra> Compras
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Compra>("Model.CompraPublicacion", "Compra");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Compra>("Dominio.CompraPublicacion", "Compra");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Compra>("Model.CompraPublicacion", "Compra", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Compra>("Dominio.CompraPublicacion", "Compra", value);
                 }
             }
         }
@@ -3255,7 +3255,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="PuntoCompra")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="PuntoCompra")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PuntoCompra : EntityObject
@@ -3414,16 +3414,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "ClientePuntos", "Cliente")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "ClientePuntos", "Cliente")]
         public Cliente Cliente
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClientePuntos", "Cliente").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClientePuntos", "Cliente").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClientePuntos", "Cliente").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClientePuntos", "Cliente").Value = value;
             }
         }
         /// <summary>
@@ -3435,13 +3435,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClientePuntos", "Cliente");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClientePuntos", "Cliente");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cliente>("Model.ClientePuntos", "Cliente", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cliente>("Dominio.ClientePuntos", "Cliente", value);
                 }
             }
         }
@@ -3452,16 +3452,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "PuntoXCompra", "Compra")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "PuntoXCompra", "Compra")]
         public Compra Compra
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Model.PuntoXCompra", "Compra").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Dominio.PuntoXCompra", "Compra").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Model.PuntoXCompra", "Compra").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Dominio.PuntoXCompra", "Compra").Value = value;
             }
         }
         /// <summary>
@@ -3473,13 +3473,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Model.PuntoXCompra", "Compra");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Compra>("Dominio.PuntoXCompra", "Compra");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Compra>("Model.PuntoXCompra", "Compra", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Compra>("Dominio.PuntoXCompra", "Compra", value);
                 }
             }
         }
@@ -3491,7 +3491,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Rol")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Rol")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Rol : EntityObject
@@ -3624,18 +3624,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "RolXUsuarioRol", "RolXUsuario")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "RolXUsuarioRol", "RolXUsuario")]
         public EntityCollection<RolXUsuario> RolXUsuarios
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RolXUsuario>("Model.RolXUsuarioRol", "RolXUsuario");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RolXUsuario>("Dominio.RolXUsuarioRol", "RolXUsuario");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RolXUsuario>("Model.RolXUsuarioRol", "RolXUsuario", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RolXUsuario>("Dominio.RolXUsuarioRol", "RolXUsuario", value);
                 }
             }
         }
@@ -3646,18 +3646,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "RolFuncionalidadXRol", "FuncionalidadXRol")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "RolFuncionalidadXRol", "FuncionalidadXRol")]
         public EntityCollection<FuncionalidadXRol> FuncionalidadXRoles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FuncionalidadXRol>("Model.RolFuncionalidadXRol", "FuncionalidadXRol");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FuncionalidadXRol>("Dominio.RolFuncionalidadXRol", "FuncionalidadXRol");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FuncionalidadXRol>("Model.RolFuncionalidadXRol", "FuncionalidadXRol", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FuncionalidadXRol>("Dominio.RolFuncionalidadXRol", "FuncionalidadXRol", value);
                 }
             }
         }
@@ -3669,7 +3669,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="RolXUsuario")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="RolXUsuario")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class RolXUsuario : EntityObject
@@ -3780,16 +3780,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "UsuarioRolXUsuario", "Usuario")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "UsuarioRolXUsuario", "Usuario")]
         public Usuario Usuario
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Model.UsuarioRolXUsuario", "Usuario").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Dominio.UsuarioRolXUsuario", "Usuario").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Model.UsuarioRolXUsuario", "Usuario").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Dominio.UsuarioRolXUsuario", "Usuario").Value = value;
             }
         }
         /// <summary>
@@ -3801,13 +3801,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Model.UsuarioRolXUsuario", "Usuario");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuario>("Dominio.UsuarioRolXUsuario", "Usuario");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Usuario>("Model.UsuarioRolXUsuario", "Usuario", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Usuario>("Dominio.UsuarioRolXUsuario", "Usuario", value);
                 }
             }
         }
@@ -3818,16 +3818,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "RolXUsuarioRol", "Rol")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "RolXUsuarioRol", "Rol")]
         public Rol Rol
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolXUsuarioRol", "Rol").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Dominio.RolXUsuarioRol", "Rol").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolXUsuarioRol", "Rol").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Dominio.RolXUsuarioRol", "Rol").Value = value;
             }
         }
         /// <summary>
@@ -3839,13 +3839,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Model.RolXUsuarioRol", "Rol");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Rol>("Dominio.RolXUsuarioRol", "Rol");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rol>("Model.RolXUsuarioRol", "Rol", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rol>("Dominio.RolXUsuarioRol", "Rol", value);
                 }
             }
         }
@@ -3857,7 +3857,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Rubro")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Rubro")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Rubro : EntityObject
@@ -3939,7 +3939,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="TarjetaCredito")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="TarjetaCredito")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TarjetaCredito : EntityObject
@@ -4128,16 +4128,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "ClienteTarjetaCredito", "Cliente")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "ClienteTarjetaCredito", "Cliente")]
         public Cliente Cliente
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClienteTarjetaCredito", "Cliente").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClienteTarjetaCredito", "Cliente").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClienteTarjetaCredito", "Cliente").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClienteTarjetaCredito", "Cliente").Value = value;
             }
         }
         /// <summary>
@@ -4149,13 +4149,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Model.ClienteTarjetaCredito", "Cliente");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cliente>("Dominio.ClienteTarjetaCredito", "Cliente");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cliente>("Model.ClienteTarjetaCredito", "Cliente", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cliente>("Dominio.ClienteTarjetaCredito", "Cliente", value);
                 }
             }
         }
@@ -4166,16 +4166,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "TarjetaCreditoEmisorTarjeta", "EmisorTarjeta")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "TarjetaCreditoEmisorTarjeta", "EmisorTarjeta")]
         public EmisorTarjeta EmisorTarjeta
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmisorTarjeta>("Model.TarjetaCreditoEmisorTarjeta", "EmisorTarjeta").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmisorTarjeta>("Dominio.TarjetaCreditoEmisorTarjeta", "EmisorTarjeta").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmisorTarjeta>("Model.TarjetaCreditoEmisorTarjeta", "EmisorTarjeta").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmisorTarjeta>("Dominio.TarjetaCreditoEmisorTarjeta", "EmisorTarjeta").Value = value;
             }
         }
         /// <summary>
@@ -4187,13 +4187,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmisorTarjeta>("Model.TarjetaCreditoEmisorTarjeta", "EmisorTarjeta");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmisorTarjeta>("Dominio.TarjetaCreditoEmisorTarjeta", "EmisorTarjeta");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EmisorTarjeta>("Model.TarjetaCreditoEmisorTarjeta", "EmisorTarjeta", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EmisorTarjeta>("Dominio.TarjetaCreditoEmisorTarjeta", "EmisorTarjeta", value);
                 }
             }
         }
@@ -4205,7 +4205,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Usuario")]
+    [EdmEntityTypeAttribute(NamespaceName="Dominio", Name="Usuario")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     [KnownTypeAttribute(typeof(Cliente))]
@@ -4395,16 +4395,16 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "DomicilioUsuario", "Domicilio")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "DomicilioUsuario", "Domicilio")]
         public Domicilio Domicilio
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Domicilio>("Model.DomicilioUsuario", "Domicilio").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Domicilio>("Dominio.DomicilioUsuario", "Domicilio").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Domicilio>("Model.DomicilioUsuario", "Domicilio").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Domicilio>("Dominio.DomicilioUsuario", "Domicilio").Value = value;
             }
         }
         /// <summary>
@@ -4416,13 +4416,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Domicilio>("Model.DomicilioUsuario", "Domicilio");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Domicilio>("Dominio.DomicilioUsuario", "Domicilio");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Domicilio>("Model.DomicilioUsuario", "Domicilio", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Domicilio>("Dominio.DomicilioUsuario", "Domicilio", value);
                 }
             }
         }
@@ -4433,18 +4433,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "UsuarioRolXUsuario", "RolXUsuario")]
+        [EdmRelationshipNavigationPropertyAttribute("Dominio", "UsuarioRolXUsuario", "RolXUsuario")]
         public EntityCollection<RolXUsuario> RolXUsuarios
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RolXUsuario>("Model.UsuarioRolXUsuario", "RolXUsuario");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RolXUsuario>("Dominio.UsuarioRolXUsuario", "RolXUsuario");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RolXUsuario>("Model.UsuarioRolXUsuario", "RolXUsuario", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RolXUsuario>("Dominio.UsuarioRolXUsuario", "RolXUsuario", value);
                 }
             }
         }
@@ -4460,7 +4460,7 @@ namespace Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEnumTypeAttribute(NamespaceName="Model", Name="EstadoPublicacion")]
+    [EdmEnumTypeAttribute(NamespaceName="Dominio", Name="EstadoPublicacion")]
     [DataContractAttribute()]
     [FlagsAttribute()]
     public enum EstadoPublicacion : int
