@@ -6,25 +6,25 @@
     <edmx:StorageModels>
     <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ModelStoreContainer">
-    <EntitySet Name="Funcionalidades" EntityType="Model.Store.Funcionalidades" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="FuncionalidadXRoles" EntityType="Model.Store.FuncionalidadXRoles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Roles" EntityType="Model.Store.Roles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RolXUsuarios" EntityType="Model.Store.RolXUsuarios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Usuarios" EntityType="Model.Store.Usuarios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Domicilios" EntityType="Model.Store.Domicilios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Rubros" EntityType="Model.Store.Rubros" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="GradoPublicaciones" EntityType="Model.Store.GradoPublicaciones" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TarjetaCreditos" EntityType="Model.Store.TarjetaCreditos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EmisorTarjetas" EntityType="Model.Store.EmisorTarjetas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Publicaciones" EntityType="Model.Store.Publicaciones" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Compras" EntityType="Model.Store.Compras" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PuntoCompras" EntityType="Model.Store.PuntoCompras" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Premios" EntityType="Model.Store.Premios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PremioXUsuarios" EntityType="Model.Store.PremioXUsuarios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Facturas" EntityType="Model.Store.Facturas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ItemFacturas" EntityType="Model.Store.ItemFacturas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Usuarios_Cliente" EntityType="Model.Store.Usuarios_Cliente" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Usuarios_Empresa" EntityType="Model.Store.Usuarios_Empresa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Funcionalidades" EntityType="Model.Store.Funcionalidades" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="FuncionalidadXRoles" EntityType="Model.Store.FuncionalidadXRoles" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Roles" EntityType="Model.Store.Roles" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="RolXUsuarios" EntityType="Model.Store.RolXUsuarios" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Usuarios" EntityType="Model.Store.Usuarios" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Domicilios" EntityType="Model.Store.Domicilios" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Rubros" EntityType="Model.Store.Rubros" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="GradoPublicaciones" EntityType="Model.Store.GradoPublicaciones" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="TarjetaCreditos" EntityType="Model.Store.TarjetaCreditos" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="EmisorTarjetas" EntityType="Model.Store.EmisorTarjetas" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Publicaciones" EntityType="Model.Store.Publicaciones" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Compras" EntityType="Model.Store.Compras" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="PuntoCompras" EntityType="Model.Store.PuntoCompras" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Premios" EntityType="Model.Store.Premios" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="PremioXUsuarios" EntityType="Model.Store.PremioXUsuarios" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Facturas" EntityType="Model.Store.Facturas" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="ItemFacturas" EntityType="Model.Store.ItemFacturas" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Usuarios_Cliente" EntityType="Model.Store.Usuarios_Cliente" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Usuarios_Empresa" EntityType="Model.Store.Usuarios_Empresa" store:Type="Tables" Schema="DROPEADORES" />
     <AssociationSet Name="ClienteTarjetaCredito" Association="Model.Store.ClienteTarjetaCredito">
       <End Role="Cliente" EntitySet="Usuarios_Cliente" />
       <End Role="TarjetaCredito" EntitySet="TarjetaCreditos" />
@@ -248,7 +248,6 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="250" />
     <Property Name="puntos" Type="int" Nullable="false" />
-    <Property Name="clienteId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PremioXUsuarios">
     <Key>
@@ -961,7 +960,6 @@
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="puntos" Nullable="false" />
-          <Property Type="Int32" Name="clienteId" Nullable="false" />
           <NavigationProperty Name="PremioXUsuarios" Relationship="Model.PremioXUsuarioPremio" FromRole="Premio" ToRole="PremioXUsuario" />
         </EntityType>
         <EntityType Name="PremioXUsuario">
@@ -1285,7 +1283,6 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="puntos" ColumnName="puntos" />
-          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1350,6 +1347,7 @@
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="DROPEADORES" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

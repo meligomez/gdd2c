@@ -2522,14 +2522,12 @@ namespace Modelo
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="descripcion">Initial value of the descripcion property.</param>
         /// <param name="puntos">Initial value of the puntos property.</param>
-        /// <param name="clienteId">Initial value of the clienteId property.</param>
-        public static Premio CreatePremio(global::System.Int32 id, global::System.String descripcion, global::System.Int32 puntos, global::System.Int32 clienteId)
+        public static Premio CreatePremio(global::System.Int32 id, global::System.String descripcion, global::System.Int32 puntos)
         {
             Premio premio = new Premio();
             premio.id = id;
             premio.descripcion = descripcion;
             premio.puntos = puntos;
-            premio.clienteId = clienteId;
             return premio;
         }
 
@@ -2611,30 +2609,6 @@ namespace Modelo
         private global::System.Int32 _puntos;
         partial void OnpuntosChanging(global::System.Int32 value);
         partial void OnpuntosChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 clienteId
-        {
-            get
-            {
-                return _clienteId;
-            }
-            set
-            {
-                OnclienteIdChanging(value);
-                ReportPropertyChanging("clienteId");
-                _clienteId = StructuralObject.SetValidValue(value, "clienteId");
-                ReportPropertyChanged("clienteId");
-                OnclienteIdChanged();
-            }
-        }
-        private global::System.Int32 _clienteId;
-        partial void OnclienteIdChanging(global::System.Int32 value);
-        partial void OnclienteIdChanged();
 
         #endregion
 

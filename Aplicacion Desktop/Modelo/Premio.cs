@@ -22,7 +22,6 @@ namespace Modelo
         public int id { get; set; }
         public string descripcion { get; set; }
         public int puntos { get; set; }
-        public int clienteId { get; set; }
     
         public virtual ICollection<PremioXUsuario> PremioXUsuarios { get; set; }
     }
