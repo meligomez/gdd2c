@@ -6,122 +6,122 @@
     <edmx:StorageModels>
     <Schema Namespace="Dominio.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="DominioStoreContainer">
-    <EntitySet Name="Funcionalidades" EntityType="Dominio.Store.Funcionalidades" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="FuncionalidadXRoles" EntityType="Dominio.Store.FuncionalidadXRoles" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Roles" EntityType="Dominio.Store.Roles" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="RolXUsuarios" EntityType="Dominio.Store.RolXUsuarios" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Usuarios" EntityType="Dominio.Store.Usuarios" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Domicilios" EntityType="Dominio.Store.Domicilios" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Rubros" EntityType="Dominio.Store.Rubros" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="GradoPublicaciones" EntityType="Dominio.Store.GradoPublicaciones" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="TarjetaCreditos" EntityType="Dominio.Store.TarjetaCreditos" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="EmisorTarjetas" EntityType="Dominio.Store.EmisorTarjetas" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Publicaciones" EntityType="Dominio.Store.Publicaciones" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Compras" EntityType="Dominio.Store.Compras" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="PuntoCompras" EntityType="Dominio.Store.PuntoCompras" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Premios" EntityType="Dominio.Store.Premios" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="PremioXUsuarios" EntityType="Dominio.Store.PremioXUsuarios" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Facturas" EntityType="Dominio.Store.Facturas" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="ItemFacturas" EntityType="Dominio.Store.ItemFacturas" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Usuarios_Cliente" EntityType="Dominio.Store.Usuarios_Cliente" store:Type="Tables" Schema="DROPEADORES" />
-    <EntitySet Name="Usuarios_Empresa" EntityType="Dominio.Store.Usuarios_Empresa" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Funcionalidad" EntityType="Dominio.Store.Funcionalidad" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="FuncionalidadXRol" EntityType="Dominio.Store.FuncionalidadXRol" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Rol" EntityType="Dominio.Store.Rol" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="RolXUsuario" EntityType="Dominio.Store.RolXUsuario" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Usuario" EntityType="Dominio.Store.Usuario" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Domicilio" EntityType="Dominio.Store.Domicilio" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Rubro" EntityType="Dominio.Store.Rubro" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Grado" EntityType="Dominio.Store.Grado" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="TarjetaCredito" EntityType="Dominio.Store.TarjetaCredito" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="EmisorTarjeta" EntityType="Dominio.Store.EmisorTarjeta" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Publicacion" EntityType="Dominio.Store.Publicacion" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Compra" EntityType="Dominio.Store.Compra" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="PuntoCompra" EntityType="Dominio.Store.PuntoCompra" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Premio" EntityType="Dominio.Store.Premio" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="PremioXUsuario" EntityType="Dominio.Store.PremioXUsuario" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Factura" EntityType="Dominio.Store.Factura" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="ItemFactura" EntityType="Dominio.Store.ItemFactura" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Usuario_Cliente" EntityType="Dominio.Store.Usuario_Cliente" store:Type="Tables" Schema="DROPEADORES" />
+    <EntitySet Name="Usuario_Empresa" EntityType="Dominio.Store.Usuario_Empresa" store:Type="Tables" Schema="DROPEADORES" />
     <AssociationSet Name="ClienteTarjetaCredito" Association="Dominio.Store.ClienteTarjetaCredito">
-      <End Role="Cliente" EntitySet="Usuarios_Cliente" />
-      <End Role="TarjetaCredito" EntitySet="TarjetaCreditos" />
+      <End Role="Cliente" EntitySet="Usuario_Cliente" />
+      <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
     </AssociationSet>
     <AssociationSet Name="TarjetaCreditoEmisorTarjeta" Association="Dominio.Store.TarjetaCreditoEmisorTarjeta">
-      <End Role="TarjetaCredito" EntitySet="TarjetaCreditos" />
-      <End Role="EmisorTarjeta" EntitySet="EmisorTarjetas" />
+      <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+      <End Role="EmisorTarjeta" EntitySet="EmisorTarjeta" />
     </AssociationSet>
     <AssociationSet Name="EmpresaPublicacion" Association="Dominio.Store.EmpresaPublicacion">
-      <End Role="Empresa" EntitySet="Usuarios_Empresa" />
-      <End Role="Publicacion" EntitySet="Publicaciones" />
+      <End Role="Empresa" EntitySet="Usuario_Empresa" />
+      <End Role="Publicacion" EntitySet="Publicacion" />
     </AssociationSet>
     <AssociationSet Name="PublicacionRubro" Association="Dominio.Store.PublicacionRubro">
-      <End Role="Publicacion" EntitySet="Publicaciones" />
-      <End Role="Rubro" EntitySet="Rubros" />
+      <End Role="Publicacion" EntitySet="Publicacion" />
+      <End Role="Rubro" EntitySet="Rubro" />
     </AssociationSet>
     <AssociationSet Name="PublicacionGradoPublicacion" Association="Dominio.Store.PublicacionGradoPublicacion">
-      <End Role="Publicacion" EntitySet="Publicaciones" />
-      <End Role="GradoPublicacion" EntitySet="GradoPublicaciones" />
+      <End Role="Publicacion" EntitySet="Publicacion" />
+      <End Role="GradoPublicacion" EntitySet="Grado" />
     </AssociationSet>
     <AssociationSet Name="CompraPublicacion" Association="Dominio.Store.CompraPublicacion">
-      <End Role="Compra" EntitySet="Compras" />
-      <End Role="Publicacion" EntitySet="Publicaciones" />
+      <End Role="Compra" EntitySet="Compra" />
+      <End Role="Publicacion" EntitySet="Publicacion" />
     </AssociationSet>
     <AssociationSet Name="CompraTarjetaCredito" Association="Dominio.Store.CompraTarjetaCredito">
-      <End Role="Compra" EntitySet="Compras" />
-      <End Role="TarjetaCredito" EntitySet="TarjetaCreditos" />
+      <End Role="Compra" EntitySet="Compra" />
+      <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
     </AssociationSet>
     <AssociationSet Name="ClientePuntos" Association="Dominio.Store.ClientePuntos">
-      <End Role="Cliente" EntitySet="Usuarios_Cliente" />
-      <End Role="Puntos" EntitySet="PuntoCompras" />
+      <End Role="Cliente" EntitySet="Usuario_Cliente" />
+      <End Role="Puntos" EntitySet="PuntoCompra" />
     </AssociationSet>
     <AssociationSet Name="CompraCliente" Association="Dominio.Store.CompraCliente">
-      <End Role="Compra" EntitySet="Compras" />
-      <End Role="Cliente" EntitySet="Usuarios_Cliente" />
+      <End Role="Compra" EntitySet="Compra" />
+      <End Role="Cliente" EntitySet="Usuario_Cliente" />
     </AssociationSet>
     <AssociationSet Name="ClientePremioUsuario" Association="Dominio.Store.ClientePremioUsuario">
-      <End Role="Cliente" EntitySet="Usuarios_Cliente" />
-      <End Role="PremioUsuario" EntitySet="PremioXUsuarios" />
+      <End Role="Cliente" EntitySet="Usuario_Cliente" />
+      <End Role="PremioUsuario" EntitySet="PremioXUsuario" />
     </AssociationSet>
     <AssociationSet Name="PremioXUsuarioPremio" Association="Dominio.Store.PremioXUsuarioPremio">
-      <End Role="PremioXUsuario" EntitySet="PremioXUsuarios" />
-      <End Role="Premio" EntitySet="Premios" />
+      <End Role="PremioXUsuario" EntitySet="PremioXUsuario" />
+      <End Role="Premio" EntitySet="Premio" />
     </AssociationSet>
     <AssociationSet Name="FacturaItemFactura" Association="Dominio.Store.FacturaItemFactura">
-      <End Role="Factura" EntitySet="Facturas" />
-      <End Role="ItemFactura" EntitySet="ItemFacturas" />
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="ItemFactura" EntitySet="ItemFactura" />
     </AssociationSet>
     <AssociationSet Name="CompraItemFactura" Association="Dominio.Store.CompraItemFactura">
-      <End Role="Compra" EntitySet="Compras" />
-      <End Role="ItemFactura" EntitySet="ItemFacturas" />
+      <End Role="Compra" EntitySet="Compra" />
+      <End Role="ItemFactura" EntitySet="ItemFactura" />
     </AssociationSet>
     <AssociationSet Name="EmpresaFactura" Association="Dominio.Store.EmpresaFactura">
-      <End Role="Empresa" EntitySet="Usuarios_Empresa" />
-      <End Role="Factura" EntitySet="Facturas" />
+      <End Role="Empresa" EntitySet="Usuario_Empresa" />
+      <End Role="Factura" EntitySet="Factura" />
     </AssociationSet>
     <AssociationSet Name="DomicilioUsuario" Association="Dominio.Store.DomicilioUsuario">
-      <End Role="Domicilio" EntitySet="Domicilios" />
-      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Domicilio" EntitySet="Domicilio" />
+      <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
     <AssociationSet Name="UsuarioRolXUsuario" Association="Dominio.Store.UsuarioRolXUsuario">
-      <End Role="Usuario" EntitySet="Usuarios" />
-      <End Role="RolXUsuario" EntitySet="RolXUsuarios" />
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="RolXUsuario" EntitySet="RolXUsuario" />
     </AssociationSet>
     <AssociationSet Name="RolXUsuarioRol" Association="Dominio.Store.RolXUsuarioRol">
-      <End Role="RolXUsuario" EntitySet="RolXUsuarios" />
-      <End Role="Rol" EntitySet="Roles" />
+      <End Role="RolXUsuario" EntitySet="RolXUsuario" />
+      <End Role="Rol" EntitySet="Rol" />
     </AssociationSet>
     <AssociationSet Name="PuntoXCompra" Association="Dominio.Store.PuntoXCompra">
-      <End Role="PuntoCompra" EntitySet="PuntoCompras" />
-      <End Role="Compra" EntitySet="Compras" />
+      <End Role="PuntoCompra" EntitySet="PuntoCompra" />
+      <End Role="Compra" EntitySet="Compra" />
     </AssociationSet>
     <AssociationSet Name="RolFuncionalidadXRol" Association="Dominio.Store.RolFuncionalidadXRol">
-      <End Role="Rol" EntitySet="Roles" />
-      <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRoles" />
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRol" />
     </AssociationSet>
     <AssociationSet Name="FuncionalidadXRolFuncionalidad" Association="Dominio.Store.FuncionalidadXRolFuncionalidad">
-      <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRoles" />
-      <End Role="Funcionalidad" EntitySet="Funcionalidades" />
+      <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRol" />
+      <End Role="Funcionalidad" EntitySet="Funcionalidad" />
     </AssociationSet>
     <AssociationSet Name="FK_Cliente_inherits_Usuario" Association="Dominio.Store.FK_Cliente_inherits_Usuario">
-      <End Role="Usuario" EntitySet="Usuarios" />
-      <End Role="Cliente" EntitySet="Usuarios_Cliente" />
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Cliente" EntitySet="Usuario_Cliente" />
     </AssociationSet>
     <AssociationSet Name="FK_Empresa_inherits_Usuario" Association="Dominio.Store.FK_Empresa_inherits_Usuario">
-      <End Role="Usuario" EntitySet="Usuarios" />
-      <End Role="Empresa" EntitySet="Usuarios_Empresa" />
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Empresa" EntitySet="Usuario_Empresa" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Funcionalidades">
+  <EntityType Name="Funcionalidad">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="250" />
   </EntityType>
-  <EntityType Name="FuncionalidadXRoles">
+  <EntityType Name="FuncionalidadXRol">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -129,7 +129,7 @@
     <Property Name="rolId" Type="int" Nullable="false" />
     <Property Name="funcionalidadId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Roles">
+  <EntityType Name="Rol">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -138,7 +138,7 @@
     <Property Name="activo" Type="bit" Nullable="false" DefaultValue="true" />
     <Property Name="eliminado" Type="bit" Nullable="false" DefaultValue="false" />
   </EntityType>
-  <EntityType Name="RolXUsuarios">
+  <EntityType Name="RolXUsuario">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -146,7 +146,7 @@
     <Property Name="usuarioId" Type="int" Nullable="false" />
     <Property Name="rolId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Usuarios">
+  <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -158,7 +158,7 @@
     <Property Name="intentos" Type="int" Nullable="true" DefaultValue="0" />
     <Property Name="eliminado" Type="bit" Nullable="false" DefaultValue="false" />
   </EntityType>
-  <EntityType Name="Domicilios">
+  <EntityType Name="Domicilio">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -172,14 +172,14 @@
     <Property Name="piso" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Usuario_id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Rubros">
+  <EntityType Name="Rubro">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="250" />
   </EntityType>
-  <EntityType Name="GradoPublicaciones">
+  <EntityType Name="Grado">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -187,7 +187,7 @@
     <Property Name="tipo" Type="nvarchar" Nullable="false" MaxLength="250" />
     <Property Name="porcentaje" Type="float" Nullable="false" DefaultValue="0" />
   </EntityType>
-  <EntityType Name="TarjetaCreditos">
+  <EntityType Name="TarjetaCredito">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -198,14 +198,14 @@
     <Property Name="numero" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="fechaVencimiento" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="EmisorTarjetas">
+  <EntityType Name="EmisorTarjeta">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
-  <EntityType Name="Publicaciones">
+  <EntityType Name="Publicacion">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -220,7 +220,7 @@
     <Property Name="precio" Type="float" Nullable="false" DefaultValue="0" />
     <Property Name="direccion" Type="nvarchar" Nullable="true" MaxLength="250" />
   </EntityType>
-  <EntityType Name="Compras">
+  <EntityType Name="Compra">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -230,7 +230,7 @@
     <Property Name="tarjetaId" Type="int" Nullable="false" />
     <Property Name="clienteId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="PuntoCompras">
+  <EntityType Name="PuntoCompra">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -241,7 +241,7 @@
     <Property Name="fechaVencimiento" Type="datetime" Nullable="false" />
     <Property Name="Compra_id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Premios">
+  <EntityType Name="Premio">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -249,7 +249,7 @@
     <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="250" />
     <Property Name="puntos" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="PremioXUsuarios">
+  <EntityType Name="PremioXUsuario">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -257,7 +257,7 @@
     <Property Name="clienteId" Type="int" Nullable="false" />
     <Property Name="premioId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Facturas">
+  <EntityType Name="Factura">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -267,7 +267,7 @@
     <Property Name="comision" Type="decimal" Nullable="false" />
     <Property Name="empresaId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="ItemFacturas">
+  <EntityType Name="ItemFactura">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -275,7 +275,7 @@
     <Property Name="facturaId" Type="int" Nullable="false" />
     <Property Name="compraId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Usuarios_Cliente">
+  <EntityType Name="Usuario_Cliente">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -290,7 +290,7 @@
     <Property Name="fechaCreacion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Usuarios_Empresa">
+  <EntityType Name="Usuario_Empresa">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -301,8 +301,8 @@
     <Property Name="id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="ClienteTarjetaCredito">
-    <End Role="Cliente" Type="Dominio.Store.Usuarios_Cliente" Multiplicity="1" />
-    <End Role="TarjetaCredito" Type="Dominio.Store.TarjetaCreditos" Multiplicity="*" />
+    <End Role="Cliente" Type="Dominio.Store.Usuario_Cliente" Multiplicity="1" />
+    <End Role="TarjetaCredito" Type="Dominio.Store.TarjetaCredito" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cliente">
         <PropertyRef Name="id" />
@@ -313,8 +313,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TarjetaCreditoEmisorTarjeta">
-    <End Role="TarjetaCredito" Type="Dominio.Store.TarjetaCreditos" Multiplicity="*" />
-    <End Role="EmisorTarjeta" Type="Dominio.Store.EmisorTarjetas" Multiplicity="1" />
+    <End Role="TarjetaCredito" Type="Dominio.Store.TarjetaCredito" Multiplicity="*" />
+    <End Role="EmisorTarjeta" Type="Dominio.Store.EmisorTarjeta" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="EmisorTarjeta">
         <PropertyRef Name="id" />
@@ -325,8 +325,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="EmpresaPublicacion">
-    <End Role="Empresa" Type="Dominio.Store.Usuarios_Empresa" Multiplicity="1" />
-    <End Role="Publicacion" Type="Dominio.Store.Publicaciones" Multiplicity="*" />
+    <End Role="Empresa" Type="Dominio.Store.Usuario_Empresa" Multiplicity="1" />
+    <End Role="Publicacion" Type="Dominio.Store.Publicacion" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Empresa">
         <PropertyRef Name="id" />
@@ -337,8 +337,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PublicacionRubro">
-    <End Role="Publicacion" Type="Dominio.Store.Publicaciones" Multiplicity="*" />
-    <End Role="Rubro" Type="Dominio.Store.Rubros" Multiplicity="1" />
+    <End Role="Publicacion" Type="Dominio.Store.Publicacion" Multiplicity="*" />
+    <End Role="Rubro" Type="Dominio.Store.Rubro" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Rubro">
         <PropertyRef Name="id" />
@@ -349,8 +349,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PublicacionGradoPublicacion">
-    <End Role="Publicacion" Type="Dominio.Store.Publicaciones" Multiplicity="*" />
-    <End Role="GradoPublicacion" Type="Dominio.Store.GradoPublicaciones" Multiplicity="1" />
+    <End Role="Publicacion" Type="Dominio.Store.Publicacion" Multiplicity="*" />
+    <End Role="GradoPublicacion" Type="Dominio.Store.Grado" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="GradoPublicacion">
         <PropertyRef Name="id" />
@@ -361,8 +361,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompraPublicacion">
-    <End Role="Compra" Type="Dominio.Store.Compras" Multiplicity="*" />
-    <End Role="Publicacion" Type="Dominio.Store.Publicaciones" Multiplicity="1" />
+    <End Role="Compra" Type="Dominio.Store.Compra" Multiplicity="*" />
+    <End Role="Publicacion" Type="Dominio.Store.Publicacion" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Publicacion">
         <PropertyRef Name="id" />
@@ -373,8 +373,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompraTarjetaCredito">
-    <End Role="Compra" Type="Dominio.Store.Compras" Multiplicity="*" />
-    <End Role="TarjetaCredito" Type="Dominio.Store.TarjetaCreditos" Multiplicity="1" />
+    <End Role="Compra" Type="Dominio.Store.Compra" Multiplicity="*" />
+    <End Role="TarjetaCredito" Type="Dominio.Store.TarjetaCredito" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="TarjetaCredito">
         <PropertyRef Name="Id" />
@@ -385,8 +385,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ClientePuntos">
-    <End Role="Cliente" Type="Dominio.Store.Usuarios_Cliente" Multiplicity="1" />
-    <End Role="Puntos" Type="Dominio.Store.PuntoCompras" Multiplicity="*" />
+    <End Role="Cliente" Type="Dominio.Store.Usuario_Cliente" Multiplicity="1" />
+    <End Role="Puntos" Type="Dominio.Store.PuntoCompra" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cliente">
         <PropertyRef Name="id" />
@@ -397,8 +397,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompraCliente">
-    <End Role="Compra" Type="Dominio.Store.Compras" Multiplicity="*" />
-    <End Role="Cliente" Type="Dominio.Store.Usuarios_Cliente" Multiplicity="1" />
+    <End Role="Compra" Type="Dominio.Store.Compra" Multiplicity="*" />
+    <End Role="Cliente" Type="Dominio.Store.Usuario_Cliente" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Cliente">
         <PropertyRef Name="id" />
@@ -409,8 +409,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ClientePremioUsuario">
-    <End Role="Cliente" Type="Dominio.Store.Usuarios_Cliente" Multiplicity="1" />
-    <End Role="PremioUsuario" Type="Dominio.Store.PremioXUsuarios" Multiplicity="*" />
+    <End Role="Cliente" Type="Dominio.Store.Usuario_Cliente" Multiplicity="1" />
+    <End Role="PremioUsuario" Type="Dominio.Store.PremioXUsuario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cliente">
         <PropertyRef Name="id" />
@@ -421,8 +421,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PremioXUsuarioPremio">
-    <End Role="PremioXUsuario" Type="Dominio.Store.PremioXUsuarios" Multiplicity="*" />
-    <End Role="Premio" Type="Dominio.Store.Premios" Multiplicity="1" />
+    <End Role="PremioXUsuario" Type="Dominio.Store.PremioXUsuario" Multiplicity="*" />
+    <End Role="Premio" Type="Dominio.Store.Premio" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Premio">
         <PropertyRef Name="id" />
@@ -433,8 +433,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FacturaItemFactura">
-    <End Role="Factura" Type="Dominio.Store.Facturas" Multiplicity="1" />
-    <End Role="ItemFactura" Type="Dominio.Store.ItemFacturas" Multiplicity="*" />
+    <End Role="Factura" Type="Dominio.Store.Factura" Multiplicity="1" />
+    <End Role="ItemFactura" Type="Dominio.Store.ItemFactura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Factura">
         <PropertyRef Name="id" />
@@ -445,8 +445,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompraItemFactura">
-    <End Role="Compra" Type="Dominio.Store.Compras" Multiplicity="1" />
-    <End Role="ItemFactura" Type="Dominio.Store.ItemFacturas" Multiplicity="*" />
+    <End Role="Compra" Type="Dominio.Store.Compra" Multiplicity="1" />
+    <End Role="ItemFactura" Type="Dominio.Store.ItemFactura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Compra">
         <PropertyRef Name="id" />
@@ -457,8 +457,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="EmpresaFactura">
-    <End Role="Empresa" Type="Dominio.Store.Usuarios_Empresa" Multiplicity="1" />
-    <End Role="Factura" Type="Dominio.Store.Facturas" Multiplicity="*" />
+    <End Role="Empresa" Type="Dominio.Store.Usuario_Empresa" Multiplicity="1" />
+    <End Role="Factura" Type="Dominio.Store.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Empresa">
         <PropertyRef Name="id" />
@@ -469,8 +469,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="DomicilioUsuario">
-    <End Role="Domicilio" Type="Dominio.Store.Domicilios" Multiplicity="*" />
-    <End Role="Usuario" Type="Dominio.Store.Usuarios" Multiplicity="1" />
+    <End Role="Domicilio" Type="Dominio.Store.Domicilio" Multiplicity="*" />
+    <End Role="Usuario" Type="Dominio.Store.Usuario" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Usuario">
         <PropertyRef Name="id" />
@@ -481,8 +481,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="UsuarioRolXUsuario">
-    <End Role="Usuario" Type="Dominio.Store.Usuarios" Multiplicity="1" />
-    <End Role="RolXUsuario" Type="Dominio.Store.RolXUsuarios" Multiplicity="*" />
+    <End Role="Usuario" Type="Dominio.Store.Usuario" Multiplicity="1" />
+    <End Role="RolXUsuario" Type="Dominio.Store.RolXUsuario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuario">
         <PropertyRef Name="id" />
@@ -493,8 +493,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="RolXUsuarioRol">
-    <End Role="RolXUsuario" Type="Dominio.Store.RolXUsuarios" Multiplicity="*" />
-    <End Role="Rol" Type="Dominio.Store.Roles" Multiplicity="1" />
+    <End Role="RolXUsuario" Type="Dominio.Store.RolXUsuario" Multiplicity="*" />
+    <End Role="Rol" Type="Dominio.Store.Rol" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Rol">
         <PropertyRef Name="id" />
@@ -505,8 +505,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PuntoXCompra">
-    <End Role="PuntoCompra" Type="Dominio.Store.PuntoCompras" Multiplicity="*" />
-    <End Role="Compra" Type="Dominio.Store.Compras" Multiplicity="1" />
+    <End Role="PuntoCompra" Type="Dominio.Store.PuntoCompra" Multiplicity="*" />
+    <End Role="Compra" Type="Dominio.Store.Compra" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Compra">
         <PropertyRef Name="id" />
@@ -517,8 +517,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="RolFuncionalidadXRol">
-    <End Role="Rol" Type="Dominio.Store.Roles" Multiplicity="1" />
-    <End Role="FuncionalidadXRol" Type="Dominio.Store.FuncionalidadXRoles" Multiplicity="*" />
+    <End Role="Rol" Type="Dominio.Store.Rol" Multiplicity="1" />
+    <End Role="FuncionalidadXRol" Type="Dominio.Store.FuncionalidadXRol" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Rol">
         <PropertyRef Name="id" />
@@ -529,8 +529,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FuncionalidadXRolFuncionalidad">
-    <End Role="FuncionalidadXRol" Type="Dominio.Store.FuncionalidadXRoles" Multiplicity="*" />
-    <End Role="Funcionalidad" Type="Dominio.Store.Funcionalidades" Multiplicity="1" />
+    <End Role="FuncionalidadXRol" Type="Dominio.Store.FuncionalidadXRol" Multiplicity="*" />
+    <End Role="Funcionalidad" Type="Dominio.Store.Funcionalidad" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Funcionalidad">
         <PropertyRef Name="id" />
@@ -541,10 +541,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Cliente_inherits_Usuario">
-    <End Role="Usuario" Type="Dominio.Store.Usuarios" Multiplicity="1">
+    <End Role="Usuario" Type="Dominio.Store.Usuario" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Cliente" Type="Dominio.Store.Usuarios_Cliente" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Dominio.Store.Usuario_Cliente" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Usuario">
         <PropertyRef Name="id" />
@@ -555,10 +555,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Empresa_inherits_Usuario">
-    <End Role="Usuario" Type="Dominio.Store.Usuarios" Multiplicity="1">
+    <End Role="Usuario" Type="Dominio.Store.Usuario" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Empresa" Type="Dominio.Store.Usuarios_Empresa" Multiplicity="0..1" />
+    <End Role="Empresa" Type="Dominio.Store.Usuario_Empresa" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Usuario">
         <PropertyRef Name="id" />
@@ -573,102 +573,102 @@
     <edmx:ConceptualModels>
       <Schema Namespace="Dominio" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Funcionalidades" EntityType="Dominio.Funcionalidad" />
-          <EntitySet Name="FuncionalidadXRoles" EntityType="Dominio.FuncionalidadXRol" />
-          <EntitySet Name="Roles" EntityType="Dominio.Rol" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="RolXUsuarios" EntityType="Dominio.RolXUsuario" />
-          <EntitySet Name="Usuarios" EntityType="Dominio.Usuario" />
-          <EntitySet Name="Domicilios" EntityType="Dominio.Domicilio" />
-          <EntitySet Name="Rubros" EntityType="Dominio.Rubro" />
-          <EntitySet Name="GradoPublicaciones" EntityType="Dominio.Grado" />
-          <EntitySet Name="TarjetaCreditos" EntityType="Dominio.TarjetaCredito" />
+          <EntitySet Name="Funcionalidad" EntityType="Dominio.Funcionalidad" />
+          <EntitySet Name="FuncionalidadXRol" EntityType="Dominio.FuncionalidadXRol" />
+          <EntitySet Name="Rol" EntityType="Dominio.Rol" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="RolXUsuario" EntityType="Dominio.RolXUsuario" />
+          <EntitySet Name="Usuario" EntityType="Dominio.Usuario" />
+          <EntitySet Name="Domicilio" EntityType="Dominio.Domicilio" />
+          <EntitySet Name="Rubro" EntityType="Dominio.Rubro" />
+          <EntitySet Name="Grado" EntityType="Dominio.Grado" />
+          <EntitySet Name="TarjetaCredito" EntityType="Dominio.TarjetaCredito" />
           <AssociationSet Name="ClienteTarjetaCredito" Association="Dominio.ClienteTarjetaCredito">
-            <End Role="Cliente" EntitySet="Usuarios" />
-            <End Role="TarjetaCredito" EntitySet="TarjetaCreditos" />
+            <End Role="Cliente" EntitySet="Usuario" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
           </AssociationSet>
-          <EntitySet Name="EmisorTarjetas" EntityType="Dominio.EmisorTarjeta" />
+          <EntitySet Name="EmisorTarjeta" EntityType="Dominio.EmisorTarjeta" />
           <AssociationSet Name="TarjetaCreditoEmisorTarjeta" Association="Dominio.TarjetaCreditoEmisorTarjeta">
-            <End Role="TarjetaCredito" EntitySet="TarjetaCreditos" />
-            <End Role="EmisorTarjeta" EntitySet="EmisorTarjetas" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+            <End Role="EmisorTarjeta" EntitySet="EmisorTarjeta" />
           </AssociationSet>
-          <EntitySet Name="Publicaciones" EntityType="Dominio.Publicacion" />
+          <EntitySet Name="Publicacion" EntityType="Dominio.Publicacion" />
           <AssociationSet Name="EmpresaPublicacion" Association="Dominio.EmpresaPublicacion">
-            <End Role="Empresa" EntitySet="Usuarios" />
-            <End Role="Publicacion" EntitySet="Publicaciones" />
+            <End Role="Empresa" EntitySet="Usuario" />
+            <End Role="Publicacion" EntitySet="Publicacion" />
           </AssociationSet>
           <AssociationSet Name="PublicacionRubro" Association="Dominio.PublicacionRubro">
-            <End Role="Publicacion" EntitySet="Publicaciones" />
-            <End Role="Rubro" EntitySet="Rubros" />
+            <End Role="Publicacion" EntitySet="Publicacion" />
+            <End Role="Rubro" EntitySet="Rubro" />
           </AssociationSet>
           <AssociationSet Name="PublicacionGradoPublicacion" Association="Dominio.PublicacionGradoPublicacion">
-            <End Role="Publicacion" EntitySet="Publicaciones" />
-            <End Role="GradoPublicacion" EntitySet="GradoPublicaciones" />
+            <End Role="Publicacion" EntitySet="Publicacion" />
+            <End Role="GradoPublicacion" EntitySet="Grado" />
           </AssociationSet>
-          <EntitySet Name="Compras" EntityType="Dominio.Compra" />
+          <EntitySet Name="Compra" EntityType="Dominio.Compra" />
           <AssociationSet Name="CompraPublicacion" Association="Dominio.CompraPublicacion">
-            <End Role="Compra" EntitySet="Compras" />
-            <End Role="Publicacion" EntitySet="Publicaciones" />
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="Publicacion" EntitySet="Publicacion" />
           </AssociationSet>
           <AssociationSet Name="CompraTarjetaCredito" Association="Dominio.CompraTarjetaCredito">
-            <End Role="Compra" EntitySet="Compras" />
-            <End Role="TarjetaCredito" EntitySet="TarjetaCreditos" />
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
           </AssociationSet>
-          <EntitySet Name="PuntoCompras" EntityType="Dominio.PuntoCompra" />
+          <EntitySet Name="PuntoCompra" EntityType="Dominio.PuntoCompra" />
           <AssociationSet Name="ClientePuntos" Association="Dominio.ClientePuntos">
-            <End Role="Cliente" EntitySet="Usuarios" />
-            <End Role="Puntos" EntitySet="PuntoCompras" />
+            <End Role="Cliente" EntitySet="Usuario" />
+            <End Role="Puntos" EntitySet="PuntoCompra" />
           </AssociationSet>
           <AssociationSet Name="CompraCliente" Association="Dominio.CompraCliente">
-            <End Role="Compra" EntitySet="Compras" />
-            <End Role="Cliente" EntitySet="Usuarios" />
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="Cliente" EntitySet="Usuario" />
           </AssociationSet>
-          <EntitySet Name="Premios" EntityType="Dominio.Premio" />
-          <EntitySet Name="PremioXUsuarios" EntityType="Dominio.PremioXUsuario" />
+          <EntitySet Name="Premio" EntityType="Dominio.Premio" />
+          <EntitySet Name="PremioXUsuario" EntityType="Dominio.PremioXUsuario" />
           <AssociationSet Name="ClientePremioUsuario" Association="Dominio.ClientePremioUsuario">
-            <End Role="Cliente" EntitySet="Usuarios" />
-            <End Role="PremioUsuario" EntitySet="PremioXUsuarios" />
+            <End Role="Cliente" EntitySet="Usuario" />
+            <End Role="PremioUsuario" EntitySet="PremioXUsuario" />
           </AssociationSet>
           <AssociationSet Name="PremioXUsuarioPremio" Association="Dominio.PremioXUsuarioPremio">
-            <End Role="PremioXUsuario" EntitySet="PremioXUsuarios" />
-            <End Role="Premio" EntitySet="Premios" />
+            <End Role="PremioXUsuario" EntitySet="PremioXUsuario" />
+            <End Role="Premio" EntitySet="Premio" />
           </AssociationSet>
-          <EntitySet Name="Facturas" EntityType="Dominio.Factura" />
-          <EntitySet Name="ItemFacturas" EntityType="Dominio.ItemFactura" />
+          <EntitySet Name="Factura" EntityType="Dominio.Factura" />
+          <EntitySet Name="ItemFactura" EntityType="Dominio.ItemFactura" />
           <AssociationSet Name="FacturaItemFactura" Association="Dominio.FacturaItemFactura">
-            <End Role="Factura" EntitySet="Facturas" />
-            <End Role="ItemFactura" EntitySet="ItemFacturas" />
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="ItemFactura" EntitySet="ItemFactura" />
           </AssociationSet>
           <AssociationSet Name="CompraItemFactura" Association="Dominio.CompraItemFactura">
-            <End Role="Compra" EntitySet="Compras" />
-            <End Role="ItemFactura" EntitySet="ItemFacturas" />
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="ItemFactura" EntitySet="ItemFactura" />
           </AssociationSet>
           <AssociationSet Name="EmpresaFactura" Association="Dominio.EmpresaFactura">
-            <End Role="Empresa" EntitySet="Usuarios" />
-            <End Role="Factura" EntitySet="Facturas" />
+            <End Role="Empresa" EntitySet="Usuario" />
+            <End Role="Factura" EntitySet="Factura" />
           </AssociationSet>
           <AssociationSet Name="DomicilioUsuario" Association="Dominio.DomicilioUsuario">
-            <End Role="Domicilio" EntitySet="Domicilios" />
-            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Domicilio" EntitySet="Domicilio" />
+            <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
           <AssociationSet Name="UsuarioRolXUsuario" Association="Dominio.UsuarioRolXUsuario">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="RolXUsuario" EntitySet="RolXUsuarios" />
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="RolXUsuario" EntitySet="RolXUsuario" />
           </AssociationSet>
           <AssociationSet Name="RolXUsuarioRol" Association="Dominio.RolXUsuarioRol">
-            <End Role="RolXUsuario" EntitySet="RolXUsuarios" />
-            <End Role="Rol" EntitySet="Roles" />
+            <End Role="RolXUsuario" EntitySet="RolXUsuario" />
+            <End Role="Rol" EntitySet="Rol" />
           </AssociationSet>
           <AssociationSet Name="PuntoXCompra" Association="Dominio.PuntoXCompra">
-            <End Role="PuntoCompra" EntitySet="PuntoCompras" />
-            <End Role="Compra" EntitySet="Compras" />
+            <End Role="PuntoCompra" EntitySet="PuntoCompra" />
+            <End Role="Compra" EntitySet="Compra" />
           </AssociationSet>
           <AssociationSet Name="RolFuncionalidadXRol" Association="Dominio.RolFuncionalidadXRol">
-            <End Role="Rol" EntitySet="Roles" />
-            <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRoles" />
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRol" />
           </AssociationSet>
           <AssociationSet Name="FuncionalidadXRolFuncionalidad" Association="Dominio.FuncionalidadXRolFuncionalidad">
-            <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRoles" />
-            <End Role="Funcionalidad" EntitySet="Funcionalidades" />
+            <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRol" />
+            <End Role="Funcionalidad" EntitySet="Funcionalidad" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Empresa" BaseType="Dominio.Usuario">
@@ -1116,26 +1116,26 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DominioStoreContainer" CdmEntityContainer="Entities">
-    <EntitySetMapping Name="Funcionalidades">
+    <EntitySetMapping Name="Funcionalidad">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Funcionalidad)">
-        <MappingFragment StoreEntitySet="Funcionalidades">
+        <MappingFragment StoreEntitySet="Funcionalidad">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="FuncionalidadXRoles">
+    <EntitySetMapping Name="FuncionalidadXRol">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.FuncionalidadXRol)">
-        <MappingFragment StoreEntitySet="FuncionalidadXRoles">
+        <MappingFragment StoreEntitySet="FuncionalidadXRol">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="rolId" ColumnName="rolId" />
           <ScalarProperty Name="funcionalidadId" ColumnName="funcionalidadId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Roles">
+    <EntitySetMapping Name="Rol">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Rol)">
-        <MappingFragment StoreEntitySet="Roles">
+        <MappingFragment StoreEntitySet="Rol">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="activo" ColumnName="activo" />
@@ -1143,18 +1143,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RolXUsuarios">
+    <EntitySetMapping Name="RolXUsuario">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.RolXUsuario)">
-        <MappingFragment StoreEntitySet="RolXUsuarios">
+        <MappingFragment StoreEntitySet="RolXUsuario">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="rolId" ColumnName="rolId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Usuarios">
+    <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Usuario)">
-        <MappingFragment StoreEntitySet="Usuarios">
+        <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="password" ColumnName="password" />
@@ -1165,7 +1165,7 @@
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Cliente)">
-        <MappingFragment StoreEntitySet="Usuarios_Cliente">
+        <MappingFragment StoreEntitySet="Usuario_Cliente">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="apellido" ColumnName="apellido" />
@@ -1179,7 +1179,7 @@
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Empresa)">
-        <MappingFragment StoreEntitySet="Usuarios_Empresa">
+        <MappingFragment StoreEntitySet="Usuario_Empresa">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="cuit" ColumnName="cuit" />
           <ScalarProperty Name="mail" ColumnName="mail" />
@@ -1188,9 +1188,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Domicilios">
+    <EntitySetMapping Name="Domicilio">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Domicilio)">
-        <MappingFragment StoreEntitySet="Domicilios">
+        <MappingFragment StoreEntitySet="Domicilio">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="calle" ColumnName="calle" />
           <ScalarProperty Name="numero" ColumnName="numero" />
@@ -1202,26 +1202,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Rubros">
+    <EntitySetMapping Name="Rubro">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Rubro)">
-        <MappingFragment StoreEntitySet="Rubros">
+        <MappingFragment StoreEntitySet="Rubro">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GradoPublicaciones">
+    <EntitySetMapping Name="Grado">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Grado)">
-        <MappingFragment StoreEntitySet="GradoPublicaciones">
+        <MappingFragment StoreEntitySet="Grado">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="tipo" ColumnName="tipo" />
           <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TarjetaCreditos">
+    <EntitySetMapping Name="TarjetaCredito">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.TarjetaCredito)">
-        <MappingFragment StoreEntitySet="TarjetaCreditos">
+        <MappingFragment StoreEntitySet="TarjetaCredito">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="clienteId" ColumnName="clienteId" />
           <ScalarProperty Name="emisorId" ColumnName="emisorId" />
@@ -1231,17 +1231,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EmisorTarjetas">
+    <EntitySetMapping Name="EmisorTarjeta">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.EmisorTarjeta)">
-        <MappingFragment StoreEntitySet="EmisorTarjetas">
+        <MappingFragment StoreEntitySet="EmisorTarjeta">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Publicaciones">
+    <EntitySetMapping Name="Publicacion">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Publicacion)">
-        <MappingFragment StoreEntitySet="Publicaciones">
+        <MappingFragment StoreEntitySet="Publicacion">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="empresaId" ColumnName="empresaId" />
           <ScalarProperty Name="rubroId" ColumnName="rubroId" />
@@ -1255,9 +1255,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Compras">
+    <EntitySetMapping Name="Compra">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Compra)">
-        <MappingFragment StoreEntitySet="Compras">
+        <MappingFragment StoreEntitySet="Compra">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="publicacionId" ColumnName="publicacionId" />
           <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
@@ -1266,9 +1266,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PuntoCompras">
+    <EntitySetMapping Name="PuntoCompra">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.PuntoCompra)">
-        <MappingFragment StoreEntitySet="PuntoCompras">
+        <MappingFragment StoreEntitySet="PuntoCompra">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="clienteId" ColumnName="clienteId" />
           <ScalarProperty Name="puntos" ColumnName="puntos" />
@@ -1277,27 +1277,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Premios">
+    <EntitySetMapping Name="Premio">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Premio)">
-        <MappingFragment StoreEntitySet="Premios">
+        <MappingFragment StoreEntitySet="Premio">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="puntos" ColumnName="puntos" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PremioXUsuarios">
+    <EntitySetMapping Name="PremioXUsuario">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.PremioXUsuario)">
-        <MappingFragment StoreEntitySet="PremioXUsuarios">
+        <MappingFragment StoreEntitySet="PremioXUsuario">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="clienteId" ColumnName="clienteId" />
           <ScalarProperty Name="premioId" ColumnName="premioId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Facturas">
+    <EntitySetMapping Name="Factura">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.Factura)">
-        <MappingFragment StoreEntitySet="Facturas">
+        <MappingFragment StoreEntitySet="Factura">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="total" ColumnName="total" />
@@ -1306,16 +1306,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ItemFacturas">
+    <EntitySetMapping Name="ItemFactura">
       <EntityTypeMapping TypeName="IsTypeOf(Dominio.ItemFactura)">
-        <MappingFragment StoreEntitySet="ItemFacturas">
+        <MappingFragment StoreEntitySet="ItemFactura">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="facturaId" ColumnName="facturaId" />
           <ScalarProperty Name="compraId" ColumnName="compraId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="DomicilioUsuario" TypeName="Dominio.DomicilioUsuario" StoreEntitySet="Domicilios">
+    <AssociationSetMapping Name="DomicilioUsuario" TypeName="Dominio.DomicilioUsuario" StoreEntitySet="Domicilio">
       <EndProperty Name="Usuario">
         <ScalarProperty Name="id" ColumnName="Usuario_id" />
       </EndProperty>
@@ -1323,7 +1323,7 @@
         <ScalarProperty Name="id" ColumnName="id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="PuntoXCompra" TypeName="Dominio.PuntoXCompra" StoreEntitySet="PuntoCompras">
+    <AssociationSetMapping Name="PuntoXCompra" TypeName="Dominio.PuntoXCompra" StoreEntitySet="PuntoCompra">
       <EndProperty Name="Compra">
         <ScalarProperty Name="id" ColumnName="Compra_id" />
       </EndProperty>
