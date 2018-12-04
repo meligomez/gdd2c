@@ -119,7 +119,7 @@
             // 
             // textMail
             // 
-            this.textMail.Location = new System.Drawing.Point(415, 165);
+            this.textMail.Location = new System.Drawing.Point(475, 161);
             this.textMail.Margin = new System.Windows.Forms.Padding(4);
             this.textMail.Name = "textMail";
             this.textMail.Size = new System.Drawing.Size(189, 26);
@@ -136,7 +136,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(353, 168);
+            this.label4.Location = new System.Drawing.Point(411, 164);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 20);
@@ -324,12 +324,12 @@
             // checkBaja
             // 
             this.checkBaja.AutoSize = true;
-            this.checkBaja.Location = new System.Drawing.Point(639, 165);
+            this.checkBaja.Location = new System.Drawing.Point(550, 194);
             this.checkBaja.Name = "checkBaja";
             this.checkBaja.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBaja.Size = new System.Drawing.Size(60, 24);
+            this.checkBaja.Size = new System.Drawing.Size(154, 24);
             this.checkBaja.TabIndex = 65;
-            this.checkBaja.Text = "Baja";
+            this.checkBaja.Text = "Habilitar Empresa";
             this.checkBaja.UseVisualStyleBackColor = true;
             this.checkBaja.CheckedChanged += new System.EventHandler(this.checkBaja_CheckedChanged);
             // 

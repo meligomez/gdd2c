@@ -64,7 +64,8 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
         {
               try
             {
-                if (todosCamposCompletos())
+                //if (todosCamposCompletos())
+                if (true)
                 {
                     Usuario usuario = new Usuario();
                     if (rolLogueado != "sin Rol")
@@ -98,9 +99,15 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
                     empresa.Empresa_Dom = dom;
 					usuario.empresa = empresa;
 					int resp = usuario.AltaEmpresa();
-                    if (resp != 0)
+                    if (resp == -1)
                     {
                         MessageBox.Show("Error al conectarse con la DB. No se ha creado el Usuario.", "Error al crear Nuevo Usuario",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (resp == 0)
+                    {
+                        MessageBox.Show("Error. No se ha creado el Usuario. El cuit o Razon Social Ya han sido creados anteriormente!", "Error al crear Nuevo Usuario",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }

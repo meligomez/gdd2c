@@ -223,6 +223,20 @@ end
 /****************FIN Realiza el alta de un Domicilio de una empresa**********/
 
 /*
+*********************Realiza el alta de un Domicilio de un cliente *********************
+*/
+
+ALTER procedure [dropeadores].[Cli_Alta] 
+(@nombre nvarchar(255),@apellido nvarchar(255),@dni numeric(18,0), @mail varchar(255),@fechaNacimiento datetime,@cuil varchar(255),@telefono numeric(10,0),@cliente_domicilio int,@fechaCreacion datetime)
+as
+begin
+insert into  GD2C2018.[dropeadores].Cliente (numeroDocumento,nombre,apellido,cuil,mail,fechaNacimiento,cliente_domicilio,telefono,estado,fechaCreacion)
+ values (@dni,@nombre,@apellido,@cuil, @mail,@fechaNacimiento,@cliente_domicilio,@telefono,1,@fechaCreacion)
+end
+
+/****************FIN Realiza el alta de un Domicilio de una empresa**********/
+
+/*
 *********************Busca el ID de tal empresa *********************
 */
 GO
@@ -244,7 +258,17 @@ insert into dropeadores.Usuario(username,password,CuitEmpresa)
 values (@user,@password,@CuitEmpresa)
 end
 /****************FIN Realiza El alta de usuario con la empresa correspondiente**********/
-
+/*
+*********************Realiza El alta de la tarjeta con el cliente correspondiente *********************
+*/
+GO
+CREATE procedure [dropeadores].[Cliente_Alta_Tarjeta] (@propietario nvarchar(255), @numero numeric(28, 0),@fechaVencimiento datetime,@clienteId numeric(18, 0))
+as
+begin
+insert into dropeadores.TarjetaCredito(clieteId,propietario,numero,fechaVencimiento)
+values (@clienteId,@propietario,@numero,@fechaVencimiento)
+end
+/***************FIN Realiza El alta de la tarjeta con el cliente correspondiente *****************/
 
 /*
 *********************Busca un usuario por su username*********************
@@ -331,7 +355,8 @@ CREATE procedure [dropeadores].[Cli_ObtenerId]
 as
 begin
 	
-	Select Max(Id_Cliente)as'Id'from dbo.Clientes
+	Select  MAX(d.id)as'Id'from dropeadores.Cliente e 
+	join dropeadores.Domicilio d on (d.id=e.cliente_domicilio)
 end
 
 /**************FIN DE BUSCAR ULTIMO ID INSERTADO*****************/
@@ -342,7 +367,7 @@ ALTER procedure [dropeadores].[DireCli_ObtenerId]
 as
 begin
 	
-	Select Max(Cli_Dir_Id)as'Id'from dbo.Clientes_direccion
+	Select Max(id)as'Id'from dropeadores.Domicilio
 end
 
 /**************BUSCAR ULTIMO ID INSERTADO DIRECCION*****************/
@@ -356,6 +381,17 @@ insert into dbo.Clientes_Direccion(Cli_Dom_Calle,Cli_Nro_Calle,Cli_Piso,Cli_Dept
 (@calle,@numero,@piso,@depto,@localidad,@cp)
 
 end
+
+---NUEVO--
+GO
+Create procedure [dropeadores].[Domicilio_Cli_Alta] (@calle nvarchar(255), @numero int,@piso int,@depto nvarchar(5),@localidad nvarchar(255),@cp int)
+as
+begin
+insert into dropeadores.Domicilio(calle,numero,piso,departamento,localidad,codigoPostal)values
+(@calle,@numero,@piso,@depto,@localidad,@cp)
+
+end
+--FIN-NUEVO--
 /**************FIN DE CREAR DOMICILIO CLIENTE*****************/
 
 /**************PASAR USUARIO A INHABILITADO*****************/
@@ -372,7 +408,7 @@ GO
 CREATE procedure [dropeadores].[Usuario_Alta] (@idCliente int, @user nvarchar(255),@password nvarchar(255),@fechaCreacion datetime,@creadoPor nvarchar(255))
 as
 begin
-insert into dropeadores.Usuario(username,password,clienteId,fechaPassword,creadoPor)values
+insert into dropeadores.Usuario(username,password,clienteId,Fecha_Password,creadoPor)values
 (@user,@password,@idCliente,@fechaCreacion,@creadoPor)
 end
 /**************FIN ALTA DE USUARIO*****************/
@@ -426,6 +462,49 @@ begin
 	insert into dropeadores.FuncionalidadXRol (rolId,funcionalidadId) values (@idRol,@idFunc)
 end
 /**************************************************************/
+
+
+/*************GET TABLA CLIENTE *****************/ 
+USE [GD2C2018]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dropeadores].[getCliente]
+@unCliente numeric(18, 0)
+AS
+	BEGIN
+	 --SI RECIBE VACIO, MUESTRA TODOS LOS CLIENTES HABILITADOS
+	 IF (@unCliente = 0)
+ 		SELECT nombre as 'nombre',apellido as 'apellido',tipoDocumento as 'tipoDocumento',numeroDocumento as 'numeroDocumento',mail as 'mail',estado as 'ESTADO' FROM dropeadores.Cliente c
+		where c.estado=1
+	 ELSE
+		SELECT  nombre as 'nombre',apellido as 'apellido',tipoDocumento as 'tipoDocumento',numeroDocumento as 'numeroDocumento',mail as 'mail',estado as 'ESTADO' FROM dropeadores.Cliente c
+		WHERE c.estado=1 and c.numeroDocumento=@unCliente 
+ 
+	END
+
+/************************FIN**************************************/
+
+/*************BAJA CLIENTE*****************/ 
+
+IF OBJECT_ID ( 'dropeadores.deleteCliente', 'P' ) IS NOT NULL 
+		DROP PROCEDURE dropeadores.deleteCliente
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROCEDURE dropeadores.deleteCliente
+	@tipoDoc nvarchar(255),	
+	@nroDoc numeric(18, 0)
+AS
+	UPDATE dropeadores.Cliente
+	SET estado = 0
+	WHERE numeroDocumento = @nroDoc AND tipoDocumento=@tipoDoc
+GO
+/************************FIN BAJA CLIENTE**************************************/
 
 
 ----------------------------------------------------------------------------------------------
@@ -495,7 +574,49 @@ Emp_Localidad nvarchar(50),
 Emp_Ciudad nvarchar(50),
 Emp_Piso numeric(18,0),
 )
+---29/11--
+Create table [dropeadores].Cliente (
+NumeroDocumento numeric(18,0) primary key,
+Nombre nvarchar(255),
+Apellido nvarchar(255),
+TipoDocumento nvarchar(50),
+cuil nvarchar(255),
+mail nvarchar(255),
+fechaNacimiento datetime,
+fechaCreacion datetime,
+cliente_domicilio int,
+)
 
+CREATE TABLE [DROPEADORES].[Domicilio] (
+    [id] int primary key identity,
+    [calle] nvarchar(255)  NULL,
+    [numero] numeric(18,0)  NULL,
+    [codigoPostal] nvarchar(255)  NULL,
+    [departamento] nvarchar(255)  NULL,
+    [localidad] nvarchar(255)  NULL,
+    [ciudad] nvarchar(255)  NULL,
+    [piso] numeric(18,0)  NULL,
+  );
+GO
+
+Create table [dropeadores].TarjetaCredito (
+Id int primary key identity,
+clieteId numeric(18, 0),
+propietario  nvarchar(255),
+numero varchar(19),
+fechaVencimiento datetime,
+)
+
+create table [dropeadores].Rubro(
+id int primary key identity,
+descripcion varchar(255) not null,
+)
+
+create table dropeadores.Grado(
+id int primary key identity,
+tipo varchar(255) not null,
+porcentaje numeric(10,2) not null,
+)
 
 -----------------------------------------------------------------------------------------------------
 										/* FIN DE CREACION DE TABLAS*/
@@ -559,12 +680,41 @@ insert into dropeadores.Usuario (username,password) values
 insert into dropeadores.RolXUsuario (usuarioId, rolId) values
 	(1,1),(1,2),(1,3),(2,3),(3,1);
 
+
 					/*Empresa*/
-insert into [dropeadores].Empresa (empresa_Cuit,empresa_mail,empresa_razon_social)
-select distinct Espec_Empresa_Cuit,Espec_Empresa_Mail,Espec_Empresa_Razon_Social
-from gd_esquema.Maestra m 
+insert into [dropeadores].Empresa (empresa_Cuit,empresa_mail,empresa_razon_social,empresa_domicilio)
+select distinct Espec_Empresa_Cuit,Espec_Empresa_Mail,Espec_Empresa_Razon_Social,d.id
+from gd_esquema.Maestra m join dropeadores.Domicilio d on (m.Cli_Dom_Calle=d.calle and m.Cli_Nro_Calle=d.numero and m.Cli_Cod_Postal=d.codigoPostal and m.Cli_Depto=d.departamento)
+where Espec_Empresa_Cuit is not null 
 
 					/*Domicilio de la Empresa*/
-insert into [dropeadores].Empresa_Domicilio (Emp_Dom_Calle,Emp_Nro_Calle,Emp_Cod_Postal,Emp_Depto,Emp_Piso)
+insert into [dropeadores].Domicilio (calle,numero,codigoPostal,departamento,piso)
 select distinct Espec_Empresa_Dom_Calle,Espec_Empresa_Nro_Calle,Espec_Empresa_Cod_Postal, Espec_Empresa_Depto,Espec_Empresa_Piso
 from gd_esquema.Maestra m 
+
+
+					/*Cliente*/
+insert into [dropeadores].Cliente(NumeroDocumento,Nombre,Apellido,fechaNacimiento,mail,cliente_domicilio)
+select distinct Cli_Dni,Cli_Nombre,Cli_Apeliido,Cli_Fecha_Nac,Cli_Mail,d.id
+from gd_esquema.Maestra m join dropeadores.Domicilio d on (m.Cli_Dom_Calle=d.calle and m.Cli_Nro_Calle=d.numero and m.Cli_Cod_Postal=d.codigoPostal and m.Cli_Depto=d.departamento)
+where Cli_Dni is not null 
+
+
+
+					/*Domicilio del Cliente*/
+insert into [dropeadores].Domicilio(calle,numero,codigoPostal,departamento,piso)
+select distinct Cli_Dom_Calle, Cli_Nro_Calle, Cli_Cod_Postal, Cli_Depto, Cli_Piso
+from gd_esquema.Maestra m 
+
+					/*Rubro Espectaculo*/
+go
+insert into dropeadores.Rubro(descripcion)
+select distinct Espectaculo_Rubro_Descripcion from gd_esquema.Maestra
+
+					/*Grado Publicacion*/
+go
+insert into dropeadores.Grado(tipo,porcentaje) values
+('Alta',15),
+('Media',10),
+('Baja',5);
+

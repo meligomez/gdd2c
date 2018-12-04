@@ -22,6 +22,8 @@ namespace Modelo.Dominio
 		public int cambioPsw { get; set; }
 
         public Empresa empresa { get; set; }
+
+        public Tarjeta tar { get; set; }
 			
 		public DateTime fechaCreacionPsw { get; set; }
 		public int estado { get; set; }
@@ -75,32 +77,45 @@ namespace Modelo.Dominio
 		public int Alta()
 		{
 			int retorno=9;
-			try
+            try
 			{
 				DaoSP dao = new DaoSP();
 				DataTable dt = new DataTable();
-				Direccion dire = cliente.Cli_Dir;
-				if (dao.EjecutarSP("dropeadores.Domicilio_Cli_Alta", dire.calle, dire.numero, dire.piso, dire.dpto, dire.localidad, dire.cp) > 0)
-				{
-					dt = dao.ObtenerDatosSP("dropeadores.DireCli_ObtenerId");
-					DataRow row = dt.Rows[0];
-					int idDireClienteInsertado = int.Parse(row["Id"].ToString());
-					if (dao.EjecutarSP("dropeadores.Cli_Alta", cliente.Cli_Nombre, cliente.Cli_Apellido, cliente.Cli_Dni, cliente.Cli_Mail, cliente.Cli_Fecha_Nac, cliente.Cli_CUIL, cliente.Cli_Telefono, idDireClienteInsertado) > 0)
-					{
-						dt = dao.ObtenerDatosSP("dropeadores.Cli_ObtenerId");
-						DataRow row2 = dt.Rows[0];
-						int idClienteInsertado = int.Parse(row2["Id"].ToString());
-						if (dao.EjecutarSP("dropeadores.Usuario_Alta", idClienteInsertado, this.username, this.password,this.fechaCreacionPsw,this.creadoPor) > 0)
-						{
-							retorno = 0;
-						}
-						else
-						{
-							retorno = -1;
-						}
-					}
+                Usuario usuario = new Usuario();
+                Cliente cli = new Cliente();
+				Domicilio dire = cliente.Cli_Dir;
+                Tarjeta tar = new Tarjeta();
 
-				}
+                int cant = cli.existEmpresa(cliente.cuil, cliente.numeroDocumento);
+                
+              //  if (dao.EjecutarSP("dropeadores.ExistCliente",cliente.cuil,cliente.numeroDocumento)==0)
+				if (cant==0)
+				{
+                    if (dao.EjecutarSP("dropeadores.Domicilio_Cli_Alta", dire.calle, dire.numero, dire.piso, dire.dpto, dire.localidad, dire.cp) > 0)
+				        {
+					        dt = dao.ObtenerDatosSP("dropeadores.DireCli_ObtenerId");
+					        DataRow row = dt.Rows[0];
+					        int idDireClienteInsertado = int.Parse(row["Id"].ToString());
+                            if (dao.EjecutarSP("dropeadores.Cli_Alta", cliente.nombre, cliente.apellido, cliente.numeroDocumento, cliente.mail, cliente.fechaNacimiento, cliente.cuil, cliente.telefono, idDireClienteInsertado, this.fechaCreacionPsw) > 0)
+					        {
+						        dt = dao.ObtenerDatosSP("dropeadores.Cli_ObtenerId");
+						        DataRow row2 = dt.Rows[0];
+						        int idClienteInsertado = int.Parse(row2["Id"].ToString());
+                                if (dao.EjecutarSP("dropeadores.Cliente_Alta_Tarjeta", cliente.Cli_Tar.propietario, cliente.Cli_Tar.numero, cliente.Cli_Tar.fechaVencimiento,cliente.numeroDocumento) > 0)
+						        {
+                                    if (dao.EjecutarSP("dropeadores.Usuario_Alta", cliente.numeroDocumento, this.username, this.password, this.fechaCreacionPsw, this.creadoPor) > 0)
+						            {
+							            retorno = 0;
+						            }
+						            else
+						            {
+							            retorno = -1;
+						            }
+                               }
+					        }
+
+				        }
+                }
 
 
 
@@ -110,7 +125,7 @@ namespace Modelo.Dominio
 			{
 				return -1;
 			}
-		}
+		 }
 
 		public int EditarPsw(Usuario user,string nuevaPsw)
 		{
@@ -161,36 +176,45 @@ namespace Modelo.Dominio
 
 		public int AltaEmpresa()
         {
-            int retorno=9;
+            //int retorno=9;
 			try
 			{
 				DaoSP dao = new DaoSP();
 				DataTable dt = new DataTable();
                 Domicilio dom = empresa.Empresa_Dom;
-                if (dao.EjecutarSP("dropeadores.Domicilio_empresa_Alta", dom.calle, dom.numero, dom.piso, dom.dpto, dom.localidad, dom.cp, dom.ciudad) > 0)
+                Empresa emp = new Empresa();
+                               
+                int cant = emp.existEmpresa(empresa.Empresa_razon_social, empresa.Empresa_Cuit, "");
+               
+                if(cant==0)
                 {
-                    dt = dao.ObtenerDatosSP("dropeadores.DireEmp_ObtenerId");
-                    DataRow row = dt.Rows[0];
-                    int idDomEmpresaInsertado = int.Parse(row["Id"].ToString());
-                    if (dao.EjecutarSP("dropeadores.Empresa_Alta", empresa.Empresa_Cuit, empresa.Empresa_mail, empresa.Empresa_telefono, empresa.Empresa_razon_social,idDomEmpresaInsertado) > 0)
+                    if (dao.EjecutarSP("dropeadores.Domicilio_empresa_Alta", dom.calle, dom.numero, dom.piso, dom.dpto, dom.localidad, dom.cp, dom.ciudad) > 0)
                     {
+                        dt = dao.ObtenerDatosSP("dropeadores.DireEmp_ObtenerId");
+                        DataRow row = dt.Rows[0];
+                        int idDomEmpresaInsertado = int.Parse(row["Id"].ToString());
+                        if (dao.EjecutarSP("dropeadores.Empresa_Alta", empresa.Empresa_Cuit, empresa.Empresa_mail, empresa.Empresa_telefono, empresa.Empresa_razon_social, idDomEmpresaInsertado) > 0)
+                        {
 
-                        dt = dao.ObtenerDatosSP("dropeadores.Emp_ObtenerId");
+                            dt = dao.ObtenerDatosSP("dropeadores.Emp_ObtenerId");
 
+                        }
+                        DataRow row2 = dt.Rows[0];
+                        string idEmpresaInsertada = row2["Id"].ToString();
+
+                        dao.EjecutarSP("dropeadores.Usuario_Alta_Empresa", idEmpresaInsertada, this.username, this.password);
                     }
-                    DataRow row2 = dt.Rows[0];
-                    string idEmpresaInsertada = row2["Id"].ToString();
-
-                    dao.EjecutarSP("dropeadores.Usuario_Alta_Empresa", idEmpresaInsertada, this.username, this.password);
+                    return 1;
                 }
-                
-                
-                
-                return 0;
+                else
+                {
+                    return 0;
+                }
+              
             }
             catch (Exception ex)
             {
-                return 0;
+                return -1;
             }
         }
     }

@@ -32,7 +32,7 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
 
             DaoSP prueba = new DaoSP();
 
-            CargarData.cargarGridView(dataGridViewEmpresa, prueba.ConsultarConQuery("select * from dropeadores.Empresa"));
+            CargarData.cargarGridView(dataGridViewEmpresa, prueba.ConsultarConQuery("select empresa_Cuit as 'CUIT',empresa_mail as 'MAIL',empresa_razon_social as 'RAZON SOCIAL'from dropeadores.Empresa WHERE empresa_estado=1"));
 
             CargarData.AddButtonEliminar(dataGridViewEmpresa);
         
@@ -136,18 +136,17 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
                 return;
             }
 
-
+            cargarTabla();
         }
 
         private void dataGridViewEmpresa_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-      
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                if ((bool)dataGridViewEmpresa.CurrentRow.Cells["empresa_estado"].Value)
+                if (((bool)dataGridViewEmpresa.CurrentRow.Cells["empresa_estado"].Value)==false)
                 {
                     MessageBox.Show("Empresa ya deshabilitado.",
                     "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -162,17 +161,21 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
                     case DialogResult.Yes:
                         BajaEmpresa(cuitDelete);
                         break;
-                    case DialogResult.No: break;
+
+                    case DialogResult.No: 
+                        break;
                 }
 
                 {
                     MessageBox.Show("Baja empresa realizada exitosamente!.",
                 "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    cargarTabla();
                     return;
                 }
-
-            
             }
+
+           
         }
 
         private void BajaEmpresa(string cuit)

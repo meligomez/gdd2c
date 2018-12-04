@@ -86,7 +86,7 @@ namespace PalcoNet.Abm_Cliente
 		private void btnGuardar_Click(object sender, EventArgs e)
 		{
 			try
-			{
+			            {
 				if (todosCamposCompletos()) {
 					Usuario usuario = new Usuario();
 					if (rolLogueado != "sin Rol")
@@ -102,29 +102,35 @@ namespace PalcoNet.Abm_Cliente
 						usuario.creadoPor="cliente";
 					}
 					//Carga de datos
-					Direccion dire = new Direccion();
+					Domicilio dire = new Domicilio();
 					Cliente cli = new Cliente();
+                    Tarjeta tar = new Tarjeta();
 					ConfigGlobal archivoDeConfig = new ConfigGlobal();
-					cli.Cli_Apellido = textApellido.Text;
-					cli.Cli_Nombre = textNombre.Text;
-					cli.Cli_Dni = int.Parse(textNroIdentificacion.Text);
-					cli.Cli_Mail = textMail.Text;
-					cli.Cli_Fecha_Nac = dateTimePickerFechaNac.Value;
-					cli.Cli_CUIL = int.Parse(textCUIL.Text);
-					cli.Cli_Telefono= int.Parse(textTelefono.Text);
+                    cli.apellido = textApellido.Text;
+                    cli.nombre = textNombre.Text;
+                    cli.numeroDocumento = int.Parse(textNroIdentificacion.Text);
+                    cli.mail = textMail.Text;
+                    cli.fechaNacimiento = dateTimePickerFechaNac.Value;
+                    cli.cuil = textCUIL.Text;
+                    cli.telefono = int.Parse(textTelefono.Text);
 					usuario.fechaCreacionPsw = archivoDeConfig.getFechaSistema();
 					dire.calle = textDireccion.Text;
 					dire.piso = int.Parse(textPiso.Text);
 					dire.dpto = textDepto.Text;
 					dire.localidad = textLocalidad.Text;
 					dire.cp = int.Parse(textCP.Text);
+                    dire.numero = int.Parse(txtNro.Text);
 					cli.Cli_Dir = dire;
 					usuario.cliente = cli;
+                    tar.propietario = txtTarjProp.Text;
+                    tar.numero = txtTarjNum.Text;
+                    tar.fechaVencimiento = dateTimePickerVenc.Value;
+                    cli.Cli_Tar = tar;
 					//Alta del cliente
 					int resp = usuario.Alta();
 					if (resp != 0)
 					{
-						MessageBox.Show("Error al conectarse con la DB. No se ha creado el Usuario.", "Error al crear Nuevo Usuario",
+						MessageBox.Show("Error!. No se ha creado el Usuario.", "Error al crear Nuevo Usuario",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
 						return;
 					}

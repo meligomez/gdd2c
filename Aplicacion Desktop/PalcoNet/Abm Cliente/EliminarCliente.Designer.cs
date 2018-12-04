@@ -42,12 +42,12 @@
             this.textNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.dataGridCliente = new System.Windows.Forms.DataGridView();
             this.btCancelar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.botonBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -169,28 +169,19 @@
             this.label2.TabIndex = 74;
             this.label2.Text = "Nombre:";
             // 
-            // dataGridView1
+            // dataGridCliente
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 300);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(923, 207);
-            this.dataGridView1.TabIndex = 73;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(663, 526);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(136, 43);
-            this.btnEliminar.TabIndex = 72;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.dataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCliente.Location = new System.Drawing.Point(29, 300);
+            this.dataGridCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridCliente.Name = "dataGridCliente";
+            this.dataGridCliente.Size = new System.Drawing.Size(923, 207);
+            this.dataGridCliente.TabIndex = 73;
+            this.dataGridCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCliente_CellContentClick);
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(25, 528);
+            this.btCancelar.Location = new System.Drawing.Point(373, 532);
             this.btCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(136, 43);
@@ -209,12 +200,23 @@
             this.label6.TabIndex = 70;
             this.label6.Text = "Ingrese datos para filtrar la tabla";
             // 
+            // botonBuscar
+            // 
+            this.botonBuscar.Location = new System.Drawing.Point(614, 254);
+            this.botonBuscar.Name = "botonBuscar";
+            this.botonBuscar.Size = new System.Drawing.Size(120, 29);
+            this.botonBuscar.TabIndex = 87;
+            this.botonBuscar.Text = "Buscar";
+            this.botonBuscar.UseVisualStyleBackColor = true;
+            this.botonBuscar.Click += new System.EventHandler(this.botonBuscar_Click);
+            // 
             // EliminarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(965, 588);
+            this.Controls.Add(this.botonBuscar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboTipoDoc);
@@ -228,8 +230,7 @@
             this.Controls.Add(this.textNombre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.dataGridCliente);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,8 +238,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EliminarCliente";
             this.Text = "EliminarCliente";
+            this.Load += new System.EventHandler(this.EliminarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,9 +261,9 @@
 		private System.Windows.Forms.TextBox textNombre;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.DataGridView dataGridCliente;
 		private System.Windows.Forms.Button btCancelar;
 		private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button botonBuscar;
 	}
 }

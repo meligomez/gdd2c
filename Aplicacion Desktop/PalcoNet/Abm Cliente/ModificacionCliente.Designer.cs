@@ -39,14 +39,15 @@
             this.textNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridCliente = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.comboTipoDoc = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.botonBuscar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,15 +144,15 @@
             this.label2.TabIndex = 56;
             this.label2.Text = "Nombre:";
             // 
-            // dataGridView1
+            // dataGridCliente
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 307);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(778, 207);
-            this.dataGridView1.TabIndex = 55;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCliente.Location = new System.Drawing.Point(26, 307);
+            this.dataGridCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridCliente.Name = "dataGridCliente";
+            this.dataGridCliente.Size = new System.Drawing.Size(778, 207);
+            this.dataGridCliente.TabIndex = 55;
+            this.dataGridCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnModificar
             // 
@@ -162,6 +163,7 @@
             this.btnModificar.TabIndex = 54;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCancelar
             // 
@@ -211,12 +213,23 @@
             this.pictureBox1.TabIndex = 69;
             this.pictureBox1.TabStop = false;
             // 
+            // botonBuscar
+            // 
+            this.botonBuscar.Location = new System.Drawing.Point(561, 267);
+            this.botonBuscar.Name = "botonBuscar";
+            this.botonBuscar.Size = new System.Drawing.Size(120, 29);
+            this.botonBuscar.TabIndex = 88;
+            this.botonBuscar.Text = "Buscar";
+            this.botonBuscar.UseVisualStyleBackColor = true;
+            this.botonBuscar.Click += new System.EventHandler(this.botonBuscar_Click);
+            // 
             // ModificacionCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(820, 591);
+            this.Controls.Add(this.botonBuscar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboTipoDoc);
@@ -230,7 +243,7 @@
             this.Controls.Add(this.textNombre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridCliente);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label6);
@@ -239,7 +252,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ModificacionCliente";
             this.Text = "ModificacionCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ModificacionCliente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -258,12 +272,13 @@
 		private System.Windows.Forms.TextBox textNombre;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dataGridCliente;
 		private System.Windows.Forms.Button btnModificar;
 		private System.Windows.Forms.Button btnCancelar;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.ComboBox comboTipoDoc;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button botonBuscar;
 	}
 }

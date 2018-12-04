@@ -11,6 +11,7 @@ namespace PalcoNet
 	{
 		public DateTime getFechaSistema()
 		{
+
 			return Convert.ToDateTime(ConfigurationSettings.AppSettings["fechaSistema"]);
 		}
 	}

@@ -32,6 +32,7 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
 
         private void cargarDatos()
         {
+            //empresa_Seleccionada.Empresa_estado = true;
             textRazonSocial.Text = empresa_Seleccionada.Empresa_razon_social;
             textCUIT.Text = empresa_Seleccionada.Empresa_Cuit;
             textTelefono.Text = empresa_Seleccionada.Empresa_telefono.ToString();
@@ -43,6 +44,7 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
             textPiso.Text = empresa_Seleccionada.Empresa_Dom.piso.ToString();
             textDepto.Text = empresa_Seleccionada.Empresa_Dom.dpto.ToString();
             textCP.Text = empresa_Seleccionada.Empresa_Dom.cp.ToString();
+
             checkBaja.Checked = empresa_Seleccionada.Empresa_estado;
             if (empresa_Seleccionada.Empresa_Dom.calle != "''")
                 textDepto.Text = empresa_Seleccionada.Empresa_Dom.dpto.ToString();
@@ -89,6 +91,7 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
                 Empresa empresa = new Empresa();
                 empresa.Empresa_Cuit = Convert.ToString(fila["empresa_Cuit"]);
                 empresa.Empresa_razon_social = Convert.ToString(fila["empresa_razon_social"]);
+                empresa.Empresa_estado = Convert.ToBoolean(fila["empresa_estado"]);
                 dom.calle = Convert.ToString(fila["Emp_Dom_Calle"]);
                 dom.numero = Convert.ToInt32(fila["Emp_Nro_Calle"]);
                 dom.piso= Convert.ToInt32(fila["Emp_Piso"]);
@@ -96,6 +99,7 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
                 dom.localidad = Convert.ToString(fila["Emp_Localidad"]);
                 dom.cp = Convert.ToInt32(fila["Emp_Cod_Postal"]);
                 dom.ciudad = Convert.ToString(fila["Emp_Ciudad"]);
+
                 empresa.Empresa_Dom = dom;
                 //Campos Nulleables  (CHECKEAR)
                 if (!(fila["empresa_telefono"] is DBNull))
@@ -132,7 +136,11 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
                 if (textDepto.Text != "")
                     empresa_Seleccionada.Empresa_Dom.dpto = textDepto.Text;
 
-                empresa_Seleccionada.Empresa_estado = checkBaja.Checked;
+                if (checkBaja.Checked)
+                {
+                    empresa_Seleccionada.Empresa_estado = checkBaja.Checked;
+                }
+                
                 if (!Empresa.actualizar(empresa_Seleccionada))
                 {
                     MessageBox.Show("Error al modificar la empresa.", "Error al Modificar empresa",

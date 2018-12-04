@@ -40,7 +40,7 @@ namespace Modelo.Dominio
                     string localidad = empresa_Seleccionada.Empresa_Dom.localidad;
                     string ciudad= empresa_Seleccionada.Empresa_Dom.ciudad;
                     int cp = empresa_Seleccionada.Empresa_Dom.cp;
-                    int campoBaja = (empresa_Seleccionada.Empresa_estado) ? 1 : 0;
+                    int campoBaja = (empresa_Seleccionada.Empresa_estado) ? 1 : 1;
                     dt= dao.ConsultarConQuery("SELECT empresa_domicilio FROM dropeadores.Empresa WHERE empresa_Cuit like " + "'" + cuit + "'");
                     foreach (DataRow row in dt.Rows)
                     {
@@ -50,7 +50,8 @@ namespace Modelo.Dominio
                  if (dao.EjecutarSP("dropeadores.updateDomicilioEmpresa", IDempresa, calle, numero, piso, depto, localidad, ciudad, cp) > 0)
                         {
                           if (dao.EjecutarSP("dropeadores.updateEmpresa", cuit,razonSocial,email,telefono,campoBaja) > 0)
-                            {
+                            
+                          {
 
                                 return true;
 
