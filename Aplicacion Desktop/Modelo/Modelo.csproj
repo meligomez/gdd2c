@@ -45,12 +45,12 @@
     <Compile Include="Base\DaoObject.cs" />
     <Compile Include="Base\DaoSP.cs" />
     <Compile Include="Base\Helper.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Comun\CargarData.cs" />
     <Compile Include="Comun\HasHelpers.cs" />
     <Compile Include="Comun\IEliminadoSuave.cs" />
     <Compile Include="Comun\MensajesToolTip.cs" />
     <Compile Include="Comun\Seguridad.cs" />
+    <Compile Include="Dominio\Grado.cs" />
     <Compile Include="Dominio\Documento.cs" />
     <Compile Include="Dominio\Tarjeta.cs" />
     <Compile Include="Dominio\Empresa.cs" />

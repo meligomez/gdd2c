@@ -169,8 +169,8 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            ModificacionEmpresa modEmp = new ModificacionEmpresa();
-            modEmp.Show();
+            //ModificacionEmpresa modEmp = new ModificacionEmpresa();
+            //modEmp.Show();
             this.Hide();
         }
 	}

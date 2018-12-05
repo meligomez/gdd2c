@@ -19,6 +19,7 @@ using PalcoNet.Generar_Rendicion_Comisiones;
 using PalcoNet.Historial_Cliente;
 using PalcoNet.Listado_Estadistico;
 using PalcoNet.Registro_de_Usuario;
+using PalcoNet.Abm_Grado;
 
 namespace PalcoNet.VentanasPorRol
 {
@@ -208,12 +209,7 @@ namespace PalcoNet.VentanasPorRol
 		}
 		private void abmGradoPublicacion_Click(object sender, EventArgs e)
 		{
-			//Comprar comp = new Comprar();
-			//comp.Show();
-			//comp.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
-			//AbrirFormInPanel(comp);
-			//MessageBox.Show("You are selected Comprar ");
-			//this.Hide();
+			
 		}
 		private void comprar_Click(object sender, EventArgs e)
 		{
@@ -300,5 +296,27 @@ namespace PalcoNet.VentanasPorRol
 		{
 
 		}
+
+        private void altaGradoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AltaGrado altaGrado = new AltaGrado();
+            altaGrado.Show();
+            AbrirFormInPanel(altaGrado);
+           
+        }
+
+        private void bajaGradoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BajaGrado bajaGrado = new BajaGrado();
+            bajaGrado.Show();
+            AbrirFormInPanel(bajaGrado);
+        }
+
+        private void modificaciónGradoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarGrado modGrado = new ModificarGrado();
+            modGrado.Show();
+            AbrirFormInPanel(modGrado);
+        }
 	}
 }

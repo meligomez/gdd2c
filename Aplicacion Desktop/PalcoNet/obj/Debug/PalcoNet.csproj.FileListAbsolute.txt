@@ -219,7 +219,6 @@ C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\Pa
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Empresa_Espectaculo.EliminarEmpresa.resources
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Empresa_Espectaculo.ModificacionEmpresa.resources
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Empresa_Espectaculo.ModificarEmpresaElegida.resources
-C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Grado.Form1.resources
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Rol.RolEliminar.resources
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Rol.RolPorFuncionalidad.resources
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Rol.RolPorFuncionalidadesModificar.resources
@@ -245,3 +244,9 @@ C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\Pa
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Cliente.ModificarClienteSeleccionado.resources
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.exe
 C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.pdb
+C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Grado.AltaGrado.resources
+C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Grado.BajaGrado.resources
+C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Grado.ModificarGradoElegido.resources
+C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\obj\Debug\PalcoNet.Abm_Grado.ModificarGrado.resources
+C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\bin\Debug\Abm Grado\ModificarGrado.cs
+C:\Users\David\Documents\gestion\2doCUATRIMESTRE2018\gdd2c\Aplicacion Desktop\PalcoNet\bin\Debug\Abm Grado\ModificarGrado.Designer.cs

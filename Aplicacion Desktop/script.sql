@@ -478,10 +478,10 @@ AS
 	 --SI RECIBE VACIO, MUESTRA TODOS LOS CLIENTES HABILITADOS
 	 IF (@unCliente = 0)
  		SELECT nombre as 'nombre',apellido as 'apellido',tipoDocumento as 'tipoDocumento',numeroDocumento as 'numeroDocumento',mail as 'mail',estado as 'ESTADO' FROM dropeadores.Cliente c
-		where c.estado=1
+		
 	 ELSE
 		SELECT  nombre as 'nombre',apellido as 'apellido',tipoDocumento as 'tipoDocumento',numeroDocumento as 'numeroDocumento',mail as 'mail',estado as 'ESTADO' FROM dropeadores.Cliente c
-		WHERE c.estado=1 and c.numeroDocumento=@unCliente 
+		 c.numeroDocumento=@unCliente 
  
 	END
 
@@ -506,7 +506,138 @@ AS
 GO
 /************************FIN BAJA CLIENTE**************************************/
 
+/*************GET CLIENTE PARTICULAR*****************/ 
 
+GO
+CREATE PROCEDURE [dropeadores].[ObtenerClienteEspecifico]
+	@tipoDoc nvarchar(50),
+	@nroDoc numeric(18, 0)
+AS
+	--SI RECIBE -1, MUESTRA TODOS LOS HUESPEDES
+	IF (@nroDoc = 0)
+		SELECT * FROM dropeadores.Cliente c join dropeadores.Domicilio D on(C.cliente_domicilio=D.id)	
+											join dropeadores.TarjetaCredito T on (T.clieteId=C.numeroDocumento)		
+	ELSE
+		SELECT * FROM dropeadores.Cliente c join dropeadores.Domicilio D on(C.cliente_domicilio=D.id)	
+											join dropeadores.TarjetaCredito T on (T.clieteId=C.numeroDocumento)		
+		WHERE c.tipoDocumento = @tipoDoc and c.numeroDocumento= @nroDoc
+
+/*************FIN GET CLIENTE PARTICULAR*****************/ 
+
+/*************UPDATE TARJETA CLIENTE*****************/ 
+GO
+CREATE PROCEDURE [dropeadores].[updateTarjetaCliente]
+			@idCliente numeric(18, 0),
+			@propietario nvarchar(255),
+            @numero varchar(19),
+            @fechaVencimiento datetime
+AS
+	BEGIN
+		IF(@propietario != '')
+			UPDATE dropeadores.TarjetaCredito
+				SET propietario=UPPER(@propietario)
+				where clieteId= @idCliente
+					
+		IF(@numero != -1)
+			UPDATE dropeadores.TarjetaCredito
+				SET numero = @numero
+				where clieteId= @idCliente
+
+		IF(@fechaVencimiento IS NOT NULL)
+			UPDATE dropeadores.TarjetaCredito
+				SET fechaVencimiento = @fechaVencimiento
+				where clieteId= @idCliente
+	END
+
+
+
+/*************FIN UPDATE TARJETA CLIENTE*****************/
+
+/*************DELETE CLIENTE*****************/
+GO
+CREATE PROCEDURE [dropeadores].[deleteCliente]
+	@tipoDoc nvarchar(255),	
+	@nroDoc numeric(18, 0)
+AS
+	UPDATE dropeadores.Cliente
+	SET estado = 0
+	WHERE numeroDocumento = @nroDoc AND tipoDocumento=@tipoDoc
+
+/*************FIN DELETE CLIENTE*****************/
+
+/*************ALTA GRADO*****************/ 
+USE [GD2C2018]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dropeadores].[Grado_Alta] 
+(@tipo varchar(255),@porcentaje numeric(10, 2))
+as
+begin
+insert into  GD2C2018.[dropeadores].Grado(tipo,porcentaje)
+ values (@tipo,@porcentaje)
+end
+/*************FIN GRADO*****************/ 
+
+/*************FILTRAR GRADO*****************/
+GO
+alter PROCEDURE [dropeadores].[getGrado]
+	@tipo varchar(255)
+AS
+	--SI RECIBE VACIO"", MUESTRA TODOS LOS GRADOS
+	IF (@tipo = '')
+		select id as 'CÓDIGO', tipo as 'DESCRIPCIÓN',porcentaje as 'COMISIÓN',estado as 'ESTADO'  FROM dropeadores.Grado G
+		where estado =1			
+	ELSE
+		select id as 'CÓDIGO', tipo as 'DESCRIPCIÓN',porcentaje as 'COMISIÓN',estado as 'ESTADO'  FROM dropeadores.Grado G	
+		WHERE G.tipo = @tipo and estado = 1
+
+
+
+
+/*************FIN FILTRAR GRADO*****************/
+
+/*************DELETE LOGICO GRADO*****************/
+GO
+CREATE PROCEDURE [dropeadores].[deleteGrado]
+	@id int
+AS
+	UPDATE dropeadores.Grado
+	SET estado = 0
+	WHERE id = @id
+
+/*************FIN  DELETE LOGICO GRADO*****************/
+
+/*************UPDATE GRADO*****************/
+GO
+ALTER PROCEDURE [dropeadores].[updateGrado]
+			@id int,
+			@tipo varchar(255),
+			@porc numeric(10, 2),
+            @estado bit
+AS
+	BEGIN
+			UPDATE dropeadores.Grado
+				SET tipo = LOWER(@tipo) , porcentaje = @porc , estado = @estado
+				where id = @id
+	
+	END
+
+
+/*************FIN UPDATE GRADO*****************/
+
+/*************GET GRADO ESPECIFICO*****************/
+
+GO
+CREATE PROCEDURE [dropeadores].[ObtenerGradoEspecifico]
+	@id int
+AS
+	select id as 'CÓDIGO', tipo as 'DESCRIPCIÓN',porcentaje as 'COMISIÓN',estado as 'ESTADO'  FROM dropeadores.Grado G
+	where g.id=@id
+
+/*************FIN  GET GRADO ESPECIFICO*****************/
 ----------------------------------------------------------------------------------------------
 							/** FIN DE CREACION DE PROCEDURES **/
 ----------------------------------------------------------------------------------------------
@@ -612,11 +743,13 @@ id int primary key identity,
 descripcion varchar(255) not null,
 )
 
+
 create table dropeadores.Grado(
 id int primary key identity,
 tipo varchar(255) not null,
 porcentaje numeric(10,2) not null,
-)
+estado bit DEFAULT 1 not null)
+
 
 -----------------------------------------------------------------------------------------------------
 										/* FIN DE CREACION DE TABLAS*/

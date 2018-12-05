@@ -104,11 +104,31 @@
     <Compile Include="Abm Empresa Espectaculo\ModificarEmpresaElegida.Designer.cs">
       <DependentUpon>ModificarEmpresaElegida.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Grado\Form1.cs">
+    <Compile Include="Abm Grado\AltaGrado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Grado\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Grado\AltaGrado.Designer.cs">
+      <DependentUpon>AltaGrado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Grado\BajaGrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Grado\BajaGrado.Designer.cs">
+      <DependentUpon>BajaGrado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Grado\ModificarGrado.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Abm Grado\ModificarGrado.Designer.cs">
+      <DependentUpon>ModificarGrado.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Abm Grado\ModificarGradoElegido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Grado\ModificarGradoElegido.Designer.cs">
+      <DependentUpon>ModificarGradoElegido.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rol\RolEliminar.cs">
       <SubType>Form</SubType>
@@ -239,8 +259,17 @@
     <EmbeddedResource Include="Abm Empresa Espectaculo\ModificarEmpresaElegida.resx">
       <DependentUpon>ModificarEmpresaElegida.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Grado\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Grado\AltaGrado.resx">
+      <DependentUpon>AltaGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Grado\BajaGrado.resx">
+      <DependentUpon>BajaGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Grado\ModificarGrado.resx">
+      <DependentUpon>ModificarGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Grado\ModificarGradoElegido.resx">
+      <DependentUpon>ModificarGradoElegido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\RolEliminar.resx">
       <DependentUpon>RolEliminar.cs</DependentUpon>

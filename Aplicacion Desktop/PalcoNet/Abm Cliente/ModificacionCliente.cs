@@ -38,7 +38,7 @@ namespace PalcoNet.Abm_Cliente
 
             DaoSP prueba = new DaoSP();
 
-            CargarData.cargarGridView(dataGridCliente, prueba.ConsultarConQuery("SELECT nombre as 'NOMBRE',apellido as 'APELLIDO' ,tipoDocumento as 'tipoDocumento' ,numeroDocumento as 'numeroDocumento' ,mail as 'MAIL', estado as 'ESTADO' from dropeadores.Cliente WHERE estado = 1"));
+            CargarData.cargarGridView(dataGridCliente, prueba.ConsultarConQuery("SELECT nombre as 'NOMBRE',apellido as 'APELLIDO' ,tipoDocumento as 'tipoDocumento' ,numeroDocumento as 'numeroDocumento' ,mail as 'MAIL', estado as 'ESTADO' from dropeadores.Cliente"));
 
             //CargarData.AddButtonEliminar(dataGridCliente);
 
@@ -130,7 +130,7 @@ namespace PalcoNet.Abm_Cliente
             string tipoDoc = dataGridCliente.CurrentRow.Cells["tipoDocumento"].Value.ToString();
             string nroDoc = dataGridCliente.CurrentRow.Cells["numeroDocumento"].Value.ToString();
 
-            DialogResult dr = MessageBox.Show("Desea dar de Baja al cliente " + nombre + " " + apellido + "?",
+            DialogResult dr = MessageBox.Show("Desea Modificar al cliente " + nombre + " " + apellido + "?",
        "", MessageBoxButtons.YesNo);
             switch (dr)
             {

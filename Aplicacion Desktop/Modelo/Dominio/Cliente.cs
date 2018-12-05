@@ -36,37 +36,58 @@ namespace Modelo.Dominio
             set { fecha_nacimiento = value; }
         }
 
-        public static bool actualizar(Empresa empresa_Seleccionada)
+        public static bool actualizar(Cliente cliente_seleccionado)
         {
 
             DaoSP dao = new DaoSP();
-            DataTable dt = new DataTable();
-            int IDempresa = 000000;
-
-            string cuit = empresa_Seleccionada.Empresa_Cuit;
-            string razonSocial = empresa_Seleccionada.Empresa_razon_social;
-            string email = empresa_Seleccionada.Empresa_mail;
-            int telefono = empresa_Seleccionada.Empresa_telefono;
-            string calle = empresa_Seleccionada.Empresa_Dom.calle;
-            int numero = empresa_Seleccionada.Empresa_Dom.numero;
-            int piso = empresa_Seleccionada.Empresa_Dom.piso;
-            string depto = empresa_Seleccionada.Empresa_Dom.dpto;
-            string localidad = empresa_Seleccionada.Empresa_Dom.localidad;
-            string ciudad = empresa_Seleccionada.Empresa_Dom.ciudad;
-            int cp = empresa_Seleccionada.Empresa_Dom.cp;
-            int campoBaja = (empresa_Seleccionada.Empresa_estado) ? 1 : 1;
-            dt = dao.ConsultarConQuery("SELECT empresa_domicilio FROM dropeadores.Empresa WHERE empresa_Cuit like " + "'" + cuit + "'");
+            DataTable dt,dr = new DataTable();
+            int IDcliente = 000000;
+            string cadena_nula = "";
+            string nombre = cliente_seleccionado.nombre;
+            string apellido = cliente_seleccionado.apellido;
+            string tipoDocumento = cliente_seleccionado.tipoDocumento;
+            int numeroDocumento = cliente_seleccionado.numeroDocumento;
+            string cuil = cliente_seleccionado.cuil;
+            string email = cliente_seleccionado.mail;
+            int telefono = cliente_seleccionado.telefono;
+            DateTime fecha_nacimiento = cliente_seleccionado.fechaNacimiento;
+            //string fecha_nacimiento = (cliente_seleccionado.Fecha_nacimiento_struct != null) ? cliente_seleccionado.Fecha_nacimiento : cadena_nula;
+            string calle = cliente_seleccionado.Cli_Dir.calle;
+            int numero = cliente_seleccionado.Cli_Dir.numero;
+            int piso = cliente_seleccionado.Cli_Dir.piso;
+            string depto = cliente_seleccionado.Cli_Dir.dpto;
+            string localidad = cliente_seleccionado.Cli_Dir.localidad;
+            string ciudad = cliente_seleccionado.Cli_Dir.ciudad;
+            int cp = cliente_seleccionado.Cli_Dir.cp;
+            string propietarioTar = cliente_seleccionado.Cli_Tar.propietario;
+            string numeroTar = cliente_seleccionado.Cli_Tar.numero;
+            DateTime fecha_vencimiento = cliente_seleccionado.Cli_Tar.fechaVencimiento;
+          //  string fecha_vencimiento = (cliente_seleccionado.Cli_Tar.Fecha_vencimiento_struct != null) ? cliente_seleccionado.Cli_Tar.Fecha_vencimiento : cadena_nula;
+            int campoBaja = (cliente_seleccionado.estado) ? 1 : 1;
+            //SEGUIR MODIFICANDO 
+            dt = dao.ConsultarConQuery("SELECT cliente_domicilio FROM dropeadores.Cliente WHERE tipoDocumento like " + "'" + tipoDocumento + "'");
+            dr = dao.ConsultarConQuery("SELECT cliente_domicilio FROM dropeadores.Cliente WHERE numeroDocumento like " + "'" + numeroDocumento + "'");
+           
             foreach (DataRow row in dt.Rows)
             {
-                IDempresa = Convert.ToInt32(row["empresa_domicilio"].ToString());
+                foreach (DataRow row1 in dr.Rows)
+                {
+                    IDcliente = Convert.ToInt32(row["cliente_domicilio"].ToString());
+                }
+               
             }
-
-            if (dao.EjecutarSP("dropeadores.updateDomicilioEmpresa", IDempresa, calle, numero, piso, depto, localidad, ciudad, cp) > 0)
+            //TESTEARR!
+            if (dao.EjecutarSP("dropeadores.updateDomicilioCliente", IDcliente, calle, numero, piso, depto, localidad, ciudad, cp) > 0)
             {
-                if (dao.EjecutarSP("dropeadores.updateEmpresa", cuit, razonSocial, email, telefono, campoBaja) > 0)
+                if (dao.EjecutarSP("dropeadores.updateTarjetaCliente", numeroDocumento, propietarioTar, numeroTar, fecha_vencimiento) > 0)
                 {
 
-                    return true;
+                    if (dao.EjecutarSP("dropeadores.updateCliente", numeroDocumento, nombre, apellido, tipoDocumento, cuil, email, fecha_nacimiento, IDcliente, telefono, campoBaja) > 0)
+                    {
+
+                        return true;
+
+                    }
 
                 }
 
