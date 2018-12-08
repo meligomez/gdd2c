@@ -76,6 +76,7 @@
             this.comboTipoDoc.Name = "comboTipoDoc";
             this.comboTipoDoc.Size = new System.Drawing.Size(118, 28);
             this.comboTipoDoc.TabIndex = 84;
+            this.comboTipoDoc.SelectedIndexChanged += new System.EventHandler(this.comboTipoDoc_SelectedIndexChanged);
             // 
             // label5
             // 

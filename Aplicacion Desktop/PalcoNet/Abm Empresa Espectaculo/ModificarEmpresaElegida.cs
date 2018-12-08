@@ -92,13 +92,13 @@ namespace PalcoNet.Abm_Empresa_Espectaculo
                 empresa.Empresa_Cuit = Convert.ToString(fila["empresa_Cuit"]);
                 empresa.Empresa_razon_social = Convert.ToString(fila["empresa_razon_social"]);
                 empresa.Empresa_estado = Convert.ToBoolean(fila["empresa_estado"]);
-                dom.calle = Convert.ToString(fila["Emp_Dom_Calle"]);
-                dom.numero = Convert.ToInt32(fila["Emp_Nro_Calle"]);
-                dom.piso= Convert.ToInt32(fila["Emp_Piso"]);
-                dom.dpto = Convert.ToString(fila["Emp_Depto"]);
-                dom.localidad = Convert.ToString(fila["Emp_Localidad"]);
-                dom.cp = Convert.ToInt32(fila["Emp_Cod_Postal"]);
-                dom.ciudad = Convert.ToString(fila["Emp_Ciudad"]);
+                dom.calle = Convert.ToString(fila["calle"]);
+                dom.numero = Convert.ToInt32(fila["numero"]);
+                dom.piso= Convert.ToInt32(fila["piso"]);
+                dom.dpto = Convert.ToString(fila["departamento"]);
+                dom.localidad = Convert.ToString(fila["localidad"]);
+                dom.cp = Convert.ToInt32(fila["codigoPostal"]);
+                dom.ciudad = Convert.ToString(fila["ciudad"]);
 
                 empresa.Empresa_Dom = dom;
                 //Campos Nulleables  (CHECKEAR)

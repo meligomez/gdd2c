@@ -76,6 +76,9 @@
             this.labelUser = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtTipoDoc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -155,7 +158,7 @@
             // 
             // textNroIdentificacion
             // 
-            this.textNroIdentificacion.Location = new System.Drawing.Point(70, 144);
+            this.textNroIdentificacion.Location = new System.Drawing.Point(395, 146);
             this.textNroIdentificacion.Margin = new System.Windows.Forms.Padding(4);
             this.textNroIdentificacion.Name = "textNroIdentificacion";
             this.textNroIdentificacion.Size = new System.Drawing.Size(189, 26);
@@ -164,7 +167,7 @@
             // 
             // textApellido
             // 
-            this.textApellido.Location = new System.Drawing.Point(410, 98);
+            this.textApellido.Location = new System.Drawing.Point(410, 95);
             this.textApellido.Margin = new System.Windows.Forms.Padding(4);
             this.textApellido.Name = "textApellido";
             this.textApellido.Size = new System.Drawing.Size(189, 26);
@@ -201,7 +204,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 152);
+            this.label3.Location = new System.Drawing.Point(341, 152);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 20);
@@ -230,7 +233,7 @@
             // 
             // textCUIL
             // 
-            this.textCUIL.Location = new System.Drawing.Point(395, 149);
+            this.textCUIL.Location = new System.Drawing.Point(395, 198);
             this.textCUIL.Margin = new System.Windows.Forms.Padding(4);
             this.textCUIL.Name = "textCUIL";
             this.textCUIL.Size = new System.Drawing.Size(189, 26);
@@ -239,7 +242,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(318, 152);
+            this.label6.Location = new System.Drawing.Point(332, 198);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 20);
@@ -533,12 +536,43 @@
             this.lblPassword.Size = new System.Drawing.Size(0, 20);
             this.lblPassword.TabIndex = 70;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 152);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 20);
+            this.label5.TabIndex = 71;
+            this.label5.Text = "TIPO";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(356, 348);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(37, 20);
+            this.label20.TabIndex = 72;
+            this.label20.Text = "DNI";
+            // 
+            // txtTipoDoc
+            // 
+            this.txtTipoDoc.Location = new System.Drawing.Point(112, 149);
+            this.txtTipoDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTipoDoc.Name = "txtTipoDoc";
+            this.txtTipoDoc.Size = new System.Drawing.Size(189, 26);
+            this.txtTipoDoc.TabIndex = 73;
+            // 
             // AltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(749, 717);
+            this.Controls.Add(this.txtTipoDoc);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.labelUser);
@@ -632,5 +666,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerVenc;
         private System.Windows.Forms.Label txtVenc;
         private System.Windows.Forms.Label labelNum;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtTipoDoc;
 	}
 }

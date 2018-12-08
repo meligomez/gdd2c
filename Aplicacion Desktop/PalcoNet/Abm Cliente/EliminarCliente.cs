@@ -116,7 +116,7 @@ namespace PalcoNet.Abm_Cliente
             {
                 if (((bool)dataGridCliente.CurrentRow.Cells["estado"].Value) == false)
                 {
-                    MessageBox.Show("Empresa ya deshabilitado.",
+                    MessageBox.Show("Cliente ya deshabilitado.",
                     "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
@@ -132,6 +132,8 @@ namespace PalcoNet.Abm_Cliente
                 {
                     case DialogResult.Yes:
                         BajaCliente(tipoDoc, nroDoc);
+                        MessageBox.Show("Baja cliente realizada exitosamente!.",
+                        "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         break;
 
                     case DialogResult.No:
@@ -139,10 +141,7 @@ namespace PalcoNet.Abm_Cliente
                 }
 
                 {
-                    MessageBox.Show("Baja empresa realizada exitosamente!.",
-                "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                    cargarTabla();
+                   cargarTabla();
                     return;
                 }
             }
@@ -161,13 +160,18 @@ namespace PalcoNet.Abm_Cliente
 
             DaoSP dao = new DaoSP();
             int documento = Int32.Parse(nroDoc);
-            int x = dao.EjecutarSP("dropeadores.deleteCliente", tipoDoc,documento);
+            int x = dao.EjecutarSP("dropeadores.deleteCliente", tipoDoc, documento);
 
             updateGrid();
         }
         public void updateGrid()
         {
             botonBuscar_Click(null, null);
+        }
+
+        private void comboTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 	}
 }

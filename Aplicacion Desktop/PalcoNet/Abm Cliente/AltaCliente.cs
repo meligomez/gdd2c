@@ -66,7 +66,26 @@ namespace PalcoNet.Abm_Cliente
 			}
 		}
 
-
+        private void limpiar()
+        {
+            textNombre.Text = "";
+            textApellido.Text = "";
+            txtTipoDoc.Text = "";
+            textNroIdentificacion.Text = "";
+            dateTimePickerFechaNac.Text = "";
+            textMail.Text = "";
+            textCUIL.Text = "";
+            textTelefono.Text = "";
+            textDireccion.Text = "";
+            txtNro.Text = "";
+            textDepto.Text = "";
+            textPiso.Text = "";
+            textLocalidad.Text = "";
+            textCP.Text = "";
+            txtTarjProp.Text = "";
+            txtTarjNum.Text = "";
+            dateTimePickerVenc.Text = "";
+        }
 		private void textDireccion_TextChanged(object sender, EventArgs e)
 		{
 
@@ -108,6 +127,7 @@ namespace PalcoNet.Abm_Cliente
 					ConfigGlobal archivoDeConfig = new ConfigGlobal();
                     cli.apellido = textApellido.Text;
                     cli.nombre = textNombre.Text;
+                    cli.tipoDocumento = txtTipoDoc.Text;
                     cli.numeroDocumento = int.Parse(textNroIdentificacion.Text);
                     cli.mail = textMail.Text;
                     cli.fechaNacimiento = dateTimePickerFechaNac.Value;
@@ -138,17 +158,17 @@ namespace PalcoNet.Abm_Cliente
 					{
 						MessageBox.Show("Cliente " + textNombre.Text + " creado, tiene hasta el día " + (usuario.fechaCreacionPsw.AddDays(2)) + " Para cambiar la password creada por defecto.", "Usuario Creado",
 						MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        limpiar();
 					}
 					else
 					{
 						MessageBox.Show("Cliente " + textNombre.Text + " creado", "Usuario Creado",
 						MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        limpiar();
 					}
 				}
 				
-				//new UsuarioMain().Show();
-				//new panelContenedor().Show();
-				//this.Close();
+                
 			}
 			catch (Exception ex)
 			{

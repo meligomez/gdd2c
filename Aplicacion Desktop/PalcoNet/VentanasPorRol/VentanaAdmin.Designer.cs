@@ -47,7 +47,6 @@
             this.aBMCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMGradoDePublicacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuComprar = new System.Windows.Forms.ToolStripMenuItem();
-            this.realizarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDelClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canjeDePuntosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +68,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconMinimizar = new System.Windows.Forms.PictureBox();
             this.iconCerrar = new System.Windows.Forms.PictureBox();
+            this.realizarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconMinimizar)).BeginInit();
@@ -236,13 +236,6 @@
             this.menuComprar.Size = new System.Drawing.Size(67, 19);
             this.menuComprar.Text = "Comprar";
             this.menuComprar.Click += new System.EventHandler(this.comprar_Click);
-            // 
-            // realizarCompraToolStripMenuItem
-            // 
-            this.realizarCompraToolStripMenuItem.Name = "realizarCompraToolStripMenuItem";
-            this.realizarCompraToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.realizarCompraToolStripMenuItem.Text = "Realizar Compra";
-            this.realizarCompraToolStripMenuItem.Click += new System.EventHandler(this.VentanaAdmin_Load);
             // 
             // menuCliente
             // 
@@ -434,6 +427,13 @@
             this.iconCerrar.TabStop = false;
             this.iconCerrar.Click += new System.EventHandler(this.iconCerrar_Click);
             // 
+            // realizarCompraToolStripMenuItem
+            // 
+            this.realizarCompraToolStripMenuItem.Name = "realizarCompraToolStripMenuItem";
+            this.realizarCompraToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.realizarCompraToolStripMenuItem.Text = "Realizar Compra";
+            this.realizarCompraToolStripMenuItem.Click += new System.EventHandler(this.realizarCompraToolStripMenuItem_Click);
+            // 
             // panelContenedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -481,8 +481,7 @@
 		private System.Windows.Forms.ToolStripMenuItem editarPublicacionToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aBMCategoriaToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aBMGradoDePublicacionToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem menuComprar;
-		private System.Windows.Forms.ToolStripMenuItem realizarCompraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuComprar;
 		private System.Windows.Forms.ToolStripMenuItem menuCliente;
 		private System.Windows.Forms.ToolStripMenuItem historialDelClienteToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem canjeDePuntosToolStripMenuItem;
@@ -506,5 +505,6 @@
         private System.Windows.Forms.ToolStripMenuItem altaGradoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bajaGradoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificaciónGradoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem realizarCompraToolStripMenuItem;
 	}
 }

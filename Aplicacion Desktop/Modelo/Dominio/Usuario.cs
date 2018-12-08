@@ -96,9 +96,9 @@ namespace Modelo.Dominio
 					        dt = dao.ObtenerDatosSP("dropeadores.DireCli_ObtenerId");
 					        DataRow row = dt.Rows[0];
 					        int idDireClienteInsertado = int.Parse(row["Id"].ToString());
-                            if (dao.EjecutarSP("dropeadores.Cli_Alta", cliente.nombre, cliente.apellido, cliente.numeroDocumento, cliente.mail, cliente.fechaNacimiento, cliente.cuil, cliente.telefono, idDireClienteInsertado, this.fechaCreacionPsw) > 0)
+                            if (dao.EjecutarSP("dropeadores.Cli_Alta", cliente.nombre, cliente.apellido,cliente.tipoDocumento, cliente.numeroDocumento, cliente.mail, cliente.fechaNacimiento, cliente.cuil, cliente.telefono, idDireClienteInsertado, this.fechaCreacionPsw) > 0)
 					        {
-						        dt = dao.ObtenerDatosSP("dropeadores.Cli_ObtenerId");
+                                dt = dao.ObtenerDatosSP("dropeadores.Cli_ObtenerId", idDireClienteInsertado);
 						        DataRow row2 = dt.Rows[0];
 						        int idClienteInsertado = int.Parse(row2["Id"].ToString());
                                 if (dao.EjecutarSP("dropeadores.Cliente_Alta_Tarjeta", cliente.Cli_Tar.propietario, cliente.Cli_Tar.numero, cliente.Cli_Tar.fechaVencimiento,cliente.numeroDocumento) > 0)
@@ -183,7 +183,7 @@ namespace Modelo.Dominio
 				DataTable dt = new DataTable();
                 Domicilio dom = empresa.Empresa_Dom;
                 Empresa emp = new Empresa();
-                               
+                                               
                 int cant = emp.existEmpresa(empresa.Empresa_razon_social, empresa.Empresa_Cuit, "");
                
                 if(cant==0)
@@ -196,13 +196,13 @@ namespace Modelo.Dominio
                         if (dao.EjecutarSP("dropeadores.Empresa_Alta", empresa.Empresa_Cuit, empresa.Empresa_mail, empresa.Empresa_telefono, empresa.Empresa_razon_social, idDomEmpresaInsertado) > 0)
                         {
 
-                            dt = dao.ObtenerDatosSP("dropeadores.Emp_ObtenerId");
+                            dt = dao.ObtenerDatosSP("dropeadores.Emp_ObtenerId", idDomEmpresaInsertado);
 
                         }
                         DataRow row2 = dt.Rows[0];
-                        string idEmpresaInsertada = row2["Id"].ToString();
+                        string idEmpresaInsertada = row2["cuit"].ToString();
 
-                        dao.EjecutarSP("dropeadores.Usuario_Alta_Empresa", idEmpresaInsertada, this.username, this.password);
+                        dao.EjecutarSP("dropeadores.Usuario_Alta_Empresa", idEmpresaInsertada, empresa.Empresa_Cuit, empresa.Empresa_Cuit);
                     }
                     return 1;
                 }

@@ -202,7 +202,7 @@ GO
 *********************Realiza el alta de una empresa *********************
 */
 GO
-ALTER procedure [dropeadores].[Empresa_Alta] 
+CREATE procedure [dropeadores].[Empresa_Alta] 
 (@Cuit nvarchar(255), @mail varchar(255),@telefono numeric(10,0),@Razon_social varchar(255),@id_Domicilio int)
 as
 begin
@@ -226,12 +226,20 @@ end
 *********************Realiza el alta de un Domicilio de un cliente *********************
 */
 
-ALTER procedure [dropeadores].[Cli_Alta] 
-(@nombre nvarchar(255),@apellido nvarchar(255),@dni numeric(18,0), @mail varchar(255),@fechaNacimiento datetime,@cuil varchar(255),@telefono numeric(10,0),@cliente_domicilio int,@fechaCreacion datetime)
+USE [GD2C2018]
+GO
+/****** Object:  StoredProcedure [dropeadores].[Cli_Alta]    Script Date: 07/12/2018 18:27:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure [dropeadores].[Cli_Alta] 
+(@nombre nvarchar(255),@apellido nvarchar(255),@tipoDoc nvarchar(50),@dni numeric(18,0), @mail varchar(255),@fechaNacimiento datetime,@cuil varchar(255),@telefono numeric(10,0),@cliente_domicilio int,@fechaCreacion datetime)
 as
 begin
-insert into  GD2C2018.[dropeadores].Cliente (numeroDocumento,nombre,apellido,cuil,mail,fechaNacimiento,cliente_domicilio,telefono,estado,fechaCreacion)
- values (@dni,@nombre,@apellido,@cuil, @mail,@fechaNacimiento,@cliente_domicilio,@telefono,1,@fechaCreacion)
+insert into  GD2C2018.[dropeadores].Cliente (numeroDocumento,nombre,apellido,tipoDocumento,cuil,mail,fechaNacimiento,cliente_domicilio,telefono,estado,fechaCreacion)
+ values (@dni,@nombre,@apellido,@tipoDoc,@cuil, @mail,@fechaNacimiento,@cliente_domicilio,@telefono,1,@fechaCreacion)
 end
 
 /****************FIN Realiza el alta de un Domicilio de una empresa**********/
@@ -251,7 +259,7 @@ end
 *********************Realiza El alta de usuario con la empresa correspondiente *********************
 */
 GO
-Alter procedure [dropeadores].[Usuario_Alta_Empresa] (@CuitEmpresa nvarchar(255), @user nvarchar(255),@password nvarchar(255))
+create procedure [dropeadores].[Usuario_Alta_Empresa] (@CuitEmpresa nvarchar(255), @user nvarchar(255),@password nvarchar(255))
 as
 begin
 insert into dropeadores.Usuario(username,password,CuitEmpresa)
@@ -363,7 +371,7 @@ end
 
 /**************BUSCAR ULTIMO ID INSERTADO DIRECCION*****************/
 GO
-ALTER procedure [dropeadores].[DireCli_ObtenerId]
+CREATE procedure [dropeadores].[DireCli_ObtenerId]
 as
 begin
 	
@@ -471,7 +479,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dropeadores].[getCliente]
+CREATE PROCEDURE [dropeadores].[getCliente]
 @unCliente numeric(18, 0)
 AS
 	BEGIN
@@ -565,6 +573,70 @@ AS
 
 /*************FIN DELETE CLIENTE*****************/
 
+/************* UPDATE CLIENTE *******************/
+
+GO
+CREATE PROCEDURE [dropeadores].[updateCliente]
+            @nroDoc numeric(18, 0),
+            @nombre nvarchar(255),
+			@apellido nvarchar(255),
+			@tipoDoc nvarchar(50),
+			@cuil nvarchar(255),
+			@mail nvarchar(255),
+			@fechaNacimiento datetime,
+			@clienteDom int,
+            @telefono int,
+            @campoBaja bit
+AS
+	BEGIN
+		IF(@nombre  != '')
+			UPDATE dropeadores.Cliente
+				SET nombre = UPPER(@nombre)
+					WHERE numeroDocumento = @nroDoc
+		IF(@apellido  != '')
+			UPDATE dropeadores.Cliente
+				SET apellido = UPPER(@apellido)
+					WHERE numeroDocumento = @nroDoc
+		IF(@tipoDoc  != '')
+			UPDATE dropeadores.Cliente
+				SET tipoDocumento = @tipoDoc
+					WHERE numeroDocumento = @nroDoc
+		IF(@cuil  != '')
+			UPDATE dropeadores.Cliente
+				SET cuil = UPPER(@cuil)
+					WHERE numeroDocumento = @nroDoc
+		IF(@mail  != '')
+			UPDATE dropeadores.Cliente
+				SET mail = LOWER(@mail)
+					WHERE numeroDocumento = @nroDoc
+
+		IF(@fechaNacimiento IS NOT NULL)
+			UPDATE dropeadores.Cliente
+				SET fechaNacimiento = @fechaNacimiento
+					WHERE numeroDocumento = @nroDoc
+		IF(@clienteDom != -1)
+			UPDATE dropeadores.Cliente
+				SET cliente_domicilio = @clienteDom
+					WHERE numeroDocumento = @nroDoc
+		IF(@telefono != -1)
+			UPDATE dropeadores.Cliente
+				SET telefono = @telefono
+					WHERE numeroDocumento = @nroDoc
+		IF(@campoBaja IS NOT NULL)
+			UPDATE dropeadores.Cliente
+				SET estado = @campoBaja
+					WHERE numeroDocumento = @nroDoc
+	
+	END
+
+
+
+
+/***********FIN UPDATE CLIENTE *******************/
+
+
+
+
 /*************ALTA GRADO*****************/ 
 USE [GD2C2018]
 GO
@@ -583,7 +655,7 @@ end
 
 /*************FILTRAR GRADO*****************/
 GO
-alter PROCEDURE [dropeadores].[getGrado]
+CREATE PROCEDURE [dropeadores].[getGrado]
 	@tipo varchar(255)
 AS
 	--SI RECIBE VACIO"", MUESTRA TODOS LOS GRADOS
@@ -612,7 +684,7 @@ AS
 
 /*************UPDATE GRADO*****************/
 GO
-ALTER PROCEDURE [dropeadores].[updateGrado]
+CREATE PROCEDURE [dropeadores].[updateGrado]
 			@id int,
 			@tipo varchar(255),
 			@porc numeric(10, 2),
@@ -750,6 +822,19 @@ tipo varchar(255) not null,
 porcentaje numeric(10,2) not null,
 estado bit DEFAULT 1 not null)
 
+create table [dropeadores].Compra(
+id int primary key identity,
+factura int,
+compra_tipo_documento varchar(5),
+compra_numero_documento numeric(18,0),
+compra_TarjetaId int,
+compra_fecha datetime not null,
+compra_cantidad numeric(18,0) not null,
+compra_precio int not null,
+compra_puntosId int,
+compra_ubicacionId int,
+FOREIGN KEY (compra_numero_documento) REFERENCES [dropeadores].Cliente(numeroDocumento),
+)
 
 -----------------------------------------------------------------------------------------------------
 										/* FIN DE CREACION DE TABLAS*/

@@ -21,6 +21,7 @@ using PalcoNet.Listado_Estadistico;
 using PalcoNet.Registro_de_Usuario;
 using PalcoNet.Abm_Grado;
 
+
 namespace PalcoNet.VentanasPorRol
 {
 	public partial class panelContenedor : Form
@@ -317,6 +318,13 @@ namespace PalcoNet.VentanasPorRol
             ModificarGrado modGrado = new ModificarGrado();
             modGrado.Show();
             AbrirFormInPanel(modGrado);
+        }
+
+        private void realizarCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ComprarPPAL compra = new ComprarPPAL(userLog);
+            compra.Show();
+            AbrirFormInPanel(compra);
         }
 	}
 }
