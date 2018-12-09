@@ -1,8 +1,3 @@
-*
-
-!node-dht-sensor-chip/*
-
-
 *.Cache
 *.cache
 *.dll
@@ -12,21 +7,4 @@
 *.resources
 *.config
 .csproj.FileListAbsolute.txt
-PalcoNet.suo
-PalcoNet/obj/Debug/PalcoNet
-Modelo/bin/Debug/Modelo.dll
-Modelo/bin/Debug/Modelo.pdb
-Modelo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.ca 
-Modelo/obj/Debug/Modelo.csproj.FileListAbsolute.txt
-Modelo/obj/Debug/Modelo.dll
-Modelo/obj/Debug/Modelo.pdb
 
-PalcoNet/bin/Debug/Modelo.dll
-PalcoNet/bin/Debug/Modelo.pdb
-PalcoNet/bin/Debug/PalcoNet.exe
-PalcoNet/bin/Debug/PalcoNet.pdb
-PalcoNet/obj/Debug/DesignTimeResolveAssemblyReferencesInput.   
-PalcoNet/obj/Debug/PalcoNet.csproj.FileListAbsolute.txt
-PalcoNet/obj/Debug/PalcoNet.csproj.GenerateResource.cache
-PalcoNet/obj/Debug/PalcoNet.exe
-PalcoNet/obj/Debug/PalcoNet.pdb
